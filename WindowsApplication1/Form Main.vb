@@ -14,28 +14,30 @@
         lbldate.Text = Format(Now, "ddd, dd MMM yyyy")
     End Sub
 
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
-
     Private Sub btnkasir_Click_1(sender As Object, e As EventArgs) Handles btnkasir.Click
+        Cursor = Cursors.WaitCursor
         FormKasir.MdiParent = Me
         FormProduk.Close()
         FormLaporan.Close()
         FormKasir.Show()
+        Cursor = Cursors.Default
     End Sub
 
     Private Sub btnproduk_Click(sender As Object, e As EventArgs) Handles btnproduk.Click
+        Cursor = Cursors.WaitCursor
         FormProduk.MdiParent = Me
         FormKasir.Close()
         FormLaporan.Close()
         FormProduk.Show()
+        Cursor = Cursors.Default
     End Sub
 
     Private Sub btnlaporan_Click(sender As Object, e As EventArgs) Handles btnlaporan.Click
+        Cursor = Cursors.WaitCursor
         FormLaporan.MdiParent = Me
         FormKasir.Close()
         FormProduk.Close()
         FormLaporan.Show()
+        Cursor = Cursors.Default
     End Sub
 End Class
