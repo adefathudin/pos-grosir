@@ -84,6 +84,12 @@
       <DependentUpon>Form Main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormCustomer.Designer.vb">
+      <DependentUpon>FormCustomer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormKasir.Designer.vb">
       <DependentUpon>FormKasir.vb</DependentUpon>
     </Compile>
@@ -100,6 +106,24 @@
       <DependentUpon>FormProduk.vb</DependentUpon>
     </Compile>
     <Compile Include="FormProduk.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProduk_KategoriHarga.Designer.vb">
+      <DependentUpon>FormProduk_KategoriHarga.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormProduk_KategoriHarga.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProduk_KategoriProduk.Designer.vb">
+      <DependentUpon>FormProduk_KategoriProduk.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormProduk_KategoriProduk.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProduk_Rak.Designer.vb">
+      <DependentUpon>FormProduk_Rak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormProduk_Rak.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="koneksi.vb" />
@@ -123,6 +147,9 @@
     <EmbeddedResource Include="Form Main.resx">
       <DependentUpon>Form Main.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomer.resx">
+      <DependentUpon>FormCustomer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormKasir.resx">
       <DependentUpon>FormKasir.vb</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +158,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormProduk.resx">
       <DependentUpon>FormProduk.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProduk_KategoriHarga.resx">
+      <DependentUpon>FormProduk_KategoriHarga.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProduk_KategoriProduk.resx">
+      <DependentUpon>FormProduk_KategoriProduk.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProduk_Rak.resx">
+      <DependentUpon>FormProduk_Rak.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

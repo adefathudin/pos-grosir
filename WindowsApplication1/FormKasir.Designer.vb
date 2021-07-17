@@ -22,31 +22,19 @@ Partial Class FormKasir
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.PLU = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kategoriharga = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubHarga = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Promosi = New System.Windows.Forms.GroupBox()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.DataGridViewTranTemp = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.formcaribarang = New System.Windows.Forms.GroupBox()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Deskripsi = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewCariBarang = New System.Windows.Forms.DataGridView()
         Me.TextBoxCariBarang = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBoxBarang = New System.Windows.Forms.TextBox()
         Me.TextBoxQTY = New System.Windows.Forms.TextBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.ButtonCancelSales = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -60,99 +48,41 @@ Partial Class FormKasir
         Me.TextBoxTotalBelanja = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Promosi.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TextBoxIDPelanggan = New System.Windows.Forms.TextBox()
+        Me.ButtonScanKembali = New System.Windows.Forms.Button()
+        Me.ButtonLanjutPembayaran = New System.Windows.Forms.Button()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        CType(Me.DataGridViewTranTemp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.formcaribarang.SuspendLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewCariBarang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'DataGridViewTranTemp
         '
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PLU, Me.Column2, Me.kategoriharga, Me.Column3, Me.SubHarga})
-        Me.DataGridView1.Location = New System.Drawing.Point(5, 18)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
-        Me.DataGridView1.Size = New System.Drawing.Size(442, 436)
-        Me.DataGridView1.TabIndex = 0
-        '
-        'PLU
-        '
-        Me.PLU.HeaderText = "PLU"
-        Me.PLU.Name = "PLU"
-        Me.PLU.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Deskripsi"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'kategoriharga
-        '
-        Me.kategoriharga.HeaderText = "Kategori"
-        Me.kategoriharga.Name = "kategoriharga"
-        Me.kategoriharga.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "QTY"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'SubHarga
-        '
-        Me.SubHarga.HeaderText = "Harga"
-        Me.SubHarga.Name = "SubHarga"
-        Me.SubHarga.ReadOnly = True
-        '
-        'Promosi
-        '
-        Me.Promosi.Controls.Add(Me.DataGridView2)
-        Me.Promosi.Controls.Add(Me.TextBox7)
-        Me.Promosi.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Promosi.Location = New System.Drawing.Point(3, 12)
-        Me.Promosi.Name = "Promosi"
-        Me.Promosi.Size = New System.Drawing.Size(165, 461)
-        Me.Promosi.TabIndex = 8
-        Me.Promosi.TabStop = False
-        Me.Promosi.Text = "PROMOSI"
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(9, 45)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(149, 410)
-        Me.DataGridView2.TabIndex = 1
-        '
-        'TextBox7
-        '
-        Me.TextBox7.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBox7.Location = New System.Drawing.Point(9, 19)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(150, 20)
-        Me.TextBox7.TabIndex = 0
+        Me.DataGridViewTranTemp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridViewTranTemp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewTranTemp.Location = New System.Drawing.Point(5, 18)
+        Me.DataGridViewTranTemp.Margin = New System.Windows.Forms.Padding(2)
+        Me.DataGridViewTranTemp.Name = "DataGridViewTranTemp"
+        Me.DataGridViewTranTemp.ReadOnly = True
+        Me.DataGridViewTranTemp.RowTemplate.Height = 24
+        Me.DataGridViewTranTemp.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
+        Me.DataGridViewTranTemp.Size = New System.Drawing.Size(613, 581)
+        Me.DataGridViewTranTemp.TabIndex = 0
         '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.formcaribarang)
-        Me.GroupBox3.Controls.Add(Me.DataGridView1)
+        Me.GroupBox3.Controls.Add(Me.DataGridViewTranTemp)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(174, 12)
+        Me.GroupBox3.Location = New System.Drawing.Point(3, 12)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(452, 461)
+        Me.GroupBox3.Size = New System.Drawing.Size(623, 604)
         Me.GroupBox3.TabIndex = 9
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "DAFTAR TRANSAKSI"
@@ -160,21 +90,22 @@ Partial Class FormKasir
         'formcaribarang
         '
         Me.formcaribarang.Controls.Add(Me.Button4)
-        Me.formcaribarang.Controls.Add(Me.DataGridView3)
+        Me.formcaribarang.Controls.Add(Me.DataGridViewCariBarang)
         Me.formcaribarang.Controls.Add(Me.TextBoxCariBarang)
-        Me.formcaribarang.Location = New System.Drawing.Point(5, 242)
+        Me.formcaribarang.Location = New System.Drawing.Point(7, 307)
         Me.formcaribarang.Margin = New System.Windows.Forms.Padding(2)
         Me.formcaribarang.Name = "formcaribarang"
         Me.formcaribarang.Padding = New System.Windows.Forms.Padding(2)
-        Me.formcaribarang.Size = New System.Drawing.Size(442, 213)
+        Me.formcaribarang.Size = New System.Drawing.Size(610, 290)
         Me.formcaribarang.TabIndex = 1
         Me.formcaribarang.TabStop = False
         Me.formcaribarang.Text = "CARI BARANG"
+        Me.formcaribarang.Visible = False
         '
         'Button4
         '
         Me.Button4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Button4.Location = New System.Drawing.Point(407, 18)
+        Me.Button4.Location = New System.Drawing.Point(576, 17)
         Me.Button4.Margin = New System.Windows.Forms.Padding(2)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(30, 20)
@@ -182,27 +113,20 @@ Partial Class FormKasir
         Me.Button4.Text = "X"
         Me.Button4.UseVisualStyleBackColor = False
         '
-        'DataGridView3
+        'DataGridViewCariBarang
         '
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Deskripsi})
-        Me.DataGridView3.Location = New System.Drawing.Point(4, 41)
-        Me.DataGridView3.Margin = New System.Windows.Forms.Padding(2)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.DataGridView3.RowTemplate.Height = 24
-        Me.DataGridView3.Size = New System.Drawing.Size(433, 167)
-        Me.DataGridView3.TabIndex = 3
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "PLU"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'Deskripsi
-        '
-        Me.Deskripsi.HeaderText = "Deskripsi"
-        Me.Deskripsi.Name = "Deskripsi"
+        Me.DataGridViewCariBarang.AllowUserToAddRows = False
+        Me.DataGridViewCariBarang.AllowUserToDeleteRows = False
+        Me.DataGridViewCariBarang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridViewCariBarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewCariBarang.Location = New System.Drawing.Point(4, 41)
+        Me.DataGridViewCariBarang.Margin = New System.Windows.Forms.Padding(2)
+        Me.DataGridViewCariBarang.Name = "DataGridViewCariBarang"
+        Me.DataGridViewCariBarang.ReadOnly = True
+        Me.DataGridViewCariBarang.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DataGridViewCariBarang.RowTemplate.Height = 24
+        Me.DataGridViewCariBarang.Size = New System.Drawing.Size(602, 245)
+        Me.DataGridViewCariBarang.TabIndex = 3
         '
         'TextBoxCariBarang
         '
@@ -210,50 +134,28 @@ Partial Class FormKasir
         Me.TextBoxCariBarang.Location = New System.Drawing.Point(4, 18)
         Me.TextBoxCariBarang.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBoxCariBarang.Name = "TextBoxCariBarang"
-        Me.TextBoxCariBarang.Size = New System.Drawing.Size(399, 20)
+        Me.TextBoxCariBarang.Size = New System.Drawing.Size(568, 20)
         Me.TextBoxCariBarang.TabIndex = 4
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.TextBoxBarang)
         Me.GroupBox1.Controls.Add(Me.TextBoxQTY)
-        Me.GroupBox1.Location = New System.Drawing.Point(174, 478)
+        Me.GroupBox1.Location = New System.Drawing.Point(632, 12)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(452, 132)
+        Me.GroupBox1.Size = New System.Drawing.Size(197, 83)
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "TRANSAKSI PENJUALAN"
         '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Button2.Location = New System.Drawing.Point(345, 39)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(97, 57)
-        Me.Button2.TabIndex = 10
-        Me.Button2.Text = "[F2] Cancel Sales"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Button1.Location = New System.Drawing.Point(225, 39)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(97, 57)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "[F1] Cari Barang"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(22, 79)
+        Me.Label2.Location = New System.Drawing.Point(17, 51)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(35, 13)
         Me.Label2.TabIndex = 8
@@ -262,7 +164,7 @@ Partial Class FormKasir
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(10, 42)
+        Me.Label1.Location = New System.Drawing.Point(9, 23)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(47, 13)
         Me.Label1.TabIndex = 7
@@ -271,41 +173,40 @@ Partial Class FormKasir
         'TextBoxBarang
         '
         Me.TextBoxBarang.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBoxBarang.Location = New System.Drawing.Point(73, 39)
+        Me.TextBoxBarang.Location = New System.Drawing.Point(57, 20)
         Me.TextBoxBarang.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBoxBarang.Name = "TextBoxBarang"
-        Me.TextBoxBarang.Size = New System.Drawing.Size(130, 20)
+        Me.TextBoxBarang.Size = New System.Drawing.Size(133, 20)
         Me.TextBoxBarang.TabIndex = 1
         '
         'TextBoxQTY
         '
         Me.TextBoxQTY.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBoxQTY.Location = New System.Drawing.Point(73, 76)
+        Me.TextBoxQTY.Location = New System.Drawing.Point(57, 48)
         Me.TextBoxQTY.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBoxQTY.Name = "TextBoxQTY"
-        Me.TextBoxQTY.Size = New System.Drawing.Size(130, 20)
+        Me.TextBoxQTY.Size = New System.Drawing.Size(133, 20)
         Me.TextBoxQTY.TabIndex = 2
         '
-        'Panel1
+        'ButtonCancelSales
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Location = New System.Drawing.Point(12, 479)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(149, 130)
-        Me.Panel1.TabIndex = 10
+        Me.ButtonCancelSales.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ButtonCancelSales.Location = New System.Drawing.Point(105, 19)
+        Me.ButtonCancelSales.Name = "ButtonCancelSales"
+        Me.ButtonCancelSales.Size = New System.Drawing.Size(86, 46)
+        Me.ButtonCancelSales.TabIndex = 10
+        Me.ButtonCancelSales.Text = "[F2] Cancel Sales"
+        Me.ButtonCancelSales.UseVisualStyleBackColor = False
         '
-        'Label8
+        'Button1
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(30, 23)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(94, 90)
-        Me.Label8.TabIndex = 0
-        Me.Label8.Text = "Tekan F1 untuk" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "mencari barang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Tekan F2 untuk" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "membatalkan" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "pembelian"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.Button1.Location = New System.Drawing.Point(5, 19)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(86, 46)
+        Me.Button1.TabIndex = 9
+        Me.Button1.Text = "[F1] Cari Barang"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'GroupBox2
         '
@@ -319,9 +220,9 @@ Partial Class FormKasir
         Me.GroupBox2.Controls.Add(Me.TextBoxTotal)
         Me.GroupBox2.Controls.Add(Me.TextBoxDiskon)
         Me.GroupBox2.Controls.Add(Me.TextBoxTotalBelanja)
-        Me.GroupBox2.Location = New System.Drawing.Point(632, 132)
+        Me.GroupBox2.Location = New System.Drawing.Point(632, 337)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(184, 478)
+        Me.GroupBox2.Size = New System.Drawing.Size(197, 279)
         Me.GroupBox2.TabIndex = 11
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "PEMBAYARAN"
@@ -329,7 +230,7 @@ Partial Class FormKasir
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(23, 186)
+        Me.Label6.Location = New System.Drawing.Point(25, 181)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(50, 13)
         Me.Label6.TabIndex = 12
@@ -338,10 +239,11 @@ Partial Class FormKasir
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.Button3.Enabled = False
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(8, 385)
+        Me.Button3.Location = New System.Drawing.Point(6, 215)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(170, 57)
+        Me.Button3.Size = New System.Drawing.Size(184, 57)
         Me.Button3.TabIndex = 11
         Me.Button3.Text = "SIMPAN DAN CETAK STRUK"
         Me.Button3.UseVisualStyleBackColor = False
@@ -349,7 +251,7 @@ Partial Class FormKasir
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 149)
+        Me.Label5.Location = New System.Drawing.Point(6, 144)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(69, 13)
         Me.Label5.TabIndex = 9
@@ -358,7 +260,7 @@ Partial Class FormKasir
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(38, 57)
+        Me.Label4.Location = New System.Drawing.Point(41, 61)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(37, 13)
         Me.Label4.TabIndex = 8
@@ -367,7 +269,7 @@ Partial Class FormKasir
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(0, 22)
+        Me.Label3.Location = New System.Drawing.Point(3, 23)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(75, 13)
         Me.Label3.TabIndex = 7
@@ -375,10 +277,10 @@ Partial Class FormKasir
         '
         'TextBoxKembali
         '
-        Me.TextBoxKembali.Location = New System.Drawing.Point(79, 182)
+        Me.TextBoxKembali.Location = New System.Drawing.Point(78, 178)
         Me.TextBoxKembali.Name = "TextBoxKembali"
         Me.TextBoxKembali.ReadOnly = True
-        Me.TextBoxKembali.Size = New System.Drawing.Size(101, 20)
+        Me.TextBoxKembali.Size = New System.Drawing.Size(112, 20)
         Me.TextBoxKembali.TabIndex = 5
         Me.TextBoxKembali.Text = "0"
         Me.TextBoxKembali.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -386,9 +288,10 @@ Partial Class FormKasir
         'TextBoxUangTunai
         '
         Me.TextBoxUangTunai.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBoxUangTunai.Location = New System.Drawing.Point(79, 146)
+        Me.TextBoxUangTunai.Enabled = False
+        Me.TextBoxUangTunai.Location = New System.Drawing.Point(79, 141)
         Me.TextBoxUangTunai.Name = "TextBoxUangTunai"
-        Me.TextBoxUangTunai.Size = New System.Drawing.Size(101, 20)
+        Me.TextBoxUangTunai.Size = New System.Drawing.Size(111, 20)
         Me.TextBoxUangTunai.TabIndex = 4
         Me.TextBoxUangTunai.Text = "0"
         Me.TextBoxUangTunai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -396,63 +299,97 @@ Partial Class FormKasir
         'TextBoxTotal
         '
         Me.TextBoxTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxTotal.Location = New System.Drawing.Point(6, 99)
+        Me.TextBoxTotal.Location = New System.Drawing.Point(6, 94)
         Me.TextBoxTotal.Name = "TextBoxTotal"
         Me.TextBoxTotal.ReadOnly = True
-        Me.TextBoxTotal.Size = New System.Drawing.Size(172, 26)
+        Me.TextBoxTotal.Size = New System.Drawing.Size(184, 26)
         Me.TextBoxTotal.TabIndex = 3
         Me.TextBoxTotal.Text = "0"
         Me.TextBoxTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBoxDiskon
         '
-        Me.TextBoxDiskon.Location = New System.Drawing.Point(79, 54)
+        Me.TextBoxDiskon.Location = New System.Drawing.Point(81, 58)
         Me.TextBoxDiskon.Name = "TextBoxDiskon"
         Me.TextBoxDiskon.ReadOnly = True
-        Me.TextBoxDiskon.Size = New System.Drawing.Size(99, 20)
+        Me.TextBoxDiskon.Size = New System.Drawing.Size(109, 20)
         Me.TextBoxDiskon.TabIndex = 1
         Me.TextBoxDiskon.Text = "0"
         Me.TextBoxDiskon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBoxTotalBelanja
         '
-        Me.TextBoxTotalBelanja.Location = New System.Drawing.Point(79, 19)
+        Me.TextBoxTotalBelanja.Location = New System.Drawing.Point(81, 23)
         Me.TextBoxTotalBelanja.Name = "TextBoxTotalBelanja"
         Me.TextBoxTotalBelanja.ReadOnly = True
-        Me.TextBoxTotalBelanja.Size = New System.Drawing.Size(99, 20)
+        Me.TextBoxTotalBelanja.Size = New System.Drawing.Size(109, 20)
         Me.TextBoxTotalBelanja.TabIndex = 0
         Me.TextBoxTotalBelanja.Text = "0"
         Me.TextBoxTotalBelanja.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(5, 31)
+        Me.TextBox1.Location = New System.Drawing.Point(6, 19)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(169, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(184, 20)
         Me.TextBox1.TabIndex = 13
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.TextBox2)
+        Me.GroupBox4.Controls.Add(Me.TextBoxIDPelanggan)
         Me.GroupBox4.Controls.Add(Me.TextBox1)
-        Me.GroupBox4.Location = New System.Drawing.Point(633, 13)
+        Me.GroupBox4.Location = New System.Drawing.Point(632, 250)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(183, 101)
+        Me.GroupBox4.Size = New System.Drawing.Size(197, 81)
         Me.GroupBox4.TabIndex = 12
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "PELANGGAN"
         '
-        'TextBox2
+        'TextBoxIDPelanggan
         '
-        Me.TextBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBox2.Location = New System.Drawing.Point(5, 66)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(169, 20)
-        Me.TextBox2.TabIndex = 14
-        Me.TextBox2.Text = "0"
-        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TextBoxIDPelanggan.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TextBoxIDPelanggan.Enabled = False
+        Me.TextBoxIDPelanggan.Location = New System.Drawing.Point(6, 45)
+        Me.TextBoxIDPelanggan.Name = "TextBoxIDPelanggan"
+        Me.TextBoxIDPelanggan.Size = New System.Drawing.Size(184, 20)
+        Me.TextBoxIDPelanggan.TabIndex = 14
+        Me.TextBoxIDPelanggan.Text = "0"
+        Me.TextBoxIDPelanggan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ButtonScanKembali
+        '
+        Me.ButtonScanKembali.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ButtonScanKembali.Location = New System.Drawing.Point(5, 71)
+        Me.ButtonScanKembali.Name = "ButtonScanKembali"
+        Me.ButtonScanKembali.Size = New System.Drawing.Size(86, 46)
+        Me.ButtonScanKembali.TabIndex = 11
+        Me.ButtonScanKembali.Text = "[F3] Scan Kembali"
+        Me.ButtonScanKembali.UseVisualStyleBackColor = False
+        '
+        'ButtonLanjutPembayaran
+        '
+        Me.ButtonLanjutPembayaran.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ButtonLanjutPembayaran.Location = New System.Drawing.Point(104, 71)
+        Me.ButtonLanjutPembayaran.Name = "ButtonLanjutPembayaran"
+        Me.ButtonLanjutPembayaran.Size = New System.Drawing.Size(86, 46)
+        Me.ButtonLanjutPembayaran.TabIndex = 12
+        Me.ButtonLanjutPembayaran.Text = "[F4] Lanjut Pembayaran"
+        Me.ButtonLanjutPembayaran.UseVisualStyleBackColor = False
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.ButtonCancelSales)
+        Me.GroupBox5.Controls.Add(Me.ButtonLanjutPembayaran)
+        Me.GroupBox5.Controls.Add(Me.Button1)
+        Me.GroupBox5.Controls.Add(Me.ButtonScanKembali)
+        Me.GroupBox5.Location = New System.Drawing.Point(633, 101)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(196, 128)
+        Me.GroupBox5.TabIndex = 13
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "OPTION"
         '
         'FormKasir
         '
@@ -460,14 +397,13 @@ Partial Class FormKasir
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(819, 620)
+        Me.ClientSize = New System.Drawing.Size(834, 620)
         Me.ControlBox = False
+        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.Promosi)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -477,37 +413,29 @@ Partial Class FormKasir
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "FormKasir"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Promosi.ResumeLayout(False)
-        Me.Promosi.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewTranTemp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.formcaribarang.ResumeLayout(False)
         Me.formcaribarang.PerformLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewCariBarang, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents Promosi As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTranTemp As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents TextBoxBarang As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxQTY As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents ButtonCancelSales As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -520,19 +448,14 @@ Partial Class FormKasir
     Friend WithEvents TextBoxTotalBelanja As System.Windows.Forms.TextBox
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents PLU As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents kategoriharga As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents SubHarga As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents formcaribarang As System.Windows.Forms.GroupBox
-    Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Deskripsi As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewCariBarang As System.Windows.Forms.DataGridView
     Friend WithEvents TextBoxCariBarang As System.Windows.Forms.TextBox
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxIDPelanggan As System.Windows.Forms.TextBox
+    Friend WithEvents ButtonScanKembali As System.Windows.Forms.Button
+    Friend WithEvents ButtonLanjutPembayaran As System.Windows.Forms.Button
+    Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
 End Class

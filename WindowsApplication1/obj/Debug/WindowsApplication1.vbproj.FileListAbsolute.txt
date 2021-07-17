@@ -2,7 +2,6 @@ C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsAp
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.xml
-C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form1.resources
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.exe
@@ -12,3 +11,8 @@ C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsAp
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk.resources
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbprojResolveAssemblyReference.cache
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormLaporan.resources
+C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_KategoriHarga.resources
+C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_Rak.resources
+C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.POSMAIN.resources
+C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormCustomer.resources
+C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_KategoriProduk.resources
