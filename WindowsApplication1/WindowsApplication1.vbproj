@@ -96,6 +96,12 @@
     <Compile Include="FormKasir.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormKasir_Customer_Select.Designer.vb">
+      <DependentUpon>FormKasir_Customer_Select.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormKasir_Customer_Select.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormLaporan.Designer.vb">
       <DependentUpon>FormLaporan.vb</DependentUpon>
     </Compile>
@@ -120,10 +126,22 @@
     <Compile Include="FormProduk_KategoriProduk.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormProduk_Kategori_Select.Designer.vb">
+      <DependentUpon>FormProduk_Kategori_Select.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormProduk_Kategori_Select.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormProduk_Rak.Designer.vb">
       <DependentUpon>FormProduk_Rak.vb</DependentUpon>
     </Compile>
     <Compile Include="FormProduk_Rak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProduk_Rak_Select.Designer.vb">
+      <DependentUpon>FormProduk_Rak_Select.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormProduk_Rak_Select.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="koneksi.vb" />
@@ -153,6 +171,9 @@
     <EmbeddedResource Include="FormKasir.resx">
       <DependentUpon>FormKasir.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormKasir_Customer_Select.resx">
+      <DependentUpon>FormKasir_Customer_Select.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLaporan.resx">
       <DependentUpon>FormLaporan.vb</DependentUpon>
     </EmbeddedResource>
@@ -165,8 +186,14 @@
     <EmbeddedResource Include="FormProduk_KategoriProduk.resx">
       <DependentUpon>FormProduk_KategoriProduk.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormProduk_Kategori_Select.resx">
+      <DependentUpon>FormProduk_Kategori_Select.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormProduk_Rak.resx">
       <DependentUpon>FormProduk_Rak.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProduk_Rak_Select.resx">
+      <DependentUpon>FormProduk_Rak_Select.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

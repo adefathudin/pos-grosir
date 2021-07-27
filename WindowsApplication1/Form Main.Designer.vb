@@ -25,15 +25,18 @@ Partial Class POSMAIN
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(POSMAIN))
         Me.PanelMenu = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.LabelStation = New System.Windows.Forms.Label()
         Me.LabelUser = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblversi = New System.Windows.Forms.Label()
         Me.GroupBoxLogin = New System.Windows.Forms.GroupBox()
         Me.TextBoxLoginUsername = New System.Windows.Forms.TextBox()
         Me.ButtonLogin = New System.Windows.Forms.Button()
         Me.TextBoxLoginPassword = New System.Windows.Forms.TextBox()
-        Me.lblversi = New System.Windows.Forms.Label()
         Me.lbljam = New System.Windows.Forms.Label()
         Me.GroupBoxMenu = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ButtonCustomer = New System.Windows.Forms.Button()
         Me.btnlaporan = New System.Windows.Forms.Button()
         Me.btnkasir = New System.Windows.Forms.Button()
         Me.btnproduk = New System.Windows.Forms.Button()
@@ -43,14 +46,11 @@ Partial Class POSMAIN
         Me.LabelSubToko = New System.Windows.Forms.Label()
         Me.LabelToko = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.LabelStation = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PanelMenu.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.GroupBoxLogin.SuspendLayout()
         Me.GroupBoxMenu.SuspendLayout()
         Me.PanelIdentitas.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelMenu
@@ -67,6 +67,33 @@ Partial Class POSMAIN
         Me.PanelMenu.Size = New System.Drawing.Size(178, 729)
         Me.PanelMenu.TabIndex = 2
         '
+        'Panel1
+        '
+        Me.Panel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.BackColor = System.Drawing.Color.Azure
+        Me.Panel1.Controls.Add(Me.LabelStation)
+        Me.Panel1.Controls.Add(Me.LabelUser)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.lblversi)
+        Me.Panel1.Location = New System.Drawing.Point(9, 640)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(163, 77)
+        Me.Panel1.TabIndex = 12
+        '
+        'LabelStation
+        '
+        Me.LabelStation.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.LabelStation.AutoSize = True
+        Me.LabelStation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelStation.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.LabelStation.Location = New System.Drawing.Point(63, 30)
+        Me.LabelStation.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LabelStation.Name = "LabelStation"
+        Me.LabelStation.Size = New System.Drawing.Size(21, 15)
+        Me.LabelStation.TabIndex = 11
+        Me.LabelStation.Text = "01"
+        Me.LabelStation.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'LabelUser
         '
         Me.LabelUser.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -80,6 +107,33 @@ Partial Class POSMAIN
         Me.LabelUser.TabIndex = 10
         Me.LabelUser.Text = "LabelUser"
         Me.LabelUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label1.Location = New System.Drawing.Point(5, 30)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(54, 15)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "Station : "
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblversi
+        '
+        Me.lblversi.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblversi.AutoSize = True
+        Me.lblversi.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblversi.Location = New System.Drawing.Point(5, 56)
+        Me.lblversi.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblversi.Name = "lblversi"
+        Me.lblversi.Size = New System.Drawing.Size(97, 13)
+        Me.lblversi.TabIndex = 9
+        Me.lblversi.Text = "POSMain v.1.0.1.1"
+        Me.lblversi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'GroupBoxLogin
         '
@@ -124,19 +178,6 @@ Partial Class POSMAIN
         Me.TextBoxLoginPassword.Size = New System.Drawing.Size(147, 26)
         Me.TextBoxLoginPassword.TabIndex = 1
         '
-        'lblversi
-        '
-        Me.lblversi.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblversi.AutoSize = True
-        Me.lblversi.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblversi.Location = New System.Drawing.Point(5, 56)
-        Me.lblversi.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lblversi.Name = "lblversi"
-        Me.lblversi.Size = New System.Drawing.Size(97, 13)
-        Me.lblversi.TabIndex = 9
-        Me.lblversi.Text = "POSMain v.1.0.1.1"
-        Me.lblversi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'lbljam
         '
         Me.lbljam.AutoSize = True
@@ -153,7 +194,7 @@ Partial Class POSMAIN
         'GroupBoxMenu
         '
         Me.GroupBoxMenu.BackColor = System.Drawing.Color.CornflowerBlue
-        Me.GroupBoxMenu.Controls.Add(Me.Button1)
+        Me.GroupBoxMenu.Controls.Add(Me.ButtonCustomer)
         Me.GroupBoxMenu.Controls.Add(Me.btnlaporan)
         Me.GroupBoxMenu.Controls.Add(Me.btnkasir)
         Me.GroupBoxMenu.Controls.Add(Me.btnproduk)
@@ -167,19 +208,19 @@ Partial Class POSMAIN
         Me.GroupBoxMenu.TabStop = False
         Me.GroupBoxMenu.Visible = False
         '
-        'Button1
+        'ButtonCustomer
         '
-        Me.Button1.BackColor = System.Drawing.Color.LightCyan
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(9, 187)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(147, 37)
-        Me.Button1.TabIndex = 13
-        Me.Button1.Text = "CUSTOMER"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.ButtonCustomer.BackColor = System.Drawing.Color.LightCyan
+        Me.ButtonCustomer.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonCustomer.Image = CType(resources.GetObject("ButtonCustomer.Image"), System.Drawing.Image)
+        Me.ButtonCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ButtonCustomer.Location = New System.Drawing.Point(9, 187)
+        Me.ButtonCustomer.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonCustomer.Name = "ButtonCustomer"
+        Me.ButtonCustomer.Size = New System.Drawing.Size(147, 37)
+        Me.ButtonCustomer.TabIndex = 13
+        Me.ButtonCustomer.Text = "CUSTOMER"
+        Me.ButtonCustomer.UseVisualStyleBackColor = False
         '
         'btnlaporan
         '
@@ -296,47 +337,6 @@ Partial Class POSMAIN
         'Timer1
         '
         '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(5, 30)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(54, 15)
-        Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Station : "
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LabelStation
-        '
-        Me.LabelStation.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.LabelStation.AutoSize = True
-        Me.LabelStation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelStation.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.LabelStation.Location = New System.Drawing.Point(63, 30)
-        Me.LabelStation.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.LabelStation.Name = "LabelStation"
-        Me.LabelStation.Size = New System.Drawing.Size(21, 15)
-        Me.LabelStation.TabIndex = 11
-        Me.LabelStation.Text = "01"
-        Me.LabelStation.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Panel1
-        '
-        Me.Panel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.BackColor = System.Drawing.Color.Azure
-        Me.Panel1.Controls.Add(Me.LabelStation)
-        Me.Panel1.Controls.Add(Me.LabelUser)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.lblversi)
-        Me.Panel1.Location = New System.Drawing.Point(9, 640)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(163, 77)
-        Me.Panel1.TabIndex = 12
-        '
         'POSMAIN
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -354,13 +354,13 @@ Partial Class POSMAIN
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.PanelMenu.ResumeLayout(False)
         Me.PanelMenu.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.GroupBoxLogin.ResumeLayout(False)
         Me.GroupBoxLogin.PerformLayout()
         Me.GroupBoxMenu.ResumeLayout(False)
         Me.PanelIdentitas.ResumeLayout(False)
         Me.PanelIdentitas.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -382,7 +382,7 @@ Partial Class POSMAIN
     Friend WithEvents TextBoxLoginPassword As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxLoginUsername As System.Windows.Forms.TextBox
     Friend WithEvents GroupBoxLogin As System.Windows.Forms.GroupBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents ButtonCustomer As System.Windows.Forms.Button
     Friend WithEvents LabelStation As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel

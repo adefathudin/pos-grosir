@@ -6,7 +6,8 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer1.Start()
-        LabelStation.Text = Environment.GetEnvironmentVariable("station")
+        'LabelStation.Text = Environment.GetEnvironmentVariable("station")
+        LabelStation.Text = "01"
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -20,6 +21,7 @@
         FormKasir.MdiParent = Me
         FormProduk.Close()
         FormLaporan.Close()
+        FormCustomer.Close()
         FormKasir.Show()
         Cursor = Cursors.Default
     End Sub
@@ -29,6 +31,7 @@
         FormProduk.MdiParent = Me
         FormKasir.Close()
         FormLaporan.Close()
+        FormCustomer.Close()
         FormProduk.Show()
         Cursor = Cursors.Default
     End Sub
@@ -38,7 +41,18 @@
         FormLaporan.MdiParent = Me
         FormKasir.Close()
         FormProduk.Close()
+        FormCustomer.Close()
         FormLaporan.Show()
+        Cursor = Cursors.Default
+    End Sub
+
+    Private Sub ButtonCustomer_Click(sender As Object, e As EventArgs) Handles ButtonCustomer.Click
+        Cursor = Cursors.WaitCursor
+        FormCustomer.MdiParent = Me
+        FormKasir.Close()
+        FormLaporan.Close()
+        FormProduk.Close()
+        FormCustomer.Show()
         Cursor = Cursors.Default
     End Sub
 

@@ -16,3 +16,24 @@ C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsAp
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.POSMAIN.resources
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormCustomer.resources
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_KategoriProduk.resources
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\bin\Debug\WindowsApplication1.exe.config
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.exe
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.xml
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.vbprojResolveAssemblyReference.cache
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.POSMAIN.resources
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormCustomer.resources
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormKasir.resources
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormLaporan.resources
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk.resources
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_KategoriHarga.resources
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_KategoriProduk.resources
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_Rak.resources
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\bin\Debug\WindowsApplication1.exe
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\bin\Debug\WindowsApplication1.xml
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_Rak_Select.resources
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_Kategori_Select.resources
+D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormKasir_Customer_Select.resources

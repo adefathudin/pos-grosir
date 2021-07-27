@@ -43,6 +43,7 @@
                                 comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO ref_kategoriproduk (nama_kategori,deskripsi) values ('" + TextBoxNama.Text + "','" + TextBoxDesc.Text + "')", connDB)
                                 comDB.ExecuteNonQuery()
                                 LoadKategori()
+                                FormProduk.AmbilKategoriHarga()
                                 ClearTextBox()
                                 rdDB.Close()
                             Catch ex As Exception

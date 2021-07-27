@@ -59,10 +59,10 @@
         Select Case e.KeyCode
             Case Keys.Enter
                 If String.IsNullOrEmpty(TextBoxQTY.Text) Then
-                    TextBoxIDPelanggan.Enabled = True
+                    TextBoxIDCustomer.Enabled = True
                     TextBoxBarang.Enabled = False
                     TextBoxQTY.Enabled = False
-                    TextBoxIDPelanggan.Focus()
+                    TextBoxIDCustomer.Focus()
                     Exit Sub
                 End If
                 Try
@@ -74,7 +74,7 @@
                         rdDB.Read()
                         Dim plu As String = rdDB.Item("prdcd")
                         Dim desc As String = rdDB.Item("desc2")
-                        Dim price As Integer = rdDB.Item("price")
+                        Dim price As String = rdDB.Item("price")
                         Dim qty = TextBoxQTY.Text
                         Dim harga As String = qty * price
                         Dim station = POSMAIN.LabelStation.Text
@@ -85,12 +85,12 @@
                         rdDB = comDB.ExecuteReader
                         If rdDB.HasRows Then
                             rdDB.Close()
-                            comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE tran_temp set qty='" + qty + "',harga='" + harga + "' where plu='" + plu + "' and station='" + station + "'", connDB)
+                            comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE tran_temp set harga_satuan='" + price + "',qty='" + qty + "',harga='" + harga + "' where plu='" + plu + "' and station='" + station + "'", connDB)
                             comDB.ExecuteNonQuery()
                             rdDB.Close()
                         Else
                             rdDB.Close()
-                            comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO tran_temp (plu,deskripsi,qty,harga,station) values ('" + plu + "','" + desc.Replace("'", "''") + "','" + qty + "','" + harga + "','" + station + "')", connDB)
+                            comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO tran_temp (plu,deskripsi,harga_satuan,qty,harga,station) values ('" + plu + "','" + desc.Replace("'", "''") + "','" + price + "','" + qty + "','" + harga + "','" + station + "')", connDB)
                             comDB.ExecuteNonQuery()
                             rdDB.Close()
                         End If
@@ -112,21 +112,24 @@
         Cursor = Cursors.WaitCursor
         Call conecDB()
         dt = New DataTable
-        da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT plu,deskripsi,qty,harga FROM tran_temp WHERE station='" + POSMAIN.LabelStation.Text + "'", connDB)
+        da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT plu,deskripsi,kategoriharga_id,harga_satuan,qty,harga FROM tran_temp WHERE station='" + POSMAIN.LabelStation.Text + "'", connDB)
         Try
             comBuilderDB = New MySql.Data.MySqlClient.MySqlCommandBuilder(da)
             da.Fill(dt)
             DataGridViewTranTemp.DataSource = dt
             DataGridViewTranTemp.Columns(0).HeaderText = "PLU"
             DataGridViewTranTemp.Columns(1).HeaderText = "Deskripsi"
-            DataGridViewTranTemp.Columns(2).HeaderText = "QTY"
+            DataGridViewTranTemp.Columns(2).HeaderText = "Harga Kategori"
             DataGridViewTranTemp.Columns(3).HeaderText = "Harga"
+            DataGridViewTranTemp.Columns(4).HeaderText = "QTY"
+            DataGridViewTranTemp.Columns(5).HeaderText = "Total"
             'Zebra Table
             Me.DataGridViewTranTemp.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue
             Me.DataGridViewTranTemp.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+        TotalBelanja()
         Cursor = Cursors.Default
     End Sub
 
@@ -136,6 +139,9 @@
     End Sub
 
     Private Sub DataGridViewTranTemp_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridViewTranTemp.CellMouseClick
+        If e.RowIndex < 0 Then
+            Exit Sub
+        End If
         TextBoxBarang.Text = DataGridViewTranTemp.Rows(e.RowIndex).Cells(0).Value
         TextBoxQTY.Text = DataGridViewTranTemp.Rows(e.RowIndex).Cells(2).Value
     End Sub
@@ -157,7 +163,7 @@
     End Sub
 
     Private Sub ButtonScanKembali_Click(sender As Object, e As EventArgs) Handles ButtonScanKembali.Click
-        TextBoxIDPelanggan.ReadOnly = True
+        TextBoxIDCustomer.ReadOnly = True
         TextBoxUangTunai.ReadOnly = True
         TextBoxBarang.Enabled = True
         TextBoxQTY.Enabled = True
@@ -165,10 +171,10 @@
     End Sub
 
     Private Sub ButtonLanjutPembayaran_Click(sender As Object, e As EventArgs) Handles ButtonLanjutPembayaran.Click
-        TextBoxIDPelanggan.Enabled = True
+        TextBoxIDCustomer.Enabled = True
         TextBoxBarang.Enabled = False
         TextBoxQTY.Enabled = False
-        TextBoxIDPelanggan.Focus()
+        TextBoxIDCustomer.Focus()
     End Sub
 
     Private Sub TextBoxCariBarang_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxCariBarang.KeyDown
@@ -201,5 +207,26 @@
         TextBoxBarang.Text = DataGridViewCariBarang.Rows(e.RowIndex).Cells(0).Value
         TextBoxQTY.Focus()
 
+    End Sub
+
+    Private Sub TextBoxIDPelanggan_MouseClick(sender As Object, e As MouseEventArgs) Handles TextBoxIDCustomer.MouseClick
+        FormKasir_Customer_Select.ShowDialog()
+    End Sub
+
+    Sub TotalBelanja()
+        Try
+            Call conecDB()
+            comDB = New MySql.Data.MySqlClient.MySqlCommand("SELECT sum(harga) as total,sum(harga_diskon) as diskon FROM tran_temp WHERE station='" + POSMAIN.LabelStation.Text + "'", connDB)
+            rdDB = comDB.ExecuteReader
+            If rdDB.HasRows Then
+                rdDB.Read()
+                TextBoxTotalBelanja.Text = rdDB.Item("total")
+                TextBoxDiskon.Text = rdDB.Item("diskon")
+                'TextBoxTotal.Text = (Convert.ToDouble(TextBoxTotalBelanja.Text) - Convert.ToDouble(TextBoxDiskon.Text)).ToString("NO")
+            End If
+            rdDB.Close()
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
     End Sub
 End Class

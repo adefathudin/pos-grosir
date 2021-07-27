@@ -20,9 +20,9 @@
         Call conecDB()
         dt = New DataTable
         If String.IsNullOrEmpty(query) Then
-            da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT prdcd,desc2,stok,rak FROM prodmast order by singkatan limit 10", connDB)
+            da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT prdcd,desc2,stok,rak FROM prodmast order by desc2", connDB)
         Else
-            da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT prdcd,desc2,stok,rak FROM prodmast where barcd like '%" + query + "%' or prdcd like '%" + query + "%' or singkatan like '%" + query + "%' or desc2 like '%" + query + "%' or rak like '%" + query + "%' or price_kat like '%" + query + "%'", connDB)
+            da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT prdcd,desc2,stok,rak FROM prodmast where barcd like '%" + query + "%' or prdcd like '%" + query + "%' or singkatan like '%" + query + "%' or desc2 like '%" + query + "%' or rak like '%" + query + "%' or kategori like '%" + query + "%'", connDB)
         End If
         Try
             comBuilderDB = New MySql.Data.MySqlClient.MySqlCommandBuilder(da) 'untuk bisa edit datagridview
@@ -68,36 +68,35 @@
             MsgBox(ex.ToString)
         End Try
 
-        AmbilRak()
         AmbilKategoriHarga()
-        AmbilKategoriProduk()
 
         Cursor = Cursors.Default
     End Sub
 
     Private Sub ButtonProdukClose_Click(sender As Object, e As EventArgs) Handles ButtonProdukClose.Click
         PanelDetailProduk.Visible = False
+        ButtonInputBarang.Enabled = True
     End Sub
 
     'MODUL TAMBAH ATAU EDIT BARANG
 
     Private Sub ButtonProdukSave_Click(sender As Object, e As EventArgs) Handles ButtonProdukSave.Click
         Dim plu = TextBoxProdukPLU.Text
+        Dim barcd = TextBoxBarcode.Text
         Dim desc2 = TextBoxProdukDesc.Text
         Dim stok = TextBoxProdukStok.Text
-        Dim rak = ComboBoxProdukRak.SelectedIndex.ToString
+        Dim rak = TextBoxRak.Text
+        Dim kategori = TextBoxKategoriProduk.Text
         Dim acost = TextBoxProdukHargaBeli.Text
         Dim price = TextBoxProdukHargaJual.Text
-        Dim price_kat = ""
-        Dim brg_aktif = ""
         If ButtonInputBarang.Enabled = False Then
             Dim ask As DialogResult = MessageBox.Show("Simpan data produk?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If ask = DialogResult.Yes Then
                 Try
                     Call conecDB()
-                    comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO (barcd,plu,SET desc2='" + desc2 + "', stok='" + stok + "', rak='" + rak + "',acost='" + acost + "',price='" + price + "',price_kat='" + price_kat + "',brg_aktif='" + brg_aktif + "' where prdcd='" + plu + "'", connDB)
+                    comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO prodmast (barcd,prdcd,desc2,stok,acost,price,rak,kategori) values ('" + barcd + "','" + plu + "','" + desc2 + "','" + stok + "','" + acost + "','" + price + "','" + rak + "','" + kategori + "')", connDB)
                     comDB.ExecuteNonQuery()
-                    MessageBox.Show("Data berhasil disimpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Data produk berhasil disimpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Dim query = ""
                     load_data_produk(query)
                     ClearTextBoxProduk()
@@ -108,13 +107,13 @@
                 End Try
             End If
         Else
-            Dim result As DialogResult = MessageBox.Show("Simpan perubahan?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            Dim result As DialogResult = MessageBox.Show("Simpan perubahan pada produk ini?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
                 Try
                     Call conecDB()
-                    comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE prodmast SET desc2='" + desc2 + "', stok='" + stok + "', rak='" + rak + "',acost='" + acost + "',price='" + price + "',price_kat='" + price_kat + "',brg_aktif='" + brg_aktif + "' where prdcd='" + plu + "'", connDB)
+                    comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE prodmast SET desc2='" + desc2.Replace("'", "''") + "', stok='" + stok + "', rak='" + rak + "',acost='" + acost + "',price='" + price + "',kategori='" + kategori + "' where prdcd='" + plu + "'", connDB)
                     comDB.ExecuteNonQuery()
-                    MessageBox.Show("Data berhasil dirubah", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Data produk berhasil dirubah", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Dim query = ""
                     load_data_produk(query)
                     ClearTextBoxProduk()
@@ -138,19 +137,32 @@
         FormProduk_KategoriProduk.ShowDialog()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-
+    Private Sub ButtonSaveKategoriHarga_Click(sender As Object, e As EventArgs) Handles ButtonSaveKategoriHarga.Click
         Dim plu = TextBoxProdukPLU.Text
+        Dim kategoriharga_id = ComboBoxKategoriHarga.SelectedValue.ToString
         Try
-            comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO rel_kategoriharga (kategoriharga_id,plu,harga) values ('" + ComboBoxKategoriHarga.SelectedValue.ToString + "'," + plu + ",'" + TextBoxKategoriHarga_harga.Text + "')", connDB)
-            comDB.ExecuteNonQuery()
-            AmbilKategoriHargaUsed(plu)
-            ClearTextBoxKategoriHarga()
-            rdDB.Close()
+            Call conecDB()
+            comDB = New MySql.Data.MySqlClient.MySqlCommand("SELECT id FROM rel_kategoriharga WHERE plu='" + plu + "' AND kategoriharga_id='" + kategoriharga_id + "'", connDB)
+            rdDB = comDB.ExecuteReader
+            If rdDB.HasRows Then
+                MessageBox.Show("Kategori harga ini sudah pernah ditambahkan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Else
+                Try
+                    rdDB.Close()
+                    Call conecDB()
+                    comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO rel_kategoriharga (kategoriharga_id,plu,harga) values ('" + kategoriharga_id + "'," + plu + ",'" + TextBoxKategoriHarga_harga.Text + "')", connDB)
+                    comDB.ExecuteNonQuery()
+                    AmbilKategoriHargaUsed(plu)
+                    ClearTextBoxKategoriHarga()
+                    rdDB.Close()
+                Catch ex As Exception
+                    MsgBox("INSERT KATEGORI HARGA : " + e.ToString)
+                End Try
+            End If
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox("CEK EKSIST : " + ex.ToString)
         End Try
-
+        rdDB.Close()
     End Sub
 
     Sub AmbilKategoriHargaUsed(plu)
@@ -160,7 +172,7 @@
         dt = New DataTable
         If String.IsNullOrEmpty(plu) Then
         Else
-            da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT b.id,a.deskripsi,b.harga FROM ref_kategoriharga a join rel_kategoriharga b on a.id=b.kategoriharga_id where b.plu='" + plu + "' ", connDB)
+            da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT b.id,a.nama_kategori,b.harga FROM ref_kategoriharga a join rel_kategoriharga b on a.id=b.kategoriharga_id where b.plu='" + plu + "' ", connDB)
             Try
                 comBuilderDB = New MySql.Data.MySqlClient.MySqlCommandBuilder(da)
                 da.Fill(dt)
@@ -196,49 +208,15 @@
 
     End Sub
 
-    Sub AmbilKategoriProduk()
-        'AMBIL DATA KATEGORI HARGA
-
-        Call conecDB()
-        dt = New DataTable
-        da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM ref_kategoriproduk", connDB)
-
-        Try
-            comBuilderDB = New MySql.Data.MySqlClient.MySqlCommandBuilder(da)
-            da.Fill(dt)
-            ComboBoxKategoriProduk.DataSource = dt
-            ComboBoxKategoriProduk.DisplayMember = "nama_kategori"
-            ComboBoxKategoriProduk.ValueMember = "id"
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
-
-    End Sub
-
-    Sub AmbilRak()
-
-        'AMBIL DATA RAK
-        dt = New DataTable
-        da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM ref_rak", connDB)
-
-        Try
-            comBuilderDB = New MySql.Data.MySqlClient.MySqlCommandBuilder(da)
-            da.Fill(dt)
-            ComboBoxProdukRak.DataSource = dt
-            ComboBoxProdukRak.DisplayMember = "nama_rak"
-            ComboBoxProdukRak.ValueMember = "id_rak"
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
-
-    End Sub
-
     Private Sub DataGridViewBarang_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridViewBarang.CellMouseClick
+        If e.RowIndex < 0 Then
+            Exit Sub
+        End If
         Dim plu = DataGridViewBarang.Rows(e.RowIndex).Cells(0).Value
         PanelDetailProduk.Visible = True
         Try
             Call conecDB()
-            comDB = New MySql.Data.MySqlClient.MySqlCommand("SELECT barcd,prdcd,desc2,stok,rak,acost,price,price_kat,brg_aktif FROM prodmast where prdcd='" + plu + "'", connDB)
+            comDB = New MySql.Data.MySqlClient.MySqlCommand("SELECT barcd,prdcd,desc2,stok,rak,acost,price,kategori FROM prodmast where prdcd='" + plu + "'", connDB)
             rdDB = comDB.ExecuteReader
             If rdDB.HasRows Then
                 rdDB.Read()
@@ -247,18 +225,17 @@
                 TextBoxProdukPLU.ReadOnly = True
                 TextBoxProdukDesc.Text = rdDB.Item("desc2")
                 TextBoxProdukStok.Text = rdDB.Item("stok")
-                ComboBoxProdukRak.Text = rdDB.Item("rak")
                 TextBoxProdukHargaBeli.Text = rdDB.Item("acost")
                 TextBoxProdukHargaJual.Text = rdDB.Item("price")
+                TextBoxRak.Text = rdDB.Item("rak")
+                TextBoxKategoriProduk.Text = rdDB.Item("kategori")
             End If
             rdDB.Close()
+            AmbilKategoriHarga()
+            AmbilKategoriHargaUsed(plu)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-        AmbilKategoriProduk()
-        AmbilKategoriHarga()
-        AmbilRak()
-        AmbilKategoriHargaUsed(plu)
     End Sub
 
     Private Sub ButtonDeleteKategoriHarga_Click(sender As Object, e As EventArgs) Handles ButtonDeleteKategoriHarga.Click
@@ -278,6 +255,9 @@
     End Sub
 
     Private Sub DataGridViewKategoriHarga_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridViewKategoriHarga.CellMouseClick
+        If e.RowIndex < 0 Then
+            Exit Sub
+        End If
         Dim id_kategoriharga = DataGridViewKategoriHarga.Rows(e.RowIndex).Cells(0).Value
         TextBoxKategoriHargaID.Text = id_kategoriharga
     End Sub
@@ -296,12 +276,28 @@
         TextBoxProdukStok.Clear()
         TextBoxKategoriHargaID.Clear()
         TextBoxKategoriHarga_harga.Clear()
+        TextBoxRak.Clear()
+        TextBoxKategoriProduk.Clear()
     End Sub
 
     Private Sub TextBoxBarcode_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxBarcode.KeyDown
         Select e.KeyCode
             Case Keys.Enter
-                TextBoxProdukDesc.Focus()
+                Try
+                    Dim barcd = TextBoxBarcode.Text
+                    Call conecDB()
+                    comDB = New MySql.Data.MySqlClient.MySqlCommand("SELECT desc2 FROM prodmast WHERE barcd='" + barcd + "'", connDB)
+                    rdDB = comDB.ExecuteReader
+                    If rdDB.HasRows Then
+                        rdDB.Read()
+                        MessageBox.Show("Barang sudah pernah didaftarkan. (" + rdDB.Item("desc2") + ")", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Else
+                        TextBoxProdukDesc.Focus()
+                    End If
+                Catch ex As Exception
+                    MsgBox(e.ToString)
+                End Try
+                rdDB.Close()
         End Select
     End Sub
 
@@ -324,5 +320,41 @@
             Case Keys.Enter
                 TextBoxProdukStok.Focus()
         End Select
+    End Sub
+
+    Private Sub TextBoxRak_MouseClick(sender As Object, e As MouseEventArgs) Handles TextBoxRak.MouseClick
+        FormProduk_Rak_Select.ShowDialog()
+    End Sub
+
+    Private Sub TextBoxKategoriProduk_MouseClick(sender As Object, e As MouseEventArgs) Handles TextBoxKategoriProduk.MouseClick
+        FormProduk_Kategori_Select.ShowDialog()
+    End Sub
+
+    Private Sub ButtonDeleteProduk_Click(sender As Object, e As EventArgs) Handles ButtonDeleteProduk.Click
+        Dim plu = TextBoxProdukPLU.Text
+        Dim query = ""
+        Dim result As DialogResult = MessageBox.Show("Hapus produk terpilih?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            Try
+                Call conecDB()
+                comDB = New MySql.Data.MySqlClient.MySqlCommand("DELETE FROM prodmast WHERE prdcd='" + plu + "'", connDB)
+                comDB.ExecuteNonQuery()
+
+                Try
+                    Call conecDB()
+                    comDB = New MySql.Data.MySqlClient.MySqlCommand("DELETE FROM rel_kategoriharga WHERE plu='" + plu + "'", connDB)
+                    comDB.ExecuteNonQuery()
+                    load_data_produk(query)
+                    PanelDetailProduk.Visible = False
+                Catch ex As Exception
+                    MsgBox("Kategori Harga : " + ex.ToString)
+                End Try
+
+                load_data_produk(query)
+                PanelDetailProduk.Visible = False
+            Catch ex As Exception
+                MsgBox("Prodmast : " + ex.ToString)
+            End Try
+        End If
     End Sub
 End Class

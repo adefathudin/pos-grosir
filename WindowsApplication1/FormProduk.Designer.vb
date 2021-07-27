@@ -22,16 +22,18 @@ Partial Class FormProduk
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LabelTotalItem = New System.Windows.Forms.Label()
         Me.PanelDetailProduk = New System.Windows.Forms.Panel()
         Me.GroupBoxDetailProduk = New System.Windows.Forms.GroupBox()
+        Me.ButtonDeleteProduk = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.TextBoxKategoriProduk = New System.Windows.Forms.TextBox()
+        Me.TextBoxRak = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.ComboBoxKategoriProduk = New System.Windows.Forms.ComboBox()
         Me.TextBoxProdukPLU = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBoxProdukDesc = New System.Windows.Forms.TextBox()
@@ -39,7 +41,6 @@ Partial Class FormProduk
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBoxBarcode = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBoxProdukRak = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBoxProdukHargaBeli = New System.Windows.Forms.TextBox()
         Me.TextBoxProdukHargaJual = New System.Windows.Forms.TextBox()
@@ -52,7 +53,7 @@ Partial Class FormProduk
         Me.TextBoxKategoriHarga_harga = New System.Windows.Forms.TextBox()
         Me.ComboBoxKategoriHarga = New System.Windows.Forms.ComboBox()
         Me.DataGridViewKategoriHarga = New System.Windows.Forms.DataGridView()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.ButtonSaveKategoriHarga = New System.Windows.Forms.Button()
         Me.ButtonProdukClose = New System.Windows.Forms.Button()
         Me.ButtonProdukSave = New System.Windows.Forms.Button()
         Me.TextBoxPencarianProduk = New System.Windows.Forms.TextBox()
@@ -62,7 +63,6 @@ Partial Class FormProduk
         Me.Button3 = New System.Windows.Forms.Button()
         Me.ButtonProdukKategoriHarga = New System.Windows.Forms.Button()
         Me.ButtonInputBarang = New System.Windows.Forms.Button()
-        Me.ButtonDeleteProduk = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.PanelDetailProduk.SuspendLayout()
         Me.GroupBoxDetailProduk.SuspendLayout()
@@ -125,10 +125,21 @@ Partial Class FormProduk
         Me.GroupBoxDetailProduk.TabStop = False
         Me.GroupBoxDetailProduk.Text = "DETAIL PRODUK"
         '
+        'ButtonDeleteProduk
+        '
+        Me.ButtonDeleteProduk.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ButtonDeleteProduk.Location = New System.Drawing.Point(652, 0)
+        Me.ButtonDeleteProduk.Name = "ButtonDeleteProduk"
+        Me.ButtonDeleteProduk.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonDeleteProduk.TabIndex = 28
+        Me.ButtonDeleteProduk.Text = "Delete"
+        Me.ButtonDeleteProduk.UseVisualStyleBackColor = False
+        '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.TextBoxKategoriProduk)
+        Me.GroupBox4.Controls.Add(Me.TextBoxRak)
         Me.GroupBox4.Controls.Add(Me.Label9)
-        Me.GroupBox4.Controls.Add(Me.ComboBoxKategoriProduk)
         Me.GroupBox4.Controls.Add(Me.TextBoxProdukPLU)
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.TextBoxProdukDesc)
@@ -136,7 +147,6 @@ Partial Class FormProduk
         Me.GroupBox4.Controls.Add(Me.Label2)
         Me.GroupBox4.Controls.Add(Me.TextBoxBarcode)
         Me.GroupBox4.Controls.Add(Me.Label3)
-        Me.GroupBox4.Controls.Add(Me.ComboBoxProdukRak)
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.TextBoxProdukHargaBeli)
         Me.GroupBox4.Controls.Add(Me.TextBoxProdukHargaJual)
@@ -148,6 +158,22 @@ Partial Class FormProduk
         Me.GroupBox4.TabIndex = 27
         Me.GroupBox4.TabStop = False
         '
+        'TextBoxKategoriProduk
+        '
+        Me.TextBoxKategoriProduk.Location = New System.Drawing.Point(102, 221)
+        Me.TextBoxKategoriProduk.Name = "TextBoxKategoriProduk"
+        Me.TextBoxKategoriProduk.ReadOnly = True
+        Me.TextBoxKategoriProduk.Size = New System.Drawing.Size(192, 20)
+        Me.TextBoxKategoriProduk.TabIndex = 28
+        '
+        'TextBoxRak
+        '
+        Me.TextBoxRak.Location = New System.Drawing.Point(102, 191)
+        Me.TextBoxRak.Name = "TextBoxRak"
+        Me.TextBoxRak.ReadOnly = True
+        Me.TextBoxRak.Size = New System.Drawing.Size(192, 20)
+        Me.TextBoxRak.TabIndex = 27
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -156,15 +182,6 @@ Partial Class FormProduk
         Me.Label9.Size = New System.Drawing.Size(75, 13)
         Me.Label9.TabIndex = 23
         Me.Label9.Text = "Scan Barcode"
-        '
-        'ComboBoxKategoriProduk
-        '
-        Me.ComboBoxKategoriProduk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxKategoriProduk.FormattingEnabled = True
-        Me.ComboBoxKategoriProduk.Location = New System.Drawing.Point(102, 221)
-        Me.ComboBoxKategoriProduk.Name = "ComboBoxKategoriProduk"
-        Me.ComboBoxKategoriProduk.Size = New System.Drawing.Size(192, 21)
-        Me.ComboBoxKategoriProduk.TabIndex = 26
         '
         'TextBoxProdukPLU
         '
@@ -223,15 +240,6 @@ Partial Class FormProduk
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "Qty"
         '
-        'ComboBoxProdukRak
-        '
-        Me.ComboBoxProdukRak.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxProdukRak.FormattingEnabled = True
-        Me.ComboBoxProdukRak.Location = New System.Drawing.Point(102, 191)
-        Me.ComboBoxProdukRak.Name = "ComboBoxProdukRak"
-        Me.ComboBoxProdukRak.Size = New System.Drawing.Size(192, 21)
-        Me.ComboBoxProdukRak.TabIndex = 21
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -283,7 +291,7 @@ Partial Class FormProduk
         Me.GroupBox3.Controls.Add(Me.TextBoxKategoriHarga_harga)
         Me.GroupBox3.Controls.Add(Me.ComboBoxKategoriHarga)
         Me.GroupBox3.Controls.Add(Me.DataGridViewKategoriHarga)
-        Me.GroupBox3.Controls.Add(Me.Button4)
+        Me.GroupBox3.Controls.Add(Me.ButtonSaveKategoriHarga)
         Me.GroupBox3.Location = New System.Drawing.Point(360, 29)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(439, 264)
@@ -340,45 +348,45 @@ Partial Class FormProduk
         Me.DataGridViewKategoriHarga.AllowUserToDeleteRows = False
         Me.DataGridViewKategoriHarga.AllowUserToOrderColumns = True
         Me.DataGridViewKategoriHarga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewKategoriHarga.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewKategoriHarga.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewKategoriHarga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewKategoriHarga.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewKategoriHarga.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridViewKategoriHarga.Location = New System.Drawing.Point(7, 49)
         Me.DataGridViewKategoriHarga.Name = "DataGridViewKategoriHarga"
         Me.DataGridViewKategoriHarga.ReadOnly = True
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewKategoriHarga.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewKategoriHarga.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewKategoriHarga.Size = New System.Drawing.Size(426, 193)
         Me.DataGridViewKategoriHarga.TabIndex = 1
         '
-        'Button4
+        'ButtonSaveKategoriHarga
         '
-        Me.Button4.Location = New System.Drawing.Point(345, 18)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(43, 23)
-        Me.Button4.TabIndex = 0
-        Me.Button4.Text = "+"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.ButtonSaveKategoriHarga.Location = New System.Drawing.Point(345, 18)
+        Me.ButtonSaveKategoriHarga.Name = "ButtonSaveKategoriHarga"
+        Me.ButtonSaveKategoriHarga.Size = New System.Drawing.Size(43, 23)
+        Me.ButtonSaveKategoriHarga.TabIndex = 0
+        Me.ButtonSaveKategoriHarga.Text = "+"
+        Me.ButtonSaveKategoriHarga.UseVisualStyleBackColor = True
         '
         'ButtonProdukClose
         '
@@ -484,16 +492,6 @@ Partial Class FormProduk
         Me.ButtonInputBarang.Text = "Input Barang"
         Me.ButtonInputBarang.UseVisualStyleBackColor = False
         '
-        'ButtonDeleteProduk
-        '
-        Me.ButtonDeleteProduk.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ButtonDeleteProduk.Location = New System.Drawing.Point(652, 0)
-        Me.ButtonDeleteProduk.Name = "ButtonDeleteProduk"
-        Me.ButtonDeleteProduk.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonDeleteProduk.TabIndex = 28
-        Me.ButtonDeleteProduk.Text = "Delete"
-        Me.ButtonDeleteProduk.UseVisualStyleBackColor = False
-        '
         'FormProduk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -542,20 +540,20 @@ Partial Class FormProduk
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents TextBoxProdukHargaJual As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxProdukHargaBeli As System.Windows.Forms.TextBox
-    Friend WithEvents ComboBoxProdukRak As System.Windows.Forms.ComboBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents TextBoxBarcode As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents ComboBoxKategoriProduk As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents DataGridViewKategoriHarga As System.Windows.Forms.DataGridView
-    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents ButtonSaveKategoriHarga As System.Windows.Forms.Button
     Friend WithEvents TextBoxKategoriHarga_harga As System.Windows.Forms.TextBox
     Friend WithEvents ComboBoxKategoriHarga As System.Windows.Forms.ComboBox
     Friend WithEvents ButtonDeleteKategoriHarga As System.Windows.Forms.Button
     Friend WithEvents TextBoxKategoriHargaID As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents ButtonDeleteProduk As System.Windows.Forms.Button
+    Friend WithEvents TextBoxKategoriProduk As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxRak As System.Windows.Forms.TextBox
 End Class
