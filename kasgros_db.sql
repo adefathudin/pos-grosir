@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2021 at 02:52 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.7
+-- Waktu pembuatan: 03 Agu 2021 pada 05.33
+-- Versi server: 10.4.20-MariaDB
+-- Versi PHP: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barcode`
+-- Struktur dari tabel `barcode`
 --
 
 CREATE TABLE `barcode` (
@@ -40,7 +40,7 @@ CREATE TABLE `barcode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='BARCODE ; InnoDB free: 10240 kB; (`ADDID`) REFER `pos/user`(';
 
 --
--- Dumping data for table `barcode`
+-- Dumping data untuk tabel `barcode`
 --
 
 INSERT INTO `barcode` (`RECID`, `PLU`, `BARCD`, `KEMASAN`, `QTY`, `ADDID`, `ADDTIME`, `UPDID`, `UPDTIME`) VALUES
@@ -5696,7 +5696,7 @@ INSERT INTO `barcode` (`RECID`, `PLU`, `BARCD`, `KEMASAN`, `QTY`, `ADDID`, `ADDT
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customers`
+-- Struktur dari tabel `customers`
 --
 
 CREATE TABLE `customers` (
@@ -5708,18 +5708,33 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `customers`
+-- Dumping data untuk tabel `customers`
 --
 
 INSERT INTO `customers` (`id`, `nama_pelanggan`, `nomor_hp`, `alamat`, `kategori_harga`) VALUES
-(2, 'Agung', '15454584', 'cianjur selatan', 'test'),
-(3, 'Yono', '0851315454', 'cianjur selatan', 'Harga Agung'),
-(5, 'aasf', '234234', 'safsdfsf', 'test');
+(2, 'Ade', '15454584', 'kp. sawah', '23'),
+(3, 'MElly', '0851315454', 'cianjur selatan', '18'),
+(5, 'aasf', '234234', 'safsdfsf', '23');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `his_prodmast`
+-- Struktur dari tabel `cust_temp`
+--
+
+CREATE TABLE `cust_temp` (
+  `station` varchar(2) NOT NULL,
+  `nama_pelanggan` varchar(30) DEFAULT NULL,
+  `nomor_hp` varchar(13) DEFAULT NULL,
+  `kategoriharga_id` varchar(3) DEFAULT NULL,
+  `kategori_harga` varchar(50) DEFAULT NULL,
+  `updtime` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `his_prodmast`
 --
 
 CREATE TABLE `his_prodmast` (
@@ -5747,7 +5762,7 @@ CREATE TABLE `his_prodmast` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `his_prodmast`
+-- Dumping data untuk tabel `his_prodmast`
 --
 
 INSERT INTO `his_prodmast` (`RECID`, `DIVISI`, `DEPART`, `KATEGORI`, `SUB_KATEGORI`, `PRDCD`, `PLUMD`, `MERK`, `NAMA`, `FLAVOUR`, `KEMASAN`, `SIZE`, `SINGKATAN`, `DESC2`, `UNIT`, `ACOST`, `PRICE`, `PRICE_KAT`, `RAK`, `STOK`, `BRG_AKTIF`) VALUES
@@ -15868,7 +15883,7 @@ INSERT INTO `his_prodmast` (`RECID`, `DIVISI`, `DEPART`, `KATEGORI`, `SUB_KATEGO
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prodmast`
+-- Struktur dari tabel `prodmast`
 --
 
 CREATE TABLE `prodmast` (
@@ -15891,12 +15906,11 @@ CREATE TABLE `prodmast` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `prodmast`
+-- Dumping data untuk tabel `prodmast`
 --
 
 INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLAVOUR`, `KEMASAN`, `SIZE`, `SINGKATAN`, `DESC2`, `UNIT`, `ACOST`, `PRICE`, `RAK`, `STOK`) VALUES
-(1, '000263', '05', '10003048', 'ENTROSTOP', 'OBAT DIARE 12\'S', '', 'STR', '', 'ENTROSTOP STR 12\'S', 'ENTROSTOP,OBAT DIARE 12\'S ', 'PCK', '6095.88', '8200.00', '', 3),
-(2, '000266', '05', '10000070', 'PROMAG', 'OBAT SAKIT MAAG (12)', '', 'STR', '', 'PROMAG (12 STRIP)', 'PROMAG,OBAT SAKIT MAAG (12) ', 'STR', '6043.50', '8700.00', '', 2),
+(2, '000266', '05', '10000070', 'PROMAG', 'OBAT SAKIT MAAG (12)', '', 'STR', '', 'PROMAG (12 STRIP)', 'PROMAG,OBAT SAKIT MAAG (12) ', 'STR', '6043.50', '8600.00', '', 2),
 (3, '000318', '02', '10000143', 'SUN', 'BUBUR SUSU (EKONOMIS)', 'BERAS MERAH', 'PCK', '120g', 'SUN BRS MERAH EKO120', 'SUN,BUBUR SUSU (EKONOMIS) BERAS MERAH 120g PCK', 'CTN', '5975.03', '7600.00', '', 0),
 (4, '0010608000098', '12', '10037415', '88', 'SALEP KULIT', '', 'CUP', '6g', '88 SALEP KULIT 6G', '88,SALEP KULIT  6g CUP', 'BOX', '8980.07', '11700.00', '', 5),
 (5, '0011747233033', '10', '10000348', 'DUA KELINCI', 'KACANG GARING', '', 'PCK', '200/180g', 'DK KACANG 180G', 'DUA KELINCI,KACANG GARING  200/180g PCK', 'CTN', '13352.32', '18100.00', '', 0),
@@ -16154,9 +16168,9 @@ INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLA
 (258, '016233', '04', '20070040', 'PRIME BREAD', 'ROTI MANIS ISI KRIM', 'MENTEGA KARAMEL', 'PCK', '', 'PRM.BREAD KRM M.KRML', 'PRIME BREAD,ROTI MANIS ISI KRIM MENTEGA KARAMEL', 'PCS', '2225.45', '3500.00', '', 0),
 (259, '016234', '04', '20070041', 'PRIME BREAD', 'ROTI MANIS ISI KRIM', 'COKELAT', 'PCK', '', 'PRM.BREAD KRM CKLAT', 'PRIME BREAD,ROTI MANIS ISI KRIM COKELAT', 'PCS', '2596.36', '3500.00', '', 0),
 (260, '016236', '04', '20070168', 'MR.BREAD', 'ROTI MANIS KASUR 4\'S', 'COKLAT SUSU', 'PCK', '', 'MR.BREAD KSR CKLT SS', 'MR.BREAD,ROTI MANIS KASUR 4\'S COKLAT SUSU', 'PCS', '8171.59', '12500.00', '', 0),
-(261, '016660', '04', '20057023', 'MR.BREAD', 'ROTI MANIS SOBEK', 'COKLAT PREMIUM', 'PCK', '', 'MR.BREAD SBK COK PRM', 'MR.BREAD,ROTI MANIS SOBEK COKLAT PREMIUM', 'PCS', '5563.64', '12000.00', '', 0);
+(261, '016660', '04', '20057023', 'MR.BREAD', 'ROTI MANIS SOBEK', 'COKLAT PREMIUM', 'PCK', '', 'MR.BREAD SBK COK PRM', 'MR.BREAD,ROTI MANIS SOBEK COKLAT PREMIUM', 'PCS', '5563.64', '12000.00', '', 0),
+(262, '016695', '04', '20057024', 'MR.BREAD', 'ROTI MANIS SOBEK STRAWBERRY', 'NANAS PREMIUM', 'PCK', '', 'MR.BRD SBK STR NNS P', 'MR.BREAD,ROTI MANIS SOBEK STRAWBERRY NANAS PREMIUM', 'PCS', '5563.64', '12000.00', '', 0);
 INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLAVOUR`, `KEMASAN`, `SIZE`, `SINGKATAN`, `DESC2`, `UNIT`, `ACOST`, `PRICE`, `RAK`, `STOK`) VALUES
-(262, '016695', '04', '20057024', 'MR.BREAD', 'ROTI MANIS SOBEK STRAWBERRY', 'NANAS PREMIUM', 'PCK', '', 'MR.BRD SBK STR NNS P', 'MR.BREAD,ROTI MANIS SOBEK STRAWBERRY NANAS PREMIUM', 'PCS', '5563.64', '12000.00', '', 0),
 (263, '016700', '07', '20057236', 'SAY BREAD', 'MX DOUGHNUT STRAWBERRY PEANUT', '(RTE)', 'PCS', '', 'SAY.BRD MX DNUT STR', 'SAY BREAD,MX DOUGHNUT STRAWBERRY PEANUT (RTE)', 'PCS', '5610.00', '9500.00', '', 0),
 (264, '016763', '02', '20057700', 'ICE', 'SCRAPPER', '', 'PCS', '', 'ICE SCRAPPER', 'ICE,SCRAPPER ', 'PCS', '52020.00', '100000.00', '', 0),
 (265, '016776', '04', '20078239', 'KOMIX', 'SIRUP OBAT BATUK HITAM OBH', 'G-FORMULA', 'PCK', '5x7mL', 'KOMIX OBH G-FRML 5X7', 'KOMIX,SIRUP OBAT BATUK HITAM OBH G-FORMULA 5x7mL P', 'BOX', '5795.95', '7700.00', '', 0),
@@ -16428,9 +16442,9 @@ INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLA
 (531, '035115', '09', '20105651', 'NADESHA', 'SNACK KUE GAMBANG', '', 'PCK', '150g', 'NADESHA KUE GMBNG150', 'NADESHA,SNACK KUE GAMBANG  150g PCK', 'CTN', '6242.40', '8800.00', '', 0),
 (532, '035139', '10', '20107050', 'LOONEY TUNES', 'MASKER KAIN NON MEDIS DEWASA', 'BUGS BUNNY', 'PCK', '', 'LT BUGS BUNNY MASKER', 'LOONEY TUNES,MASKER KAIN NON MEDIS DEWASA BUGS BUN', 'CTN', '0.00', '12500.00', '', 0),
 (533, '035140', '10', '20107053', 'LOONEY TUNES', 'MASKER KAIN NON MEDIS DEWASA', 'TAZMANIA DEVIL', 'PCK', '', 'LT TAZMANIA MASKER', 'LOONEY TUNES,MASKER KAIN NON MEDIS DEWASA TAZMANIA', 'CTN', '0.00', '12500.00', '', 0),
-(534, '035141', '10', '20107051', 'LOONEY TUNES', 'MASKER KAIN NON MEDIS DEWASA', 'DUFFY DUCK', 'PCK', '', 'LT DUFFY DUCK MASKER', 'LOONEY TUNES,MASKER KAIN NON MEDIS DEWASA DUFFY DU', 'CTN', '0.00', '12500.00', '', 0);
+(534, '035141', '10', '20107051', 'LOONEY TUNES', 'MASKER KAIN NON MEDIS DEWASA', 'DUFFY DUCK', 'PCK', '', 'LT DUFFY DUCK MASKER', 'LOONEY TUNES,MASKER KAIN NON MEDIS DEWASA DUFFY DU', 'CTN', '0.00', '12500.00', '', 0),
+(535, '035142', '10', '20107054', 'LOONEY TUNES', 'MASKER KAIN NON MEDIS DEWASA', 'MARVIN THE MRTN', 'PCK', '', 'LT MARVIN MASKER', 'LOONEY TUNES,MASKER KAIN NON MEDIS DEWASA MARVIN T', 'CTN', '0.00', '12500.00', '', 0);
 INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLAVOUR`, `KEMASAN`, `SIZE`, `SINGKATAN`, `DESC2`, `UNIT`, `ACOST`, `PRICE`, `RAK`, `STOK`) VALUES
-(535, '035142', '10', '20107054', 'LOONEY TUNES', 'MASKER KAIN NON MEDIS DEWASA', 'MARVIN THE MRTN', 'PCK', '', 'LT MARVIN MASKER', 'LOONEY TUNES,MASKER KAIN NON MEDIS DEWASA MARVIN T', 'CTN', '0.00', '12500.00', '', 0),
 (536, '035204', '04', '20106136', 'NESTLE', 'LACTOGROW MASKER (HADIAH)', '', 'PCK', '', 'LACTOGROW MASKER', 'NESTLE,LACTOGROW MASKER (HADIAH) ', 'PCS', '2.04', '2.00', '', 0),
 (537, '035252', '03', '20104104', 'FD SAY BREAD', 'TA ROTI KLEPON', '', 'PCS', '', 'FD SAY BRD KLEPON', 'FD SAY BREAD,TA ROTI KLEPON ', 'PCS', '4182.00', '9500.00', '', 0),
 (538, '035261', '03', '20104103', 'SAY BREAD', 'TA ROTI KLEPON', '', 'PCS', '', 'SAY BREAD KLEPON', 'SAY BREAD,TA ROTI KLEPON ', 'PCS', '4182.00', '9500.00', '', 0),
@@ -16691,9 +16705,9 @@ INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLA
 (793, '4800361002851', '03', '10036860', 'NESTLE', 'CEREAL BREAKFAST', 'KOKO KRUNCH', 'BOX', '170g', 'NESTLE KOKO KRUNC170', 'NESTLE,CEREAL BREAKFAST KOKO KRUNCH 170g BOX', 'CTN', '15332.74', '21300.00', '', 0),
 (794, '4800361324861', '01', '10035865', 'LACTOGEN 1', 'SUSU BAYI FORMULA', 'DHA', 'BOX', '750g', 'LACTOGEN 1 DHA 750GR', 'LACTOGEN 1,SUSU BAYI FORMULA DHA 750g BOX', 'CTN', '102267.69', '118500.00', '', 0),
 (795, '4800361324885', '01', '10035871', 'LACTOGEN 2', 'SUSU BAYI FORMULA', 'DHA+PREBIO 1', 'BOX', '750g', 'LACTOGEN 2 DHA 750GR', 'LACTOGEN 2,SUSU BAYI FORMULA DHA+PREBIO 1 750g BOX', 'CTN', '102855.43', '118500.00', '', 0),
-(796, '4800361347570', '01', '20017965', 'LACTOGEN 1', 'SUSU BAYI FORMULA', 'DHA+PREBIO 1', 'BOX', '350g', 'LACTOGEN 1 DHA 350GR', 'LACTOGEN 1,SUSU BAYI FORMULA DHA+PREBIO 1 350g BOX', 'CTN', '51062.49', '58200.00', '', 0);
+(796, '4800361347570', '01', '20017965', 'LACTOGEN 1', 'SUSU BAYI FORMULA', 'DHA+PREBIO 1', 'BOX', '350g', 'LACTOGEN 1 DHA 350GR', 'LACTOGEN 1,SUSU BAYI FORMULA DHA+PREBIO 1 350g BOX', 'CTN', '51062.49', '58200.00', '', 0),
+(797, '4800361347617', '01', '20017679', 'LACTOGEN 2', 'SUSU BAYI FORMULA', 'DHA+PREBIO 1', 'BOX', '350g', 'LACTOGEN 2 DHA 350GR', 'LACTOGEN 2,SUSU BAYI FORMULA DHA+PREBIO 1 350g BOX', 'CTN', '50581.77', '58200.00', '', 0);
 INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLAVOUR`, `KEMASAN`, `SIZE`, `SINGKATAN`, `DESC2`, `UNIT`, `ACOST`, `PRICE`, `RAK`, `STOK`) VALUES
-(797, '4800361347617', '01', '20017679', 'LACTOGEN 2', 'SUSU BAYI FORMULA', 'DHA+PREBIO 1', 'BOX', '350g', 'LACTOGEN 2 DHA 350GR', 'LACTOGEN 2,SUSU BAYI FORMULA DHA+PREBIO 1 350g BOX', 'CTN', '50581.77', '58200.00', '', 0),
 (798, '4800361347631', '01', '10035871', 'LACTOGEN 2', 'SUSU BAYI FORMULA', 'DHA+PREBIO 1', 'BOX', '750g', 'LACTOGEN 2 DHA 750GR', 'LACTOGEN 2,SUSU BAYI FORMULA DHA+PREBIO 1 750g BOX', 'CTN', '102855.43', '118500.00', '', 0),
 (799, '4800361347655', '04', '20021004', 'LACTOGROW 3', 'SUSU PERTUMBUHAN', 'DHA+PREBIO 1', 'BOX', '750g', 'LACTOGROW 3 BOX 750G', 'LACTOGROW 3,SUSU PERTUMBUHAN DHA+PREBIO 1 750g BOX', 'CTN', '96774.11', '110500.00', '', 0),
 (800, '4800361347778', '04', '20021003', 'LACTOGROW 3', 'SUSU PERTUMBUHAN', 'DHA+PREBIO 1', 'BOX', '350g', 'LACTOGROW 3 BOX 350G', 'LACTOGROW 3,SUSU PERTUMBUHAN DHA+PREBIO 1 350g BOX', 'CTN', '45565.98', '53000.00', '', 0),
@@ -16939,9 +16953,9 @@ INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLA
 (1040, '6923700960884', '04', '20105697', 'GARNIER', 'EYE SERUM MASK HYDRA BOMB', 'COCONUT', 'SCT', '6g', 'GRNR EYE MASK CCNT 6', 'GARNIER,EYE SERUM MASK HYDRA BOMB COCONUT 6g SCT', 'CTN', '13217.73', '18800.00', '', 0),
 (1041, '6923700960891', '04', '20105062', 'GARNIER', 'EYE SERUM MASK HYDRA BOMB', 'ORANGE', 'SCT', '6g', 'GRNR EYE MASK ORG 6G', 'GARNIER,EYE SERUM MASK HYDRA BOMB ORANGE 6g SCT', 'CTN', '13224.97', '18800.00', '', 0),
 (1042, '6923700964677', '04', '20110200', 'L\'OREAL', 'REVITALIFT MICRO-ESSENCE MASK', 'CRYSTAL', 'PCK', '25g', 'L\'OREAL F/MASK CRSTL', 'L\'OREAL,REVITALIFT MICRO-ESSENCE MASK CRYSTAL 25g ', 'CTN', '20264.58', '29000.00', '', 0),
-(1043, '6923700970340', '04', '20111640', 'GARNIER', 'SKIN NAT.SERUM MASK SAKURA WHT', 'WATER GLOW', 'SCT', '28g', 'GRNR SRM.MASK WT.GLW', 'GARNIER,SKIN NAT.SERUM MASK SAKURA WHT WATER GLOW ', 'CTN', '20807.35', '29900.00', '', 0);
+(1043, '6923700970340', '04', '20111640', 'GARNIER', 'SKIN NAT.SERUM MASK SAKURA WHT', 'WATER GLOW', 'SCT', '28g', 'GRNR SRM.MASK WT.GLW', 'GARNIER,SKIN NAT.SERUM MASK SAKURA WHT WATER GLOW ', 'CTN', '20807.35', '29900.00', '', 0),
+(1044, '6924187823273', '09', '20037506', 'TJHIA TJHIA', 'KUACI', '', 'PCK', '100gr', 'TJHIA TJHIA KUACI100', 'TJHIA TJHIA,KUACI  100gr PCK', 'CTN', '6839.10', '10900.00', '', 0);
 INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLAVOUR`, `KEMASAN`, `SIZE`, `SINGKATAN`, `DESC2`, `UNIT`, `ACOST`, `PRICE`, `RAK`, `STOK`) VALUES
-(1044, '6924187823273', '09', '20037506', 'TJHIA TJHIA', 'KUACI', '', 'PCK', '100gr', 'TJHIA TJHIA KUACI100', 'TJHIA TJHIA,KUACI  100gr PCK', 'CTN', '6839.10', '10900.00', '', 0),
 (1045, '6926637001200', '04', '20099859', 'FRUIT CANDY', 'SWEET FUN', '', 'PCS', '8g', 'FRT CNDY SWT FUN 8G', 'FRUIT CANDY,SWEET FUN  8g PCS', 'CTN', '23367.27', '37100.00', '', 0),
 (1046, '6928820029558', '01', '20077067', 'GARNIER', 'MICELLAR CLEANSING WATER', 'BLUE', 'BTL', '125mL', 'GRNIER MC.CLN BLU125', 'GARNIER,MICELLAR CLEANSING WATER BLUE 125mL BTL', 'CTN', '23023.44', '32800.00', '', 0),
 (1047, '6928820029572', '01', '20073377', 'GARNIER', 'MICELLAR CLEANSING WATER', 'PINK', 'BTL', '125mL', 'GRNIER MC.CLN PNK125', 'GARNIER,MICELLAR CLEANSING WATER PINK 125mL BTL', 'CTN', '23023.44', '32800.00', '', 0),
@@ -18546,8 +18560,7 @@ INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLA
 (2642, '8992858589214', '04', '20006530', 'WOODS', 'OBAT BATUK LIQUID PEPPERMINT', 'ANTITUSSIVE', 'BTL', '60mL', 'WOODS O/B LIQ ATT 60', 'WOODS,OBAT BATUK LIQUID PEPPERMINT ANTITUSSIVE 60m', 'CTN', '16344.65', '22200.00', '', 0),
 (2643, '8992858617900', '15', '20056311', 'CEREBROFORT', 'MARINE GUMMY', 'STRAWBERRY', 'PCK', '20g', 'CEREBRF.GUMMY STR20G', 'CEREBROFORT,MARINE GUMMY STRAWBERRY 20g PCK', 'CTN', '9518.51', '13000.00', '', 0),
 (2644, '8992858618600', '15', '20065821', 'CEREBROFORT', 'MARINE GUMMY', 'ORANGE', 'PCK', '20g', 'CEREBRF.GUMMY ORG 20', 'CEREBROFORT,MARINE GUMMY ORANGE 20g PCK', 'CTN', '9497.18', '13000.00', '', 0),
-(2645, '8992858658200', '05', '10003048', 'ENTROSTOP', 'OBAT DIARE 12\'S', '', 'STR', '', 'ENTROSTOP STR 12\'S', 'ENTROSTOP,OBAT DIARE 12\'S ', 'PCK', '6095.88', '8200.00', '', 0),
-(2646, '8992858664706', '05', '10000070', 'PROMAG', 'OBAT SAKIT MAAG (12)', '', 'STR', '', 'PROMAG (12 STRIP)', 'PROMAG,OBAT SAKIT MAAG (12) ', 'STR', '6043.50', '8700.00', '', 0),
+(2645, '8992858658200', '05', '10003048', 'ENTROSTOP', 'OBAT DIARE 12\'S', '', 'STR', '', 'ENTROSTOP STR 12\'S', 'ENTROSTOP,OBAT DIARE 12\'S ', 'PCK', '6095.88', '8200.00', '', 3),
 (2647, '8992858665000', '05', '20113365', 'PROMAG', 'OBAT SAKIT MAAG 10\'S', '', 'STR', '', 'PROMAG 10\'S', 'PROMAG,OBAT SAKIT MAAG 10\'S ', 'LSN', '6146.24', '8800.00', '', 0),
 (2648, '8992858666106', '04', '10030867', 'PROCOLD', 'TABLET FLU 6\'S', '', 'STR', '', 'PROCOLD OBAT FLU 6\'S', 'PROCOLD,TABLET FLU 6\'S ', 'BOX', '3024.77', '4100.00', '', 0),
 (2649, '8992858667202', '04', '10030867', 'PROCOLD', 'TABLET FLU 6\'S', '', 'STR', '', 'PROCOLD OBAT FLU 6\'S', 'PROCOLD,TABLET FLU 6\'S ', 'BOX', '3024.77', '4100.00', '', 0),
@@ -20049,7 +20062,7 @@ INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLA
 (4139, '8997204440447', '01', '20099291', 'ARNON', 'RED VELVET CAKE', '', 'PCK', '', 'ARNON RED VELVET', 'ARNON,RED VELVET CAKE ', 'PCS', '5712.00', '8000.00', '', 0),
 (4140, '8997204440461', '04', '20099290', 'ARNON', 'ROTI MANIS CHOCO ROLL', '', 'PCK', '', 'ARNON CHOCO ROLL', 'ARNON,ROTI MANIS CHOCO ROLL ', 'PCS', '4284.00', '6000.00', '', 0),
 (4141, '8997204440522', '04', '20108476', 'ARNON', 'ROTI MANIS MUNG BEAN ROLL', '', 'PCK', '', 'ARNON MUNG BEAN ROLL', 'ARNON,ROTI MANIS MUNG BEAN ROLL ', 'PCS', '4284.00', '6000.00', '', 0),
-(4142, '8997204670332', 'FOOD', '20111591', '5 DAYS', 'CROISSANT', 'CHOCOLATE', 'PCK', '60g', '5DAYS CROISSANT CHOC', '5 DAYS,CROISSANT CHOCOLATE 60g PCK', 'CTN', '4539.00', '6300.00', 'F151212', 0),
+(4142, '8997204670332', 'FOOD', '20111591', '5 DAYS', 'CROISSANT', 'CHOCOLATE', 'PCK', '60g', '5DAYS CROISSANT CHOC', '5 DAYS,CROISSANT CHOCOLATE 60g PCK', 'CTN', '4539.00', '6300.00', 'F151212', 1),
 (4143, '8997204670349', '03', '20111592', '5 DAYS', 'CROISSANT', 'MIX BERRIES', 'PCK', '60g', '5DAYS CROISSNT BRIES', '5 DAYS,CROISSANT MIX BERRIES 60g PCK', 'CTN', '4539.00', '6300.00', '', 0),
 (4145, '8997205070018', '02', '20101154', 'GADO', 'TELUR PINDANG MANIS', '', 'BTR', '', 'GADO TELUR PINDG MNS', 'GADO,TELUR PINDANG MANIS ', 'PCS', '4590.00', '6000.00', '', 0),
 (4146, '8997205070025', '02', '20103802', 'GADO', 'TELUR BALADO', '', 'BTR', '', 'GADO TELUR BALADO', 'GADO,TELUR BALADO ', 'PCS', '6375.00', '8000.00', '', 0),
@@ -21386,28 +21399,27 @@ INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_kategoriharga`
+-- Struktur dari tabel `ref_kategoriharga`
 --
 
 CREATE TABLE `ref_kategoriharga` (
   `id` int(11) NOT NULL,
   `nama_kategori` varchar(30) NOT NULL,
-  `deskripsi` varchar(140) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
+  `deskripsi` varchar(140) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ref_kategoriharga`
+-- Dumping data untuk tabel `ref_kategoriharga`
 --
 
-INSERT INTO `ref_kategoriharga` (`id`, `nama_kategori`, `deskripsi`, `status`) VALUES
-(18, 'Harga Agung', 'harga untuk agung', 1),
-(23, 'test', 'test kategori harga', 1);
+INSERT INTO `ref_kategoriharga` (`id`, `nama_kategori`, `deskripsi`) VALUES
+(18, 'Harga Agung', 'harga untuk agung'),
+(23, 'test', 'test kategori harga');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_kategoriproduk`
+-- Struktur dari tabel `ref_kategoriproduk`
 --
 
 CREATE TABLE `ref_kategoriproduk` (
@@ -21418,7 +21430,7 @@ CREATE TABLE `ref_kategoriproduk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ref_kategoriproduk`
+-- Dumping data untuk tabel `ref_kategoriproduk`
 --
 
 INSERT INTO `ref_kategoriproduk` (`id`, `nama_kategori`, `deskripsi`, `status`) VALUES
@@ -21428,7 +21440,7 @@ INSERT INTO `ref_kategoriproduk` (`id`, `nama_kategori`, `deskripsi`, `status`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_rak`
+-- Struktur dari tabel `ref_rak`
 --
 
 CREATE TABLE `ref_rak` (
@@ -21439,7 +21451,7 @@ CREATE TABLE `ref_rak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ref_rak`
+-- Dumping data untuk tabel `ref_rak`
 --
 
 INSERT INTO `ref_rak` (`id_rak`, `nama_rak`, `deskripsi`, `status`) VALUES
@@ -21449,7 +21461,7 @@ INSERT INTO `ref_rak` (`id_rak`, `nama_rak`, `deskripsi`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rel_kategoriharga`
+-- Struktur dari tabel `rel_kategoriharga`
 --
 
 CREATE TABLE `rel_kategoriharga` (
@@ -21460,16 +21472,18 @@ CREATE TABLE `rel_kategoriharga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `rel_kategoriharga`
+-- Dumping data untuk tabel `rel_kategoriharga`
 --
 
 INSERT INTO `rel_kategoriharga` (`id`, `kategoriharga_id`, `plu`, `harga`) VALUES
-(10025, '18', '20111591', '500');
+(10025, '18', '20115474', '500'),
+(10026, '19', '10000070', '500'),
+(10027, '18', '10003048', '1500');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `toko`
+-- Struktur dari tabel `toko`
 --
 
 CREATE TABLE `toko` (
@@ -21480,7 +21494,7 @@ CREATE TABLE `toko` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `toko`
+-- Dumping data untuk tabel `toko`
 --
 
 INSERT INTO `toko` (`rkey`, `nama_toko`, `alamat`, `telepon`) VALUES
@@ -21489,7 +21503,7 @@ INSERT INTO `toko` (`rkey`, `nama_toko`, `alamat`, `telepon`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tran_temp`
+-- Struktur dari tabel `tran_temp`
 --
 
 CREATE TABLE `tran_temp` (
@@ -21497,26 +21511,18 @@ CREATE TABLE `tran_temp` (
   `plu` varchar(8) NOT NULL,
   `deskripsi` varchar(100) NOT NULL,
   `kategoriharga_id` varchar(50) NOT NULL,
-  `harga_satuan` decimal(18,0) NOT NULL,
-  `harga_diskon` decimal(18,0) NOT NULL,
+  `harga_satuan_normal` decimal(18,0) NOT NULL,
+  `harga_kategori` decimal(18,0) NOT NULL,
   `qty` int(3) NOT NULL,
-  `harga` decimal(18,0) NOT NULL,
+  `total_harga_normal` decimal(18,0) NOT NULL,
+  `total_harga_kategori` decimal(18,0) NOT NULL,
   `station` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tran_temp`
---
-
-INSERT INTO `tran_temp` (`id`, `plu`, `deskripsi`, `kategoriharga_id`, `harga_satuan`, `harga_diskon`, `qty`, `harga`, `station`) VALUES
-(17, '10000070', 'PROMAG,OBAT SAKIT MAAG (12) ', '', '8700', '0', 2, '17400', '01'),
-(23, '10003048', 'ENTROSTOP,OBAT DIARE 12\'S ', '', '8200', '0', 6, '49200', '01'),
-(24, '20115474', 'COCA COLLA 110ML', '', '7000', '0', 6, '42000', '01');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -21529,7 +21535,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `nik`, `nama`, `level`, `password`, `status`) VALUES
@@ -21540,114 +21546,120 @@ INSERT INTO `users` (`id`, `nik`, `nama`, `level`, `password`, `status`) VALUES
 --
 
 --
--- Indexes for table `barcode`
+-- Indeks untuk tabel `barcode`
 --
 ALTER TABLE `barcode`
   ADD PRIMARY KEY (`PLU`,`BARCD`),
   ADD UNIQUE KEY `BARCODE` (`BARCD`);
 
 --
--- Indexes for table `customers`
+-- Indeks untuk tabel `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `prodmast`
+-- Indeks untuk tabel `cust_temp`
+--
+ALTER TABLE `cust_temp`
+  ADD PRIMARY KEY (`station`);
+
+--
+-- Indeks untuk tabel `prodmast`
 --
 ALTER TABLE `prodmast`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ref_kategoriharga`
+-- Indeks untuk tabel `ref_kategoriharga`
 --
 ALTER TABLE `ref_kategoriharga`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ref_kategoriproduk`
+-- Indeks untuk tabel `ref_kategoriproduk`
 --
 ALTER TABLE `ref_kategoriproduk`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ref_rak`
+-- Indeks untuk tabel `ref_rak`
 --
 ALTER TABLE `ref_rak`
   ADD PRIMARY KEY (`id_rak`);
 
 --
--- Indexes for table `rel_kategoriharga`
+-- Indeks untuk tabel `rel_kategoriharga`
 --
 ALTER TABLE `rel_kategoriharga`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `toko`
+-- Indeks untuk tabel `toko`
 --
 ALTER TABLE `toko`
   ADD PRIMARY KEY (`rkey`);
 
 --
--- Indexes for table `tran_temp`
+-- Indeks untuk tabel `tran_temp`
 --
 ALTER TABLE `tran_temp`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `customers`
+-- AUTO_INCREMENT untuk tabel `customers`
 --
 ALTER TABLE `customers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `prodmast`
+-- AUTO_INCREMENT untuk tabel `prodmast`
 --
 ALTER TABLE `prodmast`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5471;
 
 --
--- AUTO_INCREMENT for table `ref_kategoriharga`
+-- AUTO_INCREMENT untuk tabel `ref_kategoriharga`
 --
 ALTER TABLE `ref_kategoriharga`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `ref_kategoriproduk`
+-- AUTO_INCREMENT untuk tabel `ref_kategoriproduk`
 --
 ALTER TABLE `ref_kategoriproduk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `ref_rak`
+-- AUTO_INCREMENT untuk tabel `ref_rak`
 --
 ALTER TABLE `ref_rak`
   MODIFY `id_rak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `rel_kategoriharga`
+-- AUTO_INCREMENT untuk tabel `rel_kategoriharga`
 --
 ALTER TABLE `rel_kategoriharga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10026;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10028;
 
 --
--- AUTO_INCREMENT for table `tran_temp`
+-- AUTO_INCREMENT untuk tabel `tran_temp`
 --
 ALTER TABLE `tran_temp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

@@ -4,7 +4,7 @@
         Cursor = Cursors.WaitCursor
         Call conecDB()
         dt = New DataTable
-        da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM customers", connDB)
+        da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT a.id,nama_pelanggan,nomor_hp,alamat,b.nama_kategori FROM customers a left join ref_kategoriharga b on a.kategori_harga=b.id", connDB)
         Try
             comBuilderDB = New MySql.Data.MySqlClient.MySqlCommandBuilder(da)
             da.Fill(dt)
@@ -25,8 +25,8 @@
 
 
     Private Sub ButtonSelectKategori_Click(sender As Object, e As EventArgs) Handles ButtonSelectCustomer.Click
-        FormKasir.TextBoxIDCustomer.Text = TextBoxSelectIDCustomer.Text
-        FormKasir.TextBoxNamaCustomer.Text = TextBoxSelectNamaCustomer.Text
+        Dim IDCustomer As String = TextBoxSelectIDCustomer.Text
+        FormKasir.LoadDataCustomer(IDCustomer)
         Me.Close()
     End Sub
 

@@ -102,6 +102,12 @@
     <Compile Include="FormKasir_Customer_Select.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormKasir_Kembalian.Designer.vb">
+      <DependentUpon>FormKasir_Kembalian.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormKasir_Kembalian.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormLaporan.Designer.vb">
       <DependentUpon>FormLaporan.vb</DependentUpon>
     </Compile>
@@ -173,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormKasir_Customer_Select.resx">
       <DependentUpon>FormKasir_Customer_Select.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKasir_Kembalian.resx">
+      <DependentUpon>FormKasir_Kembalian.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLaporan.resx">
       <DependentUpon>FormLaporan.vb</DependentUpon>

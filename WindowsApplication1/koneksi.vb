@@ -22,7 +22,7 @@ Module Connection
 
 
             'MySQL Connection String
-            If connDB.State <> ConnectionState.Open Then connDB.ConnectionString = "server=" & strServer.Trim & ";database=" & strDbase.Trim & ";user=" & strUser.Trim & ";password=" & strPass
+        If connDB.State <> ConnectionState.Open Then connDB.ConnectionString = "server=" & strServer.Trim & ";database=" & strDbase.Trim & ";user=" & strUser.Trim & ";password=" & strPass & ";SslMode=none"
             If connDB.State <> ConnectionState.Open Then connDB.Open()
         End Sub
 

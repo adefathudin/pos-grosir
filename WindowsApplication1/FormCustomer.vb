@@ -21,9 +21,9 @@
         Call conecDB()
         dt = New DataTable
         If String.IsNullOrEmpty(query) Then
-            da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT id,nama_pelanggan,nomor_hp,kategori_harga FROM customers ORDER BY nama_pelanggan", connDB)
+            da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT a.id,nama_pelanggan,nomor_hp,b.nama_kategori FROM customers a left join ref_kategoriharga b on a.kategori_harga=b.id ORDER BY nama_pelanggan", connDB)
         Else
-            da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT id,nama_pelanggan,nomor_hp,kategori_harga FROM customers where nama_pelanggan like '%" + query + "%' or id like '%" + query + "%' or nomor_hp like '%" + query + "%' or alamat like '%" + query + "%' or kategori_harga like '%" + query + "%'", connDB)
+            da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT a.id,nama_pelanggan,nomor_hp,b.nama_kategori FROM customers a left join ref_kategoriharga b on a.kategori_harga=b.id where nama_pelanggan like '%" + query + "%' or id like '%" + query + "%' or nomor_hp like '%" + query + "%' or alamat like '%" + query + "%' or kategori_harga like '%" + query + "%'", connDB)
         End If
         Try
             comBuilderDB = New MySql.Data.MySqlClient.MySqlCommandBuilder(da) 'untuk bisa edit datagridview
@@ -177,7 +177,7 @@
             da.Fill(dt)
             ComboBoxKategoriHarga.DataSource = dt
             ComboBoxKategoriHarga.DisplayMember = "nama_kategori"
-            ComboBoxKategoriHarga.ValueMember = "nama_kategori"
+            ComboBoxKategoriHarga.ValueMember = "id"
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try

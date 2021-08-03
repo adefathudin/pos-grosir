@@ -37,7 +37,7 @@ Partial Class FormKasir
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.ButtonSimpanDanCetak = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -46,8 +46,14 @@ Partial Class FormKasir
         Me.TextBoxTotal = New System.Windows.Forms.TextBox()
         Me.TextBoxDiskon = New System.Windows.Forms.TextBox()
         Me.TextBoxTotalBelanja = New System.Windows.Forms.TextBox()
-        Me.TextBoxNamaCustomer = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.ButtonHapusCustomer = New System.Windows.Forms.Button()
+        Me.ButtonCheckCustomer = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBoxKategoriHarga = New System.Windows.Forms.TextBox()
+        Me.TextBoxNamaCustomer = New System.Windows.Forms.TextBox()
         Me.TextBoxIDCustomer = New System.Windows.Forms.TextBox()
         Me.ButtonScanKembali = New System.Windows.Forms.Button()
         Me.ButtonLanjutPembayaran = New System.Windows.Forms.Button()
@@ -213,7 +219,7 @@ Partial Class FormKasir
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Label6)
-        Me.GroupBox2.Controls.Add(Me.Button3)
+        Me.GroupBox2.Controls.Add(Me.ButtonSimpanDanCetak)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.Label3)
@@ -222,9 +228,9 @@ Partial Class FormKasir
         Me.GroupBox2.Controls.Add(Me.TextBoxTotal)
         Me.GroupBox2.Controls.Add(Me.TextBoxDiskon)
         Me.GroupBox2.Controls.Add(Me.TextBoxTotalBelanja)
-        Me.GroupBox2.Location = New System.Drawing.Point(632, 337)
+        Me.GroupBox2.Location = New System.Drawing.Point(631, 376)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(197, 279)
+        Me.GroupBox2.Size = New System.Drawing.Size(197, 240)
         Me.GroupBox2.TabIndex = 11
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "PEMBAYARAN"
@@ -232,28 +238,28 @@ Partial Class FormKasir
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(25, 181)
+        Me.Label6.Location = New System.Drawing.Point(20, 154)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(50, 13)
         Me.Label6.TabIndex = 12
         Me.Label6.Text = "Kembali :"
         '
-        'Button3
+        'ButtonSimpanDanCetak
         '
-        Me.Button3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Button3.Enabled = False
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(6, 215)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(184, 57)
-        Me.Button3.TabIndex = 11
-        Me.Button3.Text = "SIMPAN DAN CETAK STRUK"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.ButtonSimpanDanCetak.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ButtonSimpanDanCetak.Enabled = False
+        Me.ButtonSimpanDanCetak.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonSimpanDanCetak.Location = New System.Drawing.Point(8, 182)
+        Me.ButtonSimpanDanCetak.Name = "ButtonSimpanDanCetak"
+        Me.ButtonSimpanDanCetak.Size = New System.Drawing.Size(184, 47)
+        Me.ButtonSimpanDanCetak.TabIndex = 11
+        Me.ButtonSimpanDanCetak.Text = "SIMPAN DAN CETAK STRUK"
+        Me.ButtonSimpanDanCetak.UseVisualStyleBackColor = False
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 144)
+        Me.Label5.Location = New System.Drawing.Point(3, 131)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(69, 13)
         Me.Label5.TabIndex = 9
@@ -262,24 +268,24 @@ Partial Class FormKasir
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(41, 61)
+        Me.Label4.Location = New System.Drawing.Point(3, 55)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(37, 13)
+        Me.Label4.Size = New System.Drawing.Size(79, 13)
         Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Disc. :"
+        Me.Label4.Text = "Disc. Hrg Ktgr :"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(3, 23)
+        Me.Label3.Location = New System.Drawing.Point(13, 29)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 13)
+        Me.Label3.Size = New System.Drawing.Size(69, 13)
         Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Total Belanja :"
+        Me.Label3.Text = "Hrg. Normal :"
         '
         'TextBoxKembali
         '
-        Me.TextBoxKembali.Location = New System.Drawing.Point(78, 178)
+        Me.TextBoxKembali.Location = New System.Drawing.Point(80, 154)
         Me.TextBoxKembali.Name = "TextBoxKembali"
         Me.TextBoxKembali.ReadOnly = True
         Me.TextBoxKembali.Size = New System.Drawing.Size(112, 20)
@@ -291,7 +297,7 @@ Partial Class FormKasir
         '
         Me.TextBoxUangTunai.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TextBoxUangTunai.Enabled = False
-        Me.TextBoxUangTunai.Location = New System.Drawing.Point(79, 141)
+        Me.TextBoxUangTunai.Location = New System.Drawing.Point(81, 128)
         Me.TextBoxUangTunai.Name = "TextBoxUangTunai"
         Me.TextBoxUangTunai.Size = New System.Drawing.Size(111, 20)
         Me.TextBoxUangTunai.TabIndex = 4
@@ -301,7 +307,7 @@ Partial Class FormKasir
         'TextBoxTotal
         '
         Me.TextBoxTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxTotal.Location = New System.Drawing.Point(6, 94)
+        Me.TextBoxTotal.Location = New System.Drawing.Point(8, 87)
         Me.TextBoxTotal.Name = "TextBoxTotal"
         Me.TextBoxTotal.ReadOnly = True
         Me.TextBoxTotal.Size = New System.Drawing.Size(184, 26)
@@ -311,52 +317,116 @@ Partial Class FormKasir
         '
         'TextBoxDiskon
         '
-        Me.TextBoxDiskon.Location = New System.Drawing.Point(81, 58)
+        Me.TextBoxDiskon.Location = New System.Drawing.Point(88, 52)
         Me.TextBoxDiskon.Name = "TextBoxDiskon"
         Me.TextBoxDiskon.ReadOnly = True
-        Me.TextBoxDiskon.Size = New System.Drawing.Size(109, 20)
+        Me.TextBoxDiskon.Size = New System.Drawing.Size(102, 20)
         Me.TextBoxDiskon.TabIndex = 1
         Me.TextBoxDiskon.Text = "0"
         Me.TextBoxDiskon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBoxTotalBelanja
         '
-        Me.TextBoxTotalBelanja.Location = New System.Drawing.Point(81, 23)
+        Me.TextBoxTotalBelanja.Location = New System.Drawing.Point(88, 26)
         Me.TextBoxTotalBelanja.Name = "TextBoxTotalBelanja"
         Me.TextBoxTotalBelanja.ReadOnly = True
-        Me.TextBoxTotalBelanja.Size = New System.Drawing.Size(109, 20)
+        Me.TextBoxTotalBelanja.Size = New System.Drawing.Size(102, 20)
         Me.TextBoxTotalBelanja.TabIndex = 0
         Me.TextBoxTotalBelanja.Text = "0"
         Me.TextBoxTotalBelanja.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBoxNamaCustomer
-        '
-        Me.TextBoxNamaCustomer.Location = New System.Drawing.Point(6, 19)
-        Me.TextBoxNamaCustomer.Name = "TextBoxNamaCustomer"
-        Me.TextBoxNamaCustomer.ReadOnly = True
-        Me.TextBoxNamaCustomer.Size = New System.Drawing.Size(184, 20)
-        Me.TextBoxNamaCustomer.TabIndex = 13
-        '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.TextBoxIDCustomer)
+        Me.GroupBox4.Controls.Add(Me.ButtonHapusCustomer)
+        Me.GroupBox4.Controls.Add(Me.ButtonCheckCustomer)
+        Me.GroupBox4.Controls.Add(Me.Label9)
+        Me.GroupBox4.Controls.Add(Me.Label8)
+        Me.GroupBox4.Controls.Add(Me.Label7)
+        Me.GroupBox4.Controls.Add(Me.TextBoxKategoriHarga)
         Me.GroupBox4.Controls.Add(Me.TextBoxNamaCustomer)
-        Me.GroupBox4.Location = New System.Drawing.Point(632, 250)
+        Me.GroupBox4.Controls.Add(Me.TextBoxIDCustomer)
+        Me.GroupBox4.Location = New System.Drawing.Point(632, 235)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(197, 81)
+        Me.GroupBox4.Size = New System.Drawing.Size(197, 135)
         Me.GroupBox4.TabIndex = 12
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "PELANGGAN"
         '
+        'ButtonHapusCustomer
+        '
+        Me.ButtonHapusCustomer.Enabled = False
+        Me.ButtonHapusCustomer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonHapusCustomer.Location = New System.Drawing.Point(79, 102)
+        Me.ButtonHapusCustomer.Name = "ButtonHapusCustomer"
+        Me.ButtonHapusCustomer.Size = New System.Drawing.Size(50, 27)
+        Me.ButtonHapusCustomer.TabIndex = 19
+        Me.ButtonHapusCustomer.Text = "x"
+        Me.ButtonHapusCustomer.UseVisualStyleBackColor = True
+        '
+        'ButtonCheckCustomer
+        '
+        Me.ButtonCheckCustomer.Enabled = False
+        Me.ButtonCheckCustomer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonCheckCustomer.Location = New System.Drawing.Point(141, 102)
+        Me.ButtonCheckCustomer.Name = "ButtonCheckCustomer"
+        Me.ButtonCheckCustomer.Size = New System.Drawing.Size(50, 27)
+        Me.ButtonCheckCustomer.TabIndex = 18
+        Me.ButtonCheckCustomer.Text = "✓"
+        Me.ButtonCheckCustomer.UseVisualStyleBackColor = True
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(29, 53)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(41, 13)
+        Me.Label9.TabIndex = 17
+        Me.Label9.Text = "Nama :"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(22, 27)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(48, 13)
+        Me.Label8.TabIndex = 16
+        Me.Label8.Text = "No. HP :"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 79)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(67, 13)
+        Me.Label7.TabIndex = 13
+        Me.Label7.Text = "Ktgr. Harga :"
+        '
+        'TextBoxKategoriHarga
+        '
+        Me.TextBoxKategoriHarga.BackColor = System.Drawing.SystemColors.Control
+        Me.TextBoxKategoriHarga.Location = New System.Drawing.Point(79, 76)
+        Me.TextBoxKategoriHarga.Name = "TextBoxKategoriHarga"
+        Me.TextBoxKategoriHarga.ReadOnly = True
+        Me.TextBoxKategoriHarga.Size = New System.Drawing.Size(112, 20)
+        Me.TextBoxKategoriHarga.TabIndex = 15
+        '
+        'TextBoxNamaCustomer
+        '
+        Me.TextBoxNamaCustomer.BackColor = System.Drawing.SystemColors.Control
+        Me.TextBoxNamaCustomer.Location = New System.Drawing.Point(79, 50)
+        Me.TextBoxNamaCustomer.Name = "TextBoxNamaCustomer"
+        Me.TextBoxNamaCustomer.ReadOnly = True
+        Me.TextBoxNamaCustomer.Size = New System.Drawing.Size(112, 20)
+        Me.TextBoxNamaCustomer.TabIndex = 14
+        Me.TextBoxNamaCustomer.Text = "cari..."
+        '
         'TextBoxIDCustomer
         '
-        Me.TextBoxIDCustomer.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBoxIDCustomer.Enabled = False
-        Me.TextBoxIDCustomer.Location = New System.Drawing.Point(6, 45)
+        Me.TextBoxIDCustomer.Location = New System.Drawing.Point(79, 24)
         Me.TextBoxIDCustomer.Name = "TextBoxIDCustomer"
-        Me.TextBoxIDCustomer.Size = New System.Drawing.Size(184, 20)
-        Me.TextBoxIDCustomer.TabIndex = 14
-        Me.TextBoxIDCustomer.Text = "0"
+        Me.TextBoxIDCustomer.ReadOnly = True
+        Me.TextBoxIDCustomer.Size = New System.Drawing.Size(112, 20)
+        Me.TextBoxIDCustomer.TabIndex = 13
         '
         'ButtonScanKembali
         '
@@ -446,16 +516,22 @@ Partial Class FormKasir
     Friend WithEvents TextBoxTotal As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxDiskon As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxTotalBelanja As System.Windows.Forms.TextBox
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents ButtonSimpanDanCetak As System.Windows.Forms.Button
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents formcaribarang As System.Windows.Forms.GroupBox
     Friend WithEvents DataGridViewCariBarang As System.Windows.Forms.DataGridView
     Friend WithEvents TextBoxCariBarang As System.Windows.Forms.TextBox
     Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents TextBoxNamaCustomer As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBoxIDCustomer As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxNamaCustomer As System.Windows.Forms.TextBox
     Friend WithEvents ButtonScanKembali As System.Windows.Forms.Button
     Friend WithEvents ButtonLanjutPembayaran As System.Windows.Forms.Button
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents TextBoxKategoriHarga As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxIDCustomer As System.Windows.Forms.TextBox
+    Friend WithEvents ButtonHapusCustomer As System.Windows.Forms.Button
+    Friend WithEvents ButtonCheckCustomer As System.Windows.Forms.Button
 End Class
