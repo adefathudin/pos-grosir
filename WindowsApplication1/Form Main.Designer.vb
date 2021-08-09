@@ -36,6 +36,7 @@ Partial Class POSMAIN
         Me.TextBoxLoginPassword = New System.Windows.Forms.TextBox()
         Me.lbljam = New System.Windows.Forms.Label()
         Me.GroupBoxMenu = New System.Windows.Forms.GroupBox()
+        Me.ButtonUsers = New System.Windows.Forms.Button()
         Me.ButtonCustomer = New System.Windows.Forms.Button()
         Me.btnlaporan = New System.Windows.Forms.Button()
         Me.btnkasir = New System.Windows.Forms.Button()
@@ -194,6 +195,7 @@ Partial Class POSMAIN
         'GroupBoxMenu
         '
         Me.GroupBoxMenu.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.GroupBoxMenu.Controls.Add(Me.ButtonUsers)
         Me.GroupBoxMenu.Controls.Add(Me.ButtonCustomer)
         Me.GroupBoxMenu.Controls.Add(Me.btnlaporan)
         Me.GroupBoxMenu.Controls.Add(Me.btnkasir)
@@ -203,10 +205,25 @@ Partial Class POSMAIN
         Me.GroupBoxMenu.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBoxMenu.Name = "GroupBoxMenu"
         Me.GroupBoxMenu.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBoxMenu.Size = New System.Drawing.Size(163, 295)
+        Me.GroupBoxMenu.Size = New System.Drawing.Size(163, 349)
         Me.GroupBoxMenu.TabIndex = 8
         Me.GroupBoxMenu.TabStop = False
         Me.GroupBoxMenu.Visible = False
+        '
+        'ButtonUsers
+        '
+        Me.ButtonUsers.BackColor = System.Drawing.Color.LightCyan
+        Me.ButtonUsers.Enabled = False
+        Me.ButtonUsers.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonUsers.Image = CType(resources.GetObject("ButtonUsers.Image"), System.Drawing.Image)
+        Me.ButtonUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ButtonUsers.Location = New System.Drawing.Point(9, 296)
+        Me.ButtonUsers.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonUsers.Name = "ButtonUsers"
+        Me.ButtonUsers.Size = New System.Drawing.Size(147, 37)
+        Me.ButtonUsers.TabIndex = 14
+        Me.ButtonUsers.Text = "USERS"
+        Me.ButtonUsers.UseVisualStyleBackColor = False
         '
         'ButtonCustomer
         '
@@ -386,5 +403,6 @@ Partial Class POSMAIN
     Friend WithEvents LabelStation As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents ButtonUsers As System.Windows.Forms.Button
 
 End Class

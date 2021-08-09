@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Agu 2021 pada 05.33
+-- Waktu pembuatan: 09 Agu 2021 pada 02.30
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 8.0.8
 
@@ -21519,6 +21519,13 @@ CREATE TABLE `tran_temp` (
   `station` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tran_temp`
+--
+
+INSERT INTO `tran_temp` (`id`, `plu`, `deskripsi`, `kategoriharga_id`, `harga_satuan_normal`, `harga_kategori`, `qty`, `total_harga_normal`, `total_harga_kategori`, `station`) VALUES
+(48, '20115474', 'COCA COLLA 110ML', '', '7000', '7000', 2, '14000', '14000', '01');
+
 -- --------------------------------------------------------
 
 --
@@ -21539,7 +21546,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nik`, `nama`, `level`, `password`, `status`) VALUES
-(1, 1, 'Ade Fathudin Melly', 'admin', 'c4ca4238a0b923820dcc509a6f75849b', 1);
+(1, 1, 'Ade Fathudin Melly', 'admin', 'c4ca4238a0b923820dcc509a6f75849b', 1),
+(2, 2, 'Ade ', 'kasir', 'c4ca4238a0b923820dcc509a6f75849b', 1);
 
 --
 -- Indexes for dumped tables
@@ -21656,13 +21664,13 @@ ALTER TABLE `rel_kategoriharga`
 -- AUTO_INCREMENT untuk tabel `tran_temp`
 --
 ALTER TABLE `tran_temp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

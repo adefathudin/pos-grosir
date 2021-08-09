@@ -35,12 +35,12 @@
 
 
     Private Sub TextBoxBarang_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxBarang.KeyDown
-        If String.IsNullOrEmpty(TextBoxBarang.Text) Then
-            TextBoxQTY.Focus()
-            Exit Sub
-        End If
         Select Case e.KeyCode
             Case Keys.Enter
+                If String.IsNullOrEmpty(TextBoxBarang.Text) Then
+                    TextBoxQTY.Focus()
+                    Exit Sub
+                End If
                 Try
                     Dim plu = TextBoxBarang.Text
                     Call conecDB()
@@ -411,15 +411,15 @@
     Private Sub TextBoxUangTunai_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxUangTunai.KeyDown
         Select e.KeyCode
             Case Keys.Enter
+                If String.IsNullOrEmpty(TextBoxUangTunai.Text) Then
+                    TextBoxUangTunai.Focus()
+                    Exit Sub
+                End If
                 TextBoxKembali.Text = TextBoxUangTunai.Text - TextBoxTotal.Text
                 ButtonSimpanDanCetak.Enabled = True
+                FormKasir_Kembalian.LabelKembalian.Text = TextBoxKembali.Text.ToString("N0")
                 FormKasir_Kembalian.ShowDialog()
-                FormKasir_Kembalian.LabelKembalian.Text = TextBoxKembali.Text
         End Select
-    End Sub
-
-    Private Sub ButtonSimpanDanCetak_Click(sender As Object, e As EventArgs) Handles ButtonSimpanDanCetak.Click
-
     End Sub
 
     Public Sub SimpanTranDanCetak()
@@ -439,5 +439,7 @@
         ClearTextBox()
         ClearTextBoxTran()
         TotalBelanja()
+        TextBoxKembali.Clear()
+        TextBoxUangTunai.Clear()
     End Sub
 End Class

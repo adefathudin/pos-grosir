@@ -74,6 +74,9 @@
                     GroupBoxLogin.Visible = False
                     GroupBoxMenu.Visible = True
                     PanelIdentitas.Visible = True
+                    If (rdDB.Item("level") = "admin") Then
+                        ButtonUsers.Enabled = True
+                    End If
                     rdDB.Close()
 
                     'AMBIL IDENTITAS TOKO
@@ -110,4 +113,7 @@
         Return s.ToString()
     End Function
 
+    Private Sub ButtonUsers_Click(sender As Object, e As EventArgs) Handles ButtonUsers.Click
+
+    End Sub
 End Class
