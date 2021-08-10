@@ -59,3 +59,7 @@ C:\Projects\kasgros\WindowsApplication1\bin\Debug\WindowsApplication1.exe
 C:\Projects\kasgros\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
 C:\Projects\kasgros\WindowsApplication1\bin\Debug\WindowsApplication1.xml
 C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormKasir_Kembalian.resources
+C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormKasir_Customer_Select.resources
+C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormKasir_Kembalian.resources
+C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_Kategori_Select.resources
+C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_Rak_Select.resources

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.6.6deb5ubuntu0.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 09 Agu 2021 pada 02.30
--- Versi server: 10.4.20-MariaDB
--- Versi PHP: 8.0.8
+-- Host: localhost:3306
+-- Generation Time: Aug 10, 2021 at 07:09 AM
+-- Server version: 10.1.47-MariaDB-0ubuntu0.18.04.1
+-- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -24,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barcode`
+-- Table structure for table `barcode`
 --
 
 CREATE TABLE `barcode` (
@@ -32,7 +31,7 @@ CREATE TABLE `barcode` (
   `PLU` varchar(8) NOT NULL DEFAULT '',
   `BARCD` varchar(15) NOT NULL DEFAULT '',
   `KEMASAN` varchar(4) DEFAULT NULL,
-  `QTY` decimal(12,0) DEFAULT 1,
+  `QTY` decimal(12,0) DEFAULT '1',
   `ADDID` varchar(45) DEFAULT NULL,
   `ADDTIME` datetime DEFAULT NULL,
   `UPDID` varchar(45) DEFAULT NULL,
@@ -40,7 +39,7 @@ CREATE TABLE `barcode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='BARCODE ; InnoDB free: 10240 kB; (`ADDID`) REFER `pos/user`(';
 
 --
--- Dumping data untuk tabel `barcode`
+-- Dumping data for table `barcode`
 --
 
 INSERT INTO `barcode` (`RECID`, `PLU`, `BARCD`, `KEMASAN`, `QTY`, `ADDID`, `ADDTIME`, `UPDID`, `UPDTIME`) VALUES
@@ -5696,7 +5695,7 @@ INSERT INTO `barcode` (`RECID`, `PLU`, `BARCD`, `KEMASAN`, `QTY`, `ADDID`, `ADDT
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customers`
+-- Table structure for table `customers`
 --
 
 CREATE TABLE `customers` (
@@ -5708,7 +5707,7 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `customers`
+-- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`id`, `nama_pelanggan`, `nomor_hp`, `alamat`, `kategori_harga`) VALUES
@@ -5719,7 +5718,7 @@ INSERT INTO `customers` (`id`, `nama_pelanggan`, `nomor_hp`, `alamat`, `kategori
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cust_temp`
+-- Table structure for table `cust_temp`
 --
 
 CREATE TABLE `cust_temp` (
@@ -5728,13 +5727,13 @@ CREATE TABLE `cust_temp` (
   `nomor_hp` varchar(13) DEFAULT NULL,
   `kategoriharga_id` varchar(3) DEFAULT NULL,
   `kategori_harga` varchar(50) DEFAULT NULL,
-  `updtime` timestamp NOT NULL DEFAULT current_timestamp()
+  `updtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `his_prodmast`
+-- Table structure for table `his_prodmast`
 --
 
 CREATE TABLE `his_prodmast` (
@@ -5753,16 +5752,16 @@ CREATE TABLE `his_prodmast` (
   `SINGKATAN` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
   `DESC2` varchar(50) CHARACTER SET latin1 DEFAULT '',
   `UNIT` varchar(4) CHARACTER SET latin1 DEFAULT NULL,
-  `ACOST` decimal(15,2) DEFAULT 0.00,
-  `PRICE` decimal(14,2) DEFAULT 0.00,
+  `ACOST` decimal(15,2) DEFAULT '0.00',
+  `PRICE` decimal(14,2) DEFAULT '0.00',
   `PRICE_KAT` varchar(300) CHARACTER SET latin1 DEFAULT NULL,
   `RAK` varchar(15) CHARACTER SET latin1 DEFAULT NULL,
-  `STOK` int(3) NOT NULL DEFAULT 0,
+  `STOK` int(3) NOT NULL DEFAULT '0',
   `BRG_AKTIF` enum('N','Y') CHARACTER SET latin1 DEFAULT 'N'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `his_prodmast`
+-- Dumping data for table `his_prodmast`
 --
 
 INSERT INTO `his_prodmast` (`RECID`, `DIVISI`, `DEPART`, `KATEGORI`, `SUB_KATEGORI`, `PRDCD`, `PLUMD`, `MERK`, `NAMA`, `FLAVOUR`, `KEMASAN`, `SIZE`, `SINGKATAN`, `DESC2`, `UNIT`, `ACOST`, `PRICE`, `PRICE_KAT`, `RAK`, `STOK`, `BRG_AKTIF`) VALUES
@@ -15883,7 +15882,25 @@ INSERT INTO `his_prodmast` (`RECID`, `DIVISI`, `DEPART`, `KATEGORI`, `SUB_KATEGO
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `prodmast`
+-- Table structure for table `mtran`
+--
+
+CREATE TABLE `mtran` (
+  `id_tran` int(11) NOT NULL,
+  `plu` varchar(16) NOT NULL,
+  `tanggal` date NOT NULL,
+  `station` varchar(2) NOT NULL,
+  `qty` varchar(4) NOT NULL,
+  `kategori_harga` varchar(50) NOT NULL,
+  `harga_satuan` decimal(18,0) NOT NULL,
+  `harga_total` decimal(18,0) NOT NULL,
+  `addtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prodmast`
 --
 
 CREATE TABLE `prodmast` (
@@ -15899,14 +15916,14 @@ CREATE TABLE `prodmast` (
   `SINGKATAN` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
   `DESC2` varchar(50) CHARACTER SET latin1 DEFAULT '',
   `UNIT` varchar(4) CHARACTER SET latin1 DEFAULT NULL,
-  `ACOST` decimal(15,2) DEFAULT 0.00,
-  `PRICE` decimal(14,2) DEFAULT 0.00,
+  `ACOST` decimal(15,2) DEFAULT '0.00',
+  `PRICE` decimal(14,2) DEFAULT '0.00',
   `RAK` varchar(15) CHARACTER SET latin1 DEFAULT NULL,
-  `STOK` int(3) NOT NULL DEFAULT 0
+  `STOK` int(3) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `prodmast`
+-- Dumping data for table `prodmast`
 --
 
 INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLAVOUR`, `KEMASAN`, `SIZE`, `SINGKATAN`, `DESC2`, `UNIT`, `ACOST`, `PRICE`, `RAK`, `STOK`) VALUES
@@ -21399,7 +21416,7 @@ INSERT INTO `prodmast` (`id`, `barcd`, `KATEGORI`, `PRDCD`, `MERK`, `NAMA`, `FLA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ref_kategoriharga`
+-- Table structure for table `ref_kategoriharga`
 --
 
 CREATE TABLE `ref_kategoriharga` (
@@ -21409,7 +21426,7 @@ CREATE TABLE `ref_kategoriharga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `ref_kategoriharga`
+-- Dumping data for table `ref_kategoriharga`
 --
 
 INSERT INTO `ref_kategoriharga` (`id`, `nama_kategori`, `deskripsi`) VALUES
@@ -21419,18 +21436,18 @@ INSERT INTO `ref_kategoriharga` (`id`, `nama_kategori`, `deskripsi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ref_kategoriproduk`
+-- Table structure for table `ref_kategoriproduk`
 --
 
 CREATE TABLE `ref_kategoriproduk` (
   `id` int(11) NOT NULL,
   `nama_kategori` varchar(30) NOT NULL,
   `deskripsi` varchar(140) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
+  `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `ref_kategoriproduk`
+-- Dumping data for table `ref_kategoriproduk`
 --
 
 INSERT INTO `ref_kategoriproduk` (`id`, `nama_kategori`, `deskripsi`, `status`) VALUES
@@ -21440,7 +21457,7 @@ INSERT INTO `ref_kategoriproduk` (`id`, `nama_kategori`, `deskripsi`, `status`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ref_rak`
+-- Table structure for table `ref_rak`
 --
 
 CREATE TABLE `ref_rak` (
@@ -21451,7 +21468,7 @@ CREATE TABLE `ref_rak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `ref_rak`
+-- Dumping data for table `ref_rak`
 --
 
 INSERT INTO `ref_rak` (`id_rak`, `nama_rak`, `deskripsi`, `status`) VALUES
@@ -21461,7 +21478,7 @@ INSERT INTO `ref_rak` (`id_rak`, `nama_rak`, `deskripsi`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rel_kategoriharga`
+-- Table structure for table `rel_kategoriharga`
 --
 
 CREATE TABLE `rel_kategoriharga` (
@@ -21472,7 +21489,7 @@ CREATE TABLE `rel_kategoriharga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `rel_kategoriharga`
+-- Dumping data for table `rel_kategoriharga`
 --
 
 INSERT INTO `rel_kategoriharga` (`id`, `kategoriharga_id`, `plu`, `harga`) VALUES
@@ -21483,7 +21500,7 @@ INSERT INTO `rel_kategoriharga` (`id`, `kategoriharga_id`, `plu`, `harga`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `toko`
+-- Table structure for table `toko`
 --
 
 CREATE TABLE `toko` (
@@ -21494,7 +21511,7 @@ CREATE TABLE `toko` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `toko`
+-- Dumping data for table `toko`
 --
 
 INSERT INTO `toko` (`rkey`, `nama_toko`, `alamat`, `telepon`) VALUES
@@ -21503,7 +21520,7 @@ INSERT INTO `toko` (`rkey`, `nama_toko`, `alamat`, `telepon`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tran_temp`
+-- Table structure for table `tran_temp`
 --
 
 CREATE TABLE `tran_temp` (
@@ -21520,16 +21537,16 @@ CREATE TABLE `tran_temp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tran_temp`
+-- Dumping data for table `tran_temp`
 --
 
 INSERT INTO `tran_temp` (`id`, `plu`, `deskripsi`, `kategoriharga_id`, `harga_satuan_normal`, `harga_kategori`, `qty`, `total_harga_normal`, `total_harga_kategori`, `station`) VALUES
-(48, '20115474', 'COCA COLLA 110ML', '', '7000', '7000', 2, '14000', '14000', '01');
+(50, '20115474', 'COCA COLLA 110ML', '', '7000', '7000', 24, '168000', '168000', '01');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -21542,7 +21559,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `nik`, `nama`, `level`, `password`, `status`) VALUES
@@ -21554,125 +21571,127 @@ INSERT INTO `users` (`id`, `nik`, `nama`, `level`, `password`, `status`) VALUES
 --
 
 --
--- Indeks untuk tabel `barcode`
+-- Indexes for table `barcode`
 --
 ALTER TABLE `barcode`
   ADD PRIMARY KEY (`PLU`,`BARCD`),
   ADD UNIQUE KEY `BARCODE` (`BARCD`);
 
 --
--- Indeks untuk tabel `customers`
+-- Indexes for table `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `cust_temp`
+-- Indexes for table `cust_temp`
 --
 ALTER TABLE `cust_temp`
   ADD PRIMARY KEY (`station`);
 
 --
--- Indeks untuk tabel `prodmast`
+-- Indexes for table `mtran`
+--
+ALTER TABLE `mtran`
+  ADD PRIMARY KEY (`id_tran`);
+
+--
+-- Indexes for table `prodmast`
 --
 ALTER TABLE `prodmast`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `ref_kategoriharga`
+-- Indexes for table `ref_kategoriharga`
 --
 ALTER TABLE `ref_kategoriharga`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `ref_kategoriproduk`
+-- Indexes for table `ref_kategoriproduk`
 --
 ALTER TABLE `ref_kategoriproduk`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `ref_rak`
+-- Indexes for table `ref_rak`
 --
 ALTER TABLE `ref_rak`
   ADD PRIMARY KEY (`id_rak`);
 
 --
--- Indeks untuk tabel `rel_kategoriharga`
+-- Indexes for table `rel_kategoriharga`
 --
 ALTER TABLE `rel_kategoriharga`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `toko`
+-- Indexes for table `toko`
 --
 ALTER TABLE `toko`
   ADD PRIMARY KEY (`rkey`);
 
 --
--- Indeks untuk tabel `tran_temp`
+-- Indexes for table `tran_temp`
 --
 ALTER TABLE `tran_temp`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `customers`
+-- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
--- AUTO_INCREMENT untuk tabel `prodmast`
+-- AUTO_INCREMENT for table `mtran`
+--
+ALTER TABLE `mtran`
+  MODIFY `id_tran` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `prodmast`
 --
 ALTER TABLE `prodmast`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5471;
-
 --
--- AUTO_INCREMENT untuk tabel `ref_kategoriharga`
+-- AUTO_INCREMENT for table `ref_kategoriharga`
 --
 ALTER TABLE `ref_kategoriharga`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
 --
--- AUTO_INCREMENT untuk tabel `ref_kategoriproduk`
+-- AUTO_INCREMENT for table `ref_kategoriproduk`
 --
 ALTER TABLE `ref_kategoriproduk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
--- AUTO_INCREMENT untuk tabel `ref_rak`
+-- AUTO_INCREMENT for table `ref_rak`
 --
 ALTER TABLE `ref_rak`
-  MODIFY `id_rak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
+  MODIFY `id_rak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT untuk tabel `rel_kategoriharga`
+-- AUTO_INCREMENT for table `rel_kategoriharga`
 --
 ALTER TABLE `rel_kategoriharga`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10028;
-
 --
--- AUTO_INCREMENT untuk tabel `tran_temp`
+-- AUTO_INCREMENT for table `tran_temp`
 --
 ALTER TABLE `tran_temp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

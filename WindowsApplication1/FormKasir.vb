@@ -311,18 +311,18 @@
                     TextBoxTotalBelanja.Text = "0"
                     TextBoxDiskon.Text = "0"
                 Else
-                    TextBoxTotalBelanja.Text = rdDB.Item("total").ToString
-                    TextBoxDiskon.Text = rdDB.Item("diskon").ToString
+                    TextBoxTotalBelanja.Text = rdDB.Item("total").ToString("N0")
+                    TextBoxDiskon.Text = rdDB.Item("diskon").ToString("N0")
                 End If
 
-                Dim total As String
+                Dim total As Integer
                 If String.Equals(TextBoxTotalBelanja.Text, TextBoxDiskon.Text) Then
                     TextBoxDiskon.Text = "0"
                     total = TextBoxTotalBelanja.Text
                 Else
                     total = TextBoxTotalBelanja.Text - TextBoxDiskon.Text
                 End If
-                TextBoxTotal.Text = total
+                TextBoxTotal.Text = total.ToString("N0")
                 'TextBoxTotal.Text = (Convert.ToDouble(TextBoxTotalBelanja.Text) - Convert.ToDouble(TextBoxDiskon.Text)).ToString("NO")
             End If
         Catch ex As Exception
@@ -417,7 +417,8 @@
                 End If
                 TextBoxKembali.Text = TextBoxUangTunai.Text - TextBoxTotal.Text
                 ButtonSimpanDanCetak.Enabled = True
-                FormKasir_Kembalian.LabelKembalian.Text = TextBoxKembali.Text.ToString("N0")
+                Dim Kembali As Integer = TextBoxKembali.Text()
+                FormKasir_Kembalian.LabelKembalian.Text = Kembali.ToString("N0")
                 FormKasir_Kembalian.ShowDialog()
         End Select
     End Sub
