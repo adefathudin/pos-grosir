@@ -24,6 +24,7 @@ Partial Class FormKasir
     Private Sub InitializeComponent()
         Me.DataGridViewTranTemp = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.formcaribarang = New System.Windows.Forms.GroupBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.DataGridViewCariBarang = New System.Windows.Forms.DataGridView()
@@ -85,6 +86,7 @@ Partial Class FormKasir
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Button2)
         Me.GroupBox3.Controls.Add(Me.formcaribarang)
         Me.GroupBox3.Controls.Add(Me.DataGridViewTranTemp)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -94,6 +96,15 @@ Partial Class FormKasir
         Me.GroupBox3.TabIndex = 9
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "DAFTAR TRANSAKSI"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(73, 117)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 2
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'formcaribarang
         '
@@ -534,4 +545,5 @@ Partial Class FormKasir
     Friend WithEvents TextBoxIDCustomer As System.Windows.Forms.TextBox
     Friend WithEvents ButtonHapusCustomer As System.Windows.Forms.Button
     Friend WithEvents ButtonCheckCustomer As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

@@ -1,4 +1,6 @@
-﻿Public Class FormKasir
+﻿Imports System.IO
+
+Public Class FormKasir
 
     Public plu, desc, harga_satuan_normal, id_kategoriharga As String
     Public station As String = POSMAIN.LabelStation.Text
@@ -302,7 +304,7 @@
     Sub TotalBelanja()
         Try
             Call conecDB()
-            comDB = New MySql.Data.MySqlClient.MySqlCommand("SELECT sum(total_harga_normal) as total,sum(total_harga_kategori) as diskon FROM tran_temp WHERE station='" + station + "'", connDB)
+            comDB = New MySql.Data.MySqlClient.MySqlCommand("SELECT sum(total_harga_normal) as total,sum((total_harga_normal-total_harga_kategori)) as diskon FROM tran_temp WHERE station='" + station + "'", connDB)
             rdDB = comDB.ExecuteReader
             If rdDB.HasRows Then
                 rdDB.Read()
@@ -311,8 +313,10 @@
                     TextBoxTotalBelanja.Text = "0"
                     TextBoxDiskon.Text = "0"
                 Else
-                    TextBoxTotalBelanja.Text = rdDB.Item("total").ToString("N0")
-                    TextBoxDiskon.Text = rdDB.Item("diskon").ToString("N0")
+                    Dim TotalBelanja As Integer = rdDB.Item("total")
+                    Dim TotalDiskon As Integer = rdDB.Item("diskon")
+                    TextBoxTotalBelanja.Text = TotalBelanja.ToString("N0")
+                    TextBoxDiskon.Text = TotalDiskon.ToString("N0")
                 End If
 
                 Dim total As Integer
@@ -376,6 +380,9 @@
             End If
         Next
         ButtonCheckCustomer.Enabled = False
+        TextBoxUangTunai.Enabled = True
+        TextBoxUangTunai.Text = ""
+        TextBoxUangTunai.Focus()
         DataTranTemp()
     End Sub
 
@@ -409,23 +416,42 @@
     End Sub
 
     Private Sub TextBoxUangTunai_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxUangTunai.KeyDown
-        Select e.KeyCode
+        Select Case e.KeyCode
             Case Keys.Enter
-                If String.IsNullOrEmpty(TextBoxUangTunai.Text) Then
-                    TextBoxUangTunai.Focus()
-                    Exit Sub
+                Dim result As DialogResult = MessageBox.Show("Simpan dan cetak transaksi?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                If result = DialogResult.Yes Then
+                    If String.IsNullOrEmpty(TextBoxUangTunai.Text) Then
+                        TextBoxUangTunai.Focus()
+                        Exit Sub
+                    End If
+                    TextBoxKembali.Text = TextBoxUangTunai.Text - TextBoxTotal.Text
+                    ButtonSimpanDanCetak.Enabled = True
+                    Dim Kembali As Integer = TextBoxKembali.Text()
+                    FormKasir_Kembalian.LabelKembalian.Text = Kembali.ToString("N0")
+                    FormKasir_Kembalian.ShowDialog()
                 End If
-                TextBoxKembali.Text = TextBoxUangTunai.Text - TextBoxTotal.Text
-                ButtonSimpanDanCetak.Enabled = True
-                Dim Kembali As Integer = TextBoxKembali.Text()
-                FormKasir_Kembalian.LabelKembalian.Text = Kembali.ToString("N0")
-                FormKasir_Kembalian.ShowDialog()
         End Select
     End Sub
 
     Public Sub SimpanTranDanCetak()
         Try
             Call conecDB()
+
+            For Each row As DataGridViewRow In DataGridViewTranTemp.Rows
+                If Not row.IsNewRow Then
+                    Try
+                        plu = row.Cells(0).Value.ToString
+                        Dim qty = row.Cells(4).Value.ToString
+                        Dim kategori_harga = row.Cells(3).Value.ToString
+                        Dim harga_satuan = row.Cells(2).Value.ToString
+                        comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO mtran (plu,tanggal,station,qty,kategori_harga,harga_satuan,customer_id) values ('" + plu + "',curdate(),'" + station + "','" + qty + "','" + kategori_harga + "','" + harga_satuan + "','" + TextBoxIDCustomer.Text + "')", connDB)
+                        comDB.ExecuteNonQuery()
+                    Catch ex As Exception
+                        MsgBox("Update harga kategori " + ex.ToString)
+                    End Try
+                    rdDB.Close()
+                End If
+            Next
             comDB = New MySql.Data.MySqlClient.MySqlCommand("DELETE FROM tran_temp WHERE station='" + station + "'", connDB)
             comDB.ExecuteNonQuery()
             DataTranTemp()
@@ -436,11 +462,58 @@
         comDB = New MySql.Data.MySqlClient.MySqlCommand("DELETE FROM cust_temp WHERE station='" + station + "'", connDB)
         comDB.ExecuteNonQuery()
 
+        TextBoxBarang.Enabled = True
+        TextBoxQTY.Enabled = True
         TextBoxBarang.Focus()
         ClearTextBox()
         ClearTextBoxTran()
         TotalBelanja()
         TextBoxKembali.Clear()
         TextBoxUangTunai.Clear()
+
+
+    End Sub
+
+    Private Sub TextBoxNamaCustomer_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxNamaCustomer.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Enter
+                TextBoxUangTunai.Enabled = True
+                TextBoxUangTunai.Text = ""
+                TextBoxUangTunai.Focus()
+        End Select
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim strFile As String = "D:\AplikasiKasir\POSJual-" + station + ".txt"
+        Dim fileExists As Boolean = File.Exists(strFile)
+
+        Dim DataString As String
+
+        Try
+            comDB = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM toko", connDB)
+            rdDB = comDB.ExecuteReader
+            If rdDB.HasRows Then
+                rdDB.Read()
+                DataString += rdDB.Item("nama_toko") & vbCr & vbLf
+                DataString += rdDB.Item("alamat") & vbCr & vbLf
+                DataString += "Telp. " + rdDB.Item("telepon") & vbCr & vbLf
+                rdDB.Close()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
+        DataString += "============================="
+        DataString += "No. "
+
+        DataString += "anjing" + DateTime.Now
+
+        Using sw As New StreamWriter(File.Open(strFile, FileMode.OpenOrCreate))
+            sw.WriteLine( _
+                IIf(fileExists, _
+                    DataString, _
+                    DataString))
+        End Using
+
     End Sub
 End Class
