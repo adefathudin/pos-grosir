@@ -24,7 +24,6 @@ Partial Class FormKasir
     Private Sub InitializeComponent()
         Me.DataGridViewTranTemp = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.formcaribarang = New System.Windows.Forms.GroupBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.DataGridViewCariBarang = New System.Windows.Forms.DataGridView()
@@ -86,7 +85,6 @@ Partial Class FormKasir
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.Button2)
         Me.GroupBox3.Controls.Add(Me.formcaribarang)
         Me.GroupBox3.Controls.Add(Me.DataGridViewTranTemp)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -96,15 +94,6 @@ Partial Class FormKasir
         Me.GroupBox3.TabIndex = 9
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "DAFTAR TRANSAKSI"
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(73, 117)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'formcaribarang
         '
@@ -214,7 +203,7 @@ Partial Class FormKasir
         Me.ButtonCancelSales.Name = "ButtonCancelSales"
         Me.ButtonCancelSales.Size = New System.Drawing.Size(86, 46)
         Me.ButtonCancelSales.TabIndex = 10
-        Me.ButtonCancelSales.Text = "[F2] Cancel Sales"
+        Me.ButtonCancelSales.Text = "Cancel Sales"
         Me.ButtonCancelSales.UseVisualStyleBackColor = False
         '
         'Button1
@@ -224,7 +213,7 @@ Partial Class FormKasir
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(86, 46)
         Me.Button1.TabIndex = 9
-        Me.Button1.Text = "[F1] Cari Barang"
+        Me.Button1.Text = "Cari Barang"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'GroupBox2
@@ -446,7 +435,7 @@ Partial Class FormKasir
         Me.ButtonScanKembali.Name = "ButtonScanKembali"
         Me.ButtonScanKembali.Size = New System.Drawing.Size(86, 46)
         Me.ButtonScanKembali.TabIndex = 11
-        Me.ButtonScanKembali.Text = "[F3] Scan Kembali"
+        Me.ButtonScanKembali.Text = "Scan Kembali"
         Me.ButtonScanKembali.UseVisualStyleBackColor = False
         '
         'ButtonLanjutPembayaran
@@ -456,7 +445,7 @@ Partial Class FormKasir
         Me.ButtonLanjutPembayaran.Name = "ButtonLanjutPembayaran"
         Me.ButtonLanjutPembayaran.Size = New System.Drawing.Size(86, 46)
         Me.ButtonLanjutPembayaran.TabIndex = 12
-        Me.ButtonLanjutPembayaran.Text = "[F4] Lanjut Pembayaran"
+        Me.ButtonLanjutPembayaran.Text = "Lanjut Pembayaran"
         Me.ButtonLanjutPembayaran.UseVisualStyleBackColor = False
         '
         'GroupBox5
@@ -545,5 +534,4 @@ Partial Class FormKasir
     Friend WithEvents TextBoxIDCustomer As System.Windows.Forms.TextBox
     Friend WithEvents ButtonHapusCustomer As System.Windows.Forms.Button
     Friend WithEvents ButtonCheckCustomer As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

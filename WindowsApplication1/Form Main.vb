@@ -42,7 +42,8 @@
         FormKasir.Close()
         FormProduk.Close()
         FormCustomer.Close()
-        FormLaporan.Show()
+        'FormLaporan.Show()
+        FormLaporan_Filter.ShowDialog()
         Cursor = Cursors.Default
     End Sub
 

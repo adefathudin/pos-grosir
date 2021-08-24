@@ -1,8 +1,9 @@
 ﻿Imports System.IO
+Imports System.Drawing.Printing
 
 Public Class FormKasir
 
-    Public plu, desc, harga_satuan_normal, id_kategoriharga As String
+    Public plu, desc, harga_satuan_normal, id_kategoriharga, nama_toko, alamat, no_telepon, nomor_struk As String
     Public station As String = POSMAIN.LabelStation.Text
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -20,21 +21,6 @@ Public Class FormKasir
         formcaribarang.Visible = False
         TextBoxBarang.Focus()
     End Sub
-
-    Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
-        Select Case e.KeyCode
-            Case Keys.F1
-                formcaribarang.Visible = True
-                TextBoxCariBarang.Focus()
-            Case Keys.F5 'save
-                '...sintak anda
-            Case Keys.F6 'cancel
-                '...sintak anda
-            Case Keys.F7 'close
-                '...sintak anda
-        End Select
-    End Sub
-
 
     Private Sub TextBoxBarang_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxBarang.KeyDown
         Select Case e.KeyCode
@@ -428,12 +414,14 @@ Public Class FormKasir
                     ButtonSimpanDanCetak.Enabled = True
                     Dim Kembali As Integer = TextBoxKembali.Text()
                     FormKasir_Kembalian.LabelKembalian.Text = Kembali.ToString("N0")
+                    GenerateNomorStruk()
                     FormKasir_Kembalian.ShowDialog()
                 End If
         End Select
     End Sub
 
     Public Sub SimpanTranDanCetak()
+
         Try
             Call conecDB()
 
@@ -444,7 +432,13 @@ Public Class FormKasir
                         Dim qty = row.Cells(4).Value.ToString
                         Dim kategori_harga = row.Cells(3).Value.ToString
                         Dim harga_satuan = row.Cells(2).Value.ToString
-                        comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO mtran (plu,tanggal,station,qty,kategori_harga,harga_satuan,customer_id) values ('" + plu + "',curdate(),'" + station + "','" + qty + "','" + kategori_harga + "','" + harga_satuan + "','" + TextBoxIDCustomer.Text + "')", connDB)
+
+                        'SIMPAN DATA TRANSAKSI
+                        comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO mtran (plu,tanggal,station,qty,kategori_harga,harga_satuan,customer_id,nomor_struk) values ('" + plu + "',curdate(),'" + station + "','" + qty + "','" + kategori_harga + "','" + harga_satuan + "','" + TextBoxIDCustomer.Text + "','" + nomor_struk + "')", connDB)
+                        comDB.ExecuteNonQuery()
+
+                        'UPDATE STOK
+                        comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE PRODMAST SET stok=stok-" + qty + " WHERE prdcd='" + plu + "'", connDB)
                         comDB.ExecuteNonQuery()
                     Catch ex As Exception
                         MsgBox("Update harga kategori " + ex.ToString)
@@ -452,6 +446,7 @@ Public Class FormKasir
                     rdDB.Close()
                 End If
             Next
+
             comDB = New MySql.Data.MySqlClient.MySqlCommand("DELETE FROM tran_temp WHERE station='" + station + "'", connDB)
             comDB.ExecuteNonQuery()
             DataTranTemp()
@@ -483,37 +478,127 @@ Public Class FormKasir
         End Select
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim strFile As String = "D:\AplikasiKasir\POSJual-" + station + ".txt"
-        Dim fileExists As Boolean = File.Exists(strFile)
-
-        Dim DataString As String
+    Sub CetakPrint()
 
         Try
             comDB = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM toko", connDB)
             rdDB = comDB.ExecuteReader
             If rdDB.HasRows Then
                 rdDB.Read()
-                DataString += rdDB.Item("nama_toko") & vbCr & vbLf
-                DataString += rdDB.Item("alamat") & vbCr & vbLf
-                DataString += "Telp. " + rdDB.Item("telepon") & vbCr & vbLf
+                nama_toko = rdDB.Item("nama_toko")
+                alamat = rdDB.Item("alamat")
+                no_telepon = "Telp. " + rdDB.Item("telepon")
                 rdDB.Close()
             End If
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
 
-        DataString += "============================="
-        DataString += "No. "
+        Dim StoreName As String = nama_toko
+        Dim StoreAddress As String = alamat
+        Dim StorePhone As String = no_telepon
+        'Dim Img As Image = Image.FromFile("d:\logo.jpg") '--> for fixed location
+        'Dim Img As Image = Image.FromFile(Application.StartupPath() & "\logo.jpg")
+        Dim Img As Image
+        Dim TransNo As String = "No: " + nomor_struk
+        Dim TransDate As String = "Tgl: " + Format(Now, "dd-MM-yyyy HH:mm:ss")
 
-        DataString += "anjing" + DateTime.Now
+        'for item sales | untuk item penjualan
+        Dim dtItem As DataTable
+        Dim arrWidth() As Integer
+        Dim arrFormat() As StringFormat
 
-        Using sw As New StreamWriter(File.Open(strFile, FileMode.OpenOrCreate))
-            sw.WriteLine( _
-                IIf(fileExists, _
-                    DataString, _
-                    DataString))
-        End Using
+        'declaring printing format class
+        Dim c As New PrintingFormat
+
+        'for subtotal & qty total
+        Dim dblSubtotal As Double = 0
+        Dim dblQty As Double = 0
+        Dim dblPayment As Double = 50000
+
+        Printer.NewPrint()
+
+        'Printer.Print(Img, 200, 100)
+
+        'Setting Font
+        Printer.SetFont("Bahnschrift Light Condensed", 8, FontStyle.Regular)
+        Printer.Print(StoreName) 'Store Name | Nama Toko
+
+        'Setting Font
+        Printer.SetFont("Bahnschrift Light Condensed", 7, FontStyle.Regular)
+        Printer.Print(StoreAddress & ";", {280}, 0) 'Store Address | Alamat Toko
+
+        'Setting Font
+        Printer.SetFont("Bahnschrift Light Condensed", 7, FontStyle.Regular)
+        Printer.Print(StorePhone & ";", {280}, 0) 'No Telepon
+
+        'spacing
+        Printer.Print("---------------------------------------------------")
+
+        Printer.SetFont("Bahnschrift Light Condensed", 7, FontStyle.Regular) 'Setting Font
+        Printer.Print(TransNo + " - " + TransDate) ' Transaction No | Nomor transaksi
+
+        Printer.SetFont("Bahnschrift Light Condensed", 7, FontStyle.Regular) 'Setting Font
+        arrWidth = {75, 15, 40, 50} 'array for column width | array untuk lebar kolom
+        arrFormat = {c.MidLeft, c.MidRight, c.MidRight, c.MidRight} 'array alignment 
+
+        'column header split by ; | nama kolom dipisah dengan ;
+        'Printer.Print("item;qty;price;subtotal", arrWidth, arrFormat)
+        'Printer.SetFont("Bahnschrift Light Condensed", 7, FontStyle.Regular) 'Setting Font
+        Printer.Print("---------------------------------------------------") 'line
+
+        dblSubtotal = 0
+        dblQty = 0
+        'looping item sales | loop item penjualan
+
+        For Each row As DataGridViewRow In DataGridViewTranTemp.Rows
+            Dim price As Double = row.Cells(2).Value.ToString
+            Dim harga_kategori As String = (row.Cells(2).Value.ToString - row.Cells(3).Value.ToString) * row.Cells(4).Value.ToString
+
+            If String.Equals(row.Cells(2).Value.ToString, row.Cells(3).Value.ToString) Then
+                harga_kategori = ""
+            Else
+                harga_kategori = vbCr & vbLf & "(" + harga_kategori + ")"
+            End If
+            Dim sub_total As Double = (row.Cells(4).Value.ToString * row.Cells(3).Value.ToString)
+            Printer.Print(row.Cells(1).Value.ToString & ";" & _
+                          row.Cells(4).Value.ToString & ";" & _
+                          price.ToString("N0") & harga_kategori & ";" & _
+                         (sub_total.ToString("N0")), arrWidth, arrFormat)
+            dblQty = dblQty + CSng(row.Cells(4).Value.ToString)
+            dblSubtotal = dblSubtotal + (row.Cells(4).Value.ToString * row.Cells(3).Value.ToString)
+        Next
+
+        Printer.Print("---------------------------------------------------")
+        arrWidth = {80, 100} 'array for column width | array untuk lebar kolom
+        arrFormat = {c.MidLeft, c.MidRight} 'array alignment 
+
+        Dim total As Double = TextBoxTotal.Text
+        Dim tunai As Double = TextBoxUangTunai.Text
+        Dim kembali As Double = TextBoxKembali.Text
+        Dim diskon As Double = TextBoxDiskon.Text
+        Printer.Print("Total;" & total.ToString("N0"), arrWidth, arrFormat)
+        Printer.Print("Tunai;" & tunai.ToString("N0"), arrWidth, arrFormat)
+        Printer.Print("Kembali;" & kembali.ToString("N0"), arrWidth, arrFormat)
+        If String.IsNullOrEmpty(TextBoxDiskon.Text) Then
+        Else
+            Printer.Print("Diskon;" & "(" & diskon.ToString("N0") & ")", arrWidth, arrFormat)
+        End If
+        Printer.Print("---------------------------------------------------")
+        Printer.SetFont("Bahnschrift Light Condensed", 7, FontStyle.Regular) 'Setting Font
+        Printer.Print("SELAMAT BELANJA KEMBALI") ' Selamat belanja kembali
+
+        'Release the job for actual printing
+        Printer.DoPrint()
 
     End Sub
+
+    Sub GenerateNomorStruk()
+        Dim dateAndTime As Date
+        dateAndTime = Now
+
+        nomor_struk = station + "-" + Format(dateAndTime, "yyMMddHHmmss").ToString
+
+    End Sub
+
 End Class
