@@ -156,6 +156,12 @@
     <Compile Include="FormProduk_Rak_Select.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormSettings.Designer.vb">
+      <DependentUpon>FormSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="koneksi.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -214,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormProduk_Rak_Select.resx">
       <DependentUpon>FormProduk_Rak_Select.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettings.resx">
+      <DependentUpon>FormSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

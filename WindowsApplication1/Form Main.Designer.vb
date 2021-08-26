@@ -36,12 +36,11 @@ Partial Class POSMAIN
         Me.TextBoxLoginPassword = New System.Windows.Forms.TextBox()
         Me.lbljam = New System.Windows.Forms.Label()
         Me.GroupBoxMenu = New System.Windows.Forms.GroupBox()
-        Me.ButtonUsers = New System.Windows.Forms.Button()
+        Me.ButtonSettings = New System.Windows.Forms.Button()
         Me.ButtonCustomer = New System.Windows.Forms.Button()
         Me.btnlaporan = New System.Windows.Forms.Button()
         Me.btnkasir = New System.Windows.Forms.Button()
         Me.btnproduk = New System.Windows.Forms.Button()
-        Me.btnpembelian = New System.Windows.Forms.Button()
         Me.lbldate = New System.Windows.Forms.Label()
         Me.PanelIdentitas = New System.Windows.Forms.Panel()
         Me.LabelSubToko = New System.Windows.Forms.Label()
@@ -195,35 +194,34 @@ Partial Class POSMAIN
         'GroupBoxMenu
         '
         Me.GroupBoxMenu.BackColor = System.Drawing.Color.CornflowerBlue
-        Me.GroupBoxMenu.Controls.Add(Me.ButtonUsers)
+        Me.GroupBoxMenu.Controls.Add(Me.ButtonSettings)
         Me.GroupBoxMenu.Controls.Add(Me.ButtonCustomer)
         Me.GroupBoxMenu.Controls.Add(Me.btnlaporan)
         Me.GroupBoxMenu.Controls.Add(Me.btnkasir)
         Me.GroupBoxMenu.Controls.Add(Me.btnproduk)
-        Me.GroupBoxMenu.Controls.Add(Me.btnpembelian)
         Me.GroupBoxMenu.Location = New System.Drawing.Point(9, 63)
         Me.GroupBoxMenu.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBoxMenu.Name = "GroupBoxMenu"
         Me.GroupBoxMenu.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBoxMenu.Size = New System.Drawing.Size(163, 349)
+        Me.GroupBoxMenu.Size = New System.Drawing.Size(163, 288)
         Me.GroupBoxMenu.TabIndex = 8
         Me.GroupBoxMenu.TabStop = False
         Me.GroupBoxMenu.Visible = False
         '
-        'ButtonUsers
+        'ButtonSettings
         '
-        Me.ButtonUsers.BackColor = System.Drawing.Color.LightCyan
-        Me.ButtonUsers.Enabled = False
-        Me.ButtonUsers.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonUsers.Image = CType(resources.GetObject("ButtonUsers.Image"), System.Drawing.Image)
-        Me.ButtonUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonUsers.Location = New System.Drawing.Point(9, 296)
-        Me.ButtonUsers.Margin = New System.Windows.Forms.Padding(2)
-        Me.ButtonUsers.Name = "ButtonUsers"
-        Me.ButtonUsers.Size = New System.Drawing.Size(147, 37)
-        Me.ButtonUsers.TabIndex = 14
-        Me.ButtonUsers.Text = "USERS"
-        Me.ButtonUsers.UseVisualStyleBackColor = False
+        Me.ButtonSettings.BackColor = System.Drawing.Color.LightCyan
+        Me.ButtonSettings.Enabled = False
+        Me.ButtonSettings.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonSettings.Image = CType(resources.GetObject("ButtonSettings.Image"), System.Drawing.Image)
+        Me.ButtonSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ButtonSettings.Location = New System.Drawing.Point(9, 238)
+        Me.ButtonSettings.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonSettings.Name = "ButtonSettings"
+        Me.ButtonSettings.Size = New System.Drawing.Size(147, 37)
+        Me.ButtonSettings.TabIndex = 14
+        Me.ButtonSettings.Text = "SETTINGS"
+        Me.ButtonSettings.UseVisualStyleBackColor = False
         '
         'ButtonCustomer
         '
@@ -231,7 +229,7 @@ Partial Class POSMAIN
         Me.ButtonCustomer.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonCustomer.Image = CType(resources.GetObject("ButtonCustomer.Image"), System.Drawing.Image)
         Me.ButtonCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonCustomer.Location = New System.Drawing.Point(9, 187)
+        Me.ButtonCustomer.Location = New System.Drawing.Point(9, 129)
         Me.ButtonCustomer.Margin = New System.Windows.Forms.Padding(2)
         Me.ButtonCustomer.Name = "ButtonCustomer"
         Me.ButtonCustomer.Size = New System.Drawing.Size(147, 37)
@@ -245,7 +243,7 @@ Partial Class POSMAIN
         Me.btnlaporan.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlaporan.Image = CType(resources.GetObject("btnlaporan.Image"), System.Drawing.Image)
         Me.btnlaporan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnlaporan.Location = New System.Drawing.Point(9, 241)
+        Me.btnlaporan.Location = New System.Drawing.Point(9, 183)
         Me.btnlaporan.Margin = New System.Windows.Forms.Padding(2)
         Me.btnlaporan.Name = "btnlaporan"
         Me.btnlaporan.Size = New System.Drawing.Size(147, 37)
@@ -273,27 +271,13 @@ Partial Class POSMAIN
         Me.btnproduk.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnproduk.Image = CType(resources.GetObject("btnproduk.Image"), System.Drawing.Image)
         Me.btnproduk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnproduk.Location = New System.Drawing.Point(9, 131)
+        Me.btnproduk.Location = New System.Drawing.Point(9, 73)
         Me.btnproduk.Margin = New System.Windows.Forms.Padding(2)
         Me.btnproduk.Name = "btnproduk"
         Me.btnproduk.Size = New System.Drawing.Size(147, 37)
         Me.btnproduk.TabIndex = 11
         Me.btnproduk.Text = "PRODUK"
         Me.btnproduk.UseVisualStyleBackColor = False
-        '
-        'btnpembelian
-        '
-        Me.btnpembelian.BackColor = System.Drawing.Color.LightCyan
-        Me.btnpembelian.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpembelian.Image = CType(resources.GetObject("btnpembelian.Image"), System.Drawing.Image)
-        Me.btnpembelian.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnpembelian.Location = New System.Drawing.Point(9, 75)
-        Me.btnpembelian.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnpembelian.Name = "btnpembelian"
-        Me.btnpembelian.Size = New System.Drawing.Size(147, 37)
-        Me.btnpembelian.TabIndex = 10
-        Me.btnpembelian.Text = "PEMBELIAN"
-        Me.btnpembelian.UseVisualStyleBackColor = False
         '
         'lbldate
         '
@@ -390,7 +374,6 @@ Partial Class POSMAIN
     Friend WithEvents btnlaporan As System.Windows.Forms.Button
     Friend WithEvents btnkasir As System.Windows.Forms.Button
     Friend WithEvents btnproduk As System.Windows.Forms.Button
-    Friend WithEvents btnpembelian As System.Windows.Forms.Button
     Friend WithEvents lblversi As System.Windows.Forms.Label
     Friend WithEvents LabelSubToko As System.Windows.Forms.Label
     Friend WithEvents LabelToko As System.Windows.Forms.Label
@@ -403,6 +386,6 @@ Partial Class POSMAIN
     Friend WithEvents LabelStation As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents ButtonUsers As System.Windows.Forms.Button
+    Friend WithEvents ButtonSettings As System.Windows.Forms.Button
 
 End Class

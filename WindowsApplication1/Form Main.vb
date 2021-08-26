@@ -6,8 +6,9 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer1.Start()
-        'LabelStation.Text = Environment.GetEnvironmentVariable("station")
-        LabelStation.Text = "01"
+        LabelStation.Text = Environment.GetEnvironmentVariable("station")
+        'LabelStation.Text = "01"
+        TextBoxLoginUsername.Focus()
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -57,7 +58,22 @@
         Cursor = Cursors.Default
     End Sub
 
+    Private Sub ButtonSettings_Click(sender As Object, e As EventArgs) Handles ButtonSettings.Click
+        Cursor = Cursors.WaitCursor
+        FormSettings.MdiParent = Me
+        FormKasir.Close()
+        FormLaporan.Close()
+        FormProduk.Close()
+        FormCustomer.Close()
+        FormSettings.Show()
+        Cursor = Cursors.Default
+    End Sub
+
     Private Sub ButtonLogin_Click(sender As Object, e As EventArgs) Handles ButtonLogin.Click
+        Login()
+    End Sub
+
+    Sub Login()
 
         Dim nik = TextBoxLoginUsername.Text
         Dim password = TextBoxLoginPassword.Text
@@ -76,7 +92,7 @@
                     GroupBoxMenu.Visible = True
                     PanelIdentitas.Visible = True
                     If (rdDB.Item("level") = "admin") Then
-                        ButtonUsers.Enabled = True
+                        ButtonSettings.Enabled = True
                     End If
                     rdDB.Close()
 
@@ -95,6 +111,8 @@
                     End Try
                 Else
                     MessageBox.Show("Username tidak ditemukan", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    TextBoxLoginUsername.Focus()
+                    TextBoxLoginUsername.SelectAll()
                 End If
                 rdDB.Close()
             Catch ex As Exception
@@ -114,7 +132,25 @@
         Return s.ToString()
     End Function
 
-    Private Sub ButtonUsers_Click(sender As Object, e As EventArgs) Handles ButtonUsers.Click
+    Private Sub TextBoxLoginUsername_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxLoginUsername.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Enter
+                If String.IsNullOrEmpty(TextBoxLoginUsername.Text) Then
+                    TextBoxLoginUsername.Focus()
+                Else
+                    TextBoxLoginPassword.Focus()
+                End If
+        End Select
+    End Sub
 
+    Private Sub TextBoxLoginPassword_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxLoginPassword.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Enter
+                If String.IsNullOrEmpty(TextBoxLoginPassword.Text) Then
+                    TextBoxLoginPassword.Focus()
+                Else
+                    Login()
+                End If
+        End Select
     End Sub
 End Class

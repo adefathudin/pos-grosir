@@ -64,3 +64,4 @@ C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsAp
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_Kategori_Select.resources
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_Rak_Select.resources
 C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormLaporan_Filter.resources
+C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormSettings.resources
