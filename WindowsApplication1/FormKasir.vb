@@ -3,7 +3,7 @@ Imports System.Drawing.Printing
 
 Public Class FormKasir
 
-    Public plu, desc, harga_satuan_normal, id_kategoriharga, nama_toko, alamat, no_telepon, nomor_struk As String
+    Public plu, desc, harga_beli, harga_satuan_normal, id_kategoriharga, nama_toko, alamat, no_telepon, nomor_struk As String
     Public station As String = POSMAIN.LabelStation.Text
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -79,6 +79,7 @@ Public Class FormKasir
                         plu = rdDB.Item("prdcd")
                         desc = rdDB.Item("desc2")
                         harga_satuan_normal = rdDB.Item("price")
+                        harga_beli = rdDB.Item("acost")
                         rdDB.Close()
                     Else
                         MessageBox.Show("Stok tidak mencukupi", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -95,6 +96,7 @@ Public Class FormKasir
                 Dim tran_temp As Boolean
                 Dim tran_kat As Boolean
                 Dim total_harga_normal As String = harga_satuan_normal * qty
+                Dim total_harga_beli As String = harga_beli * qty
 
                 Try
                     'CEK DATA TRAN EKSIST
@@ -112,7 +114,7 @@ Public Class FormKasir
 
                 If tran_temp = True Then
                     If String.IsNullOrEmpty(TextBoxIDCustomer.Text) Then
-                        comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE tran_temp set harga_satuan_normal='" + harga_satuan_normal + "',harga_kategori='" + harga_satuan_normal + "',total_harga_kategori='" + total_harga_normal + "',qty='" + qty + "',total_harga_normal='" + total_harga_normal + "' where plu='" + plu + "' and station='" + station + "'", connDB)
+                        comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE tran_temp set harga_beli_satuan='" + harga_beli + "',total_harga_beli='" + total_harga_beli + "',harga_satuan_normal='" + harga_satuan_normal + "',harga_kategori='" + harga_satuan_normal + "',total_harga_kategori='" + total_harga_normal + "',qty='" + qty + "',total_harga_normal='" + total_harga_normal + "' where plu='" + plu + "' and station='" + station + "'", connDB)
                         comDB.ExecuteNonQuery()
                     Else
                         Try
@@ -134,13 +136,13 @@ Public Class FormKasir
                         rdDB.Close()
                     End If
                 ElseIf tran_temp = False Then
-                    comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO tran_temp (plu,deskripsi,harga_satuan_normal,harga_kategori,qty,total_harga_normal,total_harga_kategori,station) values ('" + plu + "','" + desc.Replace("'", "''") + "','" + harga_satuan_normal + "','" + harga_satuan_normal + "','" + qty + "','" + total_harga_normal + "','" + total_harga_normal + "','" + station + "')", connDB)
+                    comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO tran_temp (plu,deskripsi,harga_beli_satuan,total_harga_beli,harga_satuan_normal,harga_kategori,qty,total_harga_normal,total_harga_kategori,station) values ('" + plu + "','" + desc.Replace("'", "''") + "','" + harga_beli + "','" + total_harga_beli + "','" + harga_satuan_normal + "','" + harga_satuan_normal + "','" + qty + "','" + total_harga_normal + "','" + total_harga_normal + "','" + station + "')", connDB)
                     comDB.ExecuteNonQuery()
                 Else
                 End If
 
                 If tran_kat = True Then
-                    comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE tran_temp set harga_satuan_normal='" + harga_satuan_normal + "',harga_kategori='" + harga_satuan_normal + "',total_harga_kategori='" + total_harga_normal + "',qty='" + qty + "',total_harga_normal='" + total_harga_normal + "' where plu='" + plu + "' and station='" + station + "'", connDB)
+                    comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE tran_temp set tran_temp set harga_beli_satuan='" + harga_beli + "',total_harga_beli='" + total_harga_beli + "',harga_satuan_normal='" + harga_satuan_normal + "',harga_kategori='" + harga_satuan_normal + "',total_harga_kategori='" + total_harga_normal + "',qty='" + qty + "',total_harga_normal='" + total_harga_normal + "' where plu='" + plu + "' and station='" + station + "'", connDB)
                     comDB.ExecuteNonQuery()
                 End If
 
@@ -154,7 +156,7 @@ Public Class FormKasir
         Cursor = Cursors.WaitCursor
         Call conecDB()
         dt = New DataTable
-        da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT plu,deskripsi,harga_satuan_normal,harga_kategori,qty,total_harga_kategori FROM tran_temp WHERE station='" + POSMAIN.LabelStation.Text + "'", connDB)
+        da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT plu,deskripsi,harga_satuan_normal,harga_kategori,qty,total_harga_kategori,total_harga_normal,harga_beli_satuan,total_harga_beli FROM tran_temp WHERE station='" + POSMAIN.LabelStation.Text + "'", connDB)
         Try
             comBuilderDB = New MySql.Data.MySqlClient.MySqlCommandBuilder(da)
             da.Fill(dt)
@@ -165,6 +167,16 @@ Public Class FormKasir
             DataGridViewTranTemp.Columns(3).HeaderText = "Harga Kategori"
             DataGridViewTranTemp.Columns(4).HeaderText = "QTY"
             DataGridViewTranTemp.Columns(5).HeaderText = "Total"
+
+            Me.DataGridViewTranTemp.Columns(6).Visible = False
+            Me.DataGridViewTranTemp.Columns(7).Visible = False
+            Me.DataGridViewTranTemp.Columns(8).Visible = False
+
+
+            DataGridViewTranTemp.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            DataGridViewTranTemp.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            DataGridViewTranTemp.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+
             'Zebra Table
             Me.DataGridViewTranTemp.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue
             Me.DataGridViewTranTemp.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells)
@@ -430,15 +442,19 @@ Public Class FormKasir
                     Try
                         plu = row.Cells(0).Value.ToString
                         Dim qty = row.Cells(4).Value.ToString
-                        Dim kategori_harga = row.Cells(3).Value.ToString
-                        Dim harga_satuan = row.Cells(2).Value.ToString
+                        Dim harga_kategori = row.Cells(3).Value.ToString
+                        Dim harga_satuan_normal = row.Cells(2).Value.ToString
+                        Dim total_harga_kategori = row.Cells(5).Value.ToString
+                        Dim total_harga_normal = row.Cells(6).Value.ToString
+                        Dim harga_beli_satuan = row.Cells(7).Value.ToString
+                        Dim total_harga_beli = row.Cells(8).Value.ToString
 
                         'SIMPAN DATA TRANSAKSI
-                        comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO mtran (plu,tanggal,station,qty,kategori_harga,harga_satuan,customer_id,nomor_struk) values ('" + plu + "',curdate(),'" + station + "','" + qty + "','" + kategori_harga + "','" + harga_satuan + "','" + TextBoxIDCustomer.Text + "','" + nomor_struk + "')", connDB)
+                        comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO mtran (plu,tanggal,station,qty,harga_kategori,total_harga_kategori,harga_satuan_normal,total_harga_normal,harga_beli_satuan,total_harga_beli,customer_id,nomor_struk) values ('" + plu + "',curdate(),'" + station + "','" + qty + "','" + harga_kategori + "','" + total_harga_kategori + "','" + harga_satuan_normal + "','" + total_harga_normal + "','" + harga_beli_satuan + "','" + total_harga_beli + "','" + TextBoxIDCustomer.Text + "','" + nomor_struk + "')", connDB)
                         comDB.ExecuteNonQuery()
 
                         'UPDATE STOK
-                        comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE PRODMAST SET stok=stok-" + qty + " WHERE prdcd='" + plu + "'", connDB)
+                        comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE prodmast SET stok=stok-" + qty + " WHERE prdcd='" + plu + "'", connDB)
                         comDB.ExecuteNonQuery()
                     Catch ex As Exception
                         MsgBox("Update harga kategori " + ex.ToString)

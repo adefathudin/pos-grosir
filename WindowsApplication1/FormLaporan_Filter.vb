@@ -23,4 +23,8 @@
         End Try
         rdDB.Close()
     End Sub
+
+    Private Sub DateTimePicker3_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker3.ValueChanged
+
+    End Sub
 End Class
