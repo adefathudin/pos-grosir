@@ -27,6 +27,8 @@ Partial Class FormKasir_Customer_Select
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ButtonSelectCustomer = New System.Windows.Forms.Button()
         Me.TextBoxSelectIDCustomer = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LabelSource = New System.Windows.Forms.Label()
         CType(Me.DataGridViewCustomerSelect, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -79,11 +81,31 @@ Partial Class FormKasir_Customer_Select
         Me.TextBoxSelectIDCustomer.Size = New System.Drawing.Size(162, 20)
         Me.TextBoxSelectIDCustomer.TabIndex = 4
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(9, 298)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(48, 13)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "source : "
+        '
+        'LabelSource
+        '
+        Me.LabelSource.AutoSize = True
+        Me.LabelSource.Location = New System.Drawing.Point(55, 298)
+        Me.LabelSource.Name = "LabelSource"
+        Me.LabelSource.Size = New System.Drawing.Size(53, 13)
+        Me.LabelSource.TabIndex = 6
+        Me.LabelSource.Text = "FormKasir"
+        '
         'FormKasir_Customer_Select
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(503, 307)
+        Me.ClientSize = New System.Drawing.Size(503, 315)
+        Me.Controls.Add(Me.LabelSource)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBoxSelectIDCustomer)
         Me.Controls.Add(Me.ButtonSelectCustomer)
         Me.Controls.Add(Me.Label1)
@@ -106,4 +128,6 @@ Partial Class FormKasir_Customer_Select
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents ButtonSelectCustomer As System.Windows.Forms.Button
     Friend WithEvents TextBoxSelectIDCustomer As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents LabelSource As System.Windows.Forms.Label
 End Class

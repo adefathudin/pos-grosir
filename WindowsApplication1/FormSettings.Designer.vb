@@ -35,7 +35,7 @@ Partial Class FormSettings
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBoxPassword = New System.Windows.Forms.TextBox()
-        Me.ButtonProdukSave = New System.Windows.Forms.Button()
+        Me.ButtonUserSave = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ButtonSimpan = New System.Windows.Forms.Button()
@@ -55,11 +55,11 @@ Partial Class FormSettings
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.DataGridViewUsers)
-        Me.GroupBox1.Location = New System.Drawing.Point(15, 129)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox1.Location = New System.Drawing.Point(11, 105)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox1.Size = New System.Drawing.Size(729, 620)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(547, 504)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "List Users"
@@ -72,13 +72,13 @@ Partial Class FormSettings
         Me.DataGridViewUsers.AllowUserToResizeRows = False
         Me.DataGridViewUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewUsers.Location = New System.Drawing.Point(8, 31)
-        Me.DataGridViewUsers.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.DataGridViewUsers.Location = New System.Drawing.Point(6, 25)
+        Me.DataGridViewUsers.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.DataGridViewUsers.MultiSelect = False
         Me.DataGridViewUsers.Name = "DataGridViewUsers"
         Me.DataGridViewUsers.ReadOnly = True
         Me.DataGridViewUsers.RowTemplate.Height = 24
-        Me.DataGridViewUsers.Size = New System.Drawing.Size(715, 613)
+        Me.DataGridViewUsers.Size = New System.Drawing.Size(536, 498)
         Me.DataGridViewUsers.TabIndex = 2
         '
         'PanelDetailCustomer
@@ -95,28 +95,25 @@ Partial Class FormSettings
         Me.PanelDetailCustomer.Controls.Add(Me.Label2)
         Me.PanelDetailCustomer.Controls.Add(Me.Label1)
         Me.PanelDetailCustomer.Controls.Add(Me.TextBoxPassword)
-        Me.PanelDetailCustomer.Controls.Add(Me.ButtonProdukSave)
-        Me.PanelDetailCustomer.Location = New System.Drawing.Point(8, 31)
-        Me.PanelDetailCustomer.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanelDetailCustomer.Controls.Add(Me.ButtonUserSave)
+        Me.PanelDetailCustomer.Location = New System.Drawing.Point(6, 25)
         Me.PanelDetailCustomer.Name = "PanelDetailCustomer"
-        Me.PanelDetailCustomer.Size = New System.Drawing.Size(328, 581)
+        Me.PanelDetailCustomer.Size = New System.Drawing.Size(247, 473)
         Me.PanelDetailCustomer.TabIndex = 4
         '
         'TextBoxNamaUser
         '
-        Me.TextBoxNamaUser.Location = New System.Drawing.Point(91, 154)
-        Me.TextBoxNamaUser.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxNamaUser.Location = New System.Drawing.Point(68, 125)
         Me.TextBoxNamaUser.Name = "TextBoxNamaUser"
-        Me.TextBoxNamaUser.Size = New System.Drawing.Size(200, 22)
+        Me.TextBoxNamaUser.Size = New System.Drawing.Size(151, 20)
         Me.TextBoxNamaUser.TabIndex = 29
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(44, 211)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(33, 171)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(42, 17)
+        Me.Label4.Size = New System.Drawing.Size(33, 13)
         Me.Label4.TabIndex = 27
         Me.Label4.Text = "Level"
         '
@@ -124,17 +121,17 @@ Partial Class FormSettings
         '
         Me.ComboBoxLevel.FormattingEnabled = True
         Me.ComboBoxLevel.Items.AddRange(New Object() {"kasir", "admin"})
-        Me.ComboBoxLevel.Location = New System.Drawing.Point(91, 208)
+        Me.ComboBoxLevel.Location = New System.Drawing.Point(68, 169)
+        Me.ComboBoxLevel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ComboBoxLevel.Name = "ComboBoxLevel"
-        Me.ComboBoxLevel.Size = New System.Drawing.Size(200, 24)
+        Me.ComboBoxLevel.Size = New System.Drawing.Size(151, 21)
         Me.ComboBoxLevel.TabIndex = 26
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(191, 32)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button2.Location = New System.Drawing.Point(143, 26)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 28)
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 25
         Me.Button2.Text = "Tambah"
         Me.Button2.UseVisualStyleBackColor = True
@@ -142,10 +139,9 @@ Partial Class FormSettings
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Linen
-        Me.Button1.Location = New System.Drawing.Point(91, 320)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button1.Location = New System.Drawing.Point(68, 260)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(94, 62)
+        Me.Button1.Size = New System.Drawing.Size(70, 50)
         Me.Button1.TabIndex = 24
         Me.Button1.Text = "Delete"
         Me.Button1.UseVisualStyleBackColor = False
@@ -153,69 +149,61 @@ Partial Class FormSettings
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(54, 101)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(40, 82)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(30, 17)
+        Me.Label9.Size = New System.Drawing.Size(25, 13)
         Me.Label9.TabIndex = 23
         Me.Label9.Text = "NIK"
         '
         'TextBoxNIK
         '
-        Me.TextBoxNIK.Location = New System.Drawing.Point(91, 98)
-        Me.TextBoxNIK.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxNIK.Location = New System.Drawing.Point(68, 80)
         Me.TextBoxNIK.Name = "TextBoxNIK"
         Me.TextBoxNIK.ReadOnly = True
-        Me.TextBoxNIK.Size = New System.Drawing.Size(200, 22)
+        Me.TextBoxNIK.Size = New System.Drawing.Size(151, 20)
         Me.TextBoxNIK.TabIndex = 22
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 265)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(12, 215)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(69, 17)
+        Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Password"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(38, 157)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(28, 128)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(45, 17)
+        Me.Label1.Size = New System.Drawing.Size(35, 13)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Nama"
         '
         'TextBoxPassword
         '
-        Me.TextBoxPassword.Location = New System.Drawing.Point(91, 262)
-        Me.TextBoxPassword.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxPassword.Location = New System.Drawing.Point(68, 213)
         Me.TextBoxPassword.Name = "TextBoxPassword"
-        Me.TextBoxPassword.Size = New System.Drawing.Size(200, 22)
+        Me.TextBoxPassword.Size = New System.Drawing.Size(151, 20)
         Me.TextBoxPassword.TabIndex = 4
         '
-        'ButtonProdukSave
+        'ButtonUserSave
         '
-        Me.ButtonProdukSave.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ButtonProdukSave.Location = New System.Drawing.Point(191, 320)
-        Me.ButtonProdukSave.Margin = New System.Windows.Forms.Padding(4)
-        Me.ButtonProdukSave.Name = "ButtonProdukSave"
-        Me.ButtonProdukSave.Size = New System.Drawing.Size(100, 62)
-        Me.ButtonProdukSave.TabIndex = 2
-        Me.ButtonProdukSave.Text = "Save"
-        Me.ButtonProdukSave.UseVisualStyleBackColor = False
+        Me.ButtonUserSave.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ButtonUserSave.Location = New System.Drawing.Point(143, 260)
+        Me.ButtonUserSave.Name = "ButtonUserSave"
+        Me.ButtonUserSave.Size = New System.Drawing.Size(75, 50)
+        Me.ButtonUserSave.TabIndex = 2
+        Me.ButtonUserSave.Text = "Save"
+        Me.ButtonUserSave.UseVisualStyleBackColor = False
         '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.PanelDetailCustomer)
-        Me.GroupBox3.Location = New System.Drawing.Point(751, 129)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox3.Location = New System.Drawing.Point(563, 105)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox3.Size = New System.Drawing.Size(345, 620)
+        Me.GroupBox3.Size = New System.Drawing.Size(259, 504)
         Me.GroupBox3.TabIndex = 5
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Form Tambah / Edit Customer"
@@ -229,21 +217,18 @@ Partial Class FormSettings
         Me.GroupBox2.Controls.Add(Me.Nama)
         Me.GroupBox2.Controls.Add(Me.TextBoxNoTelepon)
         Me.GroupBox2.Controls.Add(Me.TextBoxNamaToko)
-        Me.GroupBox2.Location = New System.Drawing.Point(16, 15)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1080, 91)
+        Me.GroupBox2.Size = New System.Drawing.Size(810, 74)
         Me.GroupBox2.TabIndex = 6
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Identitas Toko"
         '
         'ButtonSimpan
         '
-        Me.ButtonSimpan.Location = New System.Drawing.Point(972, 49)
-        Me.ButtonSimpan.Margin = New System.Windows.Forms.Padding(4)
+        Me.ButtonSimpan.Location = New System.Drawing.Point(729, 40)
         Me.ButtonSimpan.Name = "ButtonSimpan"
-        Me.ButtonSimpan.Size = New System.Drawing.Size(100, 28)
+        Me.ButtonSimpan.Size = New System.Drawing.Size(75, 23)
         Me.ButtonSimpan.TabIndex = 6
         Me.ButtonSimpan.Text = "Simpan"
         Me.ButtonSimpan.UseVisualStyleBackColor = True
@@ -251,66 +236,60 @@ Partial Class FormSettings
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(463, 25)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(347, 20)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(51, 17)
+        Me.Label5.Size = New System.Drawing.Size(39, 13)
         Me.Label5.TabIndex = 5
         Me.Label5.Text = "Alamat"
         '
         'TextBoxAlamat
         '
-        Me.TextBoxAlamat.Location = New System.Drawing.Point(463, 52)
-        Me.TextBoxAlamat.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxAlamat.Location = New System.Drawing.Point(347, 42)
         Me.TextBoxAlamat.Name = "TextBoxAlamat"
-        Me.TextBoxAlamat.Size = New System.Drawing.Size(500, 22)
+        Me.TextBoxAlamat.Size = New System.Drawing.Size(376, 20)
         Me.TextBoxAlamat.TabIndex = 4
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(251, 32)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(188, 26)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(78, 17)
+        Me.Label3.Size = New System.Drawing.Size(60, 13)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "No. Telpon"
         '
         'Nama
         '
         Me.Nama.AutoSize = True
-        Me.Nama.Location = New System.Drawing.Point(8, 32)
-        Me.Nama.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Nama.Location = New System.Drawing.Point(6, 26)
         Me.Nama.Name = "Nama"
-        Me.Nama.Size = New System.Drawing.Size(81, 17)
+        Me.Nama.Size = New System.Drawing.Size(63, 13)
         Me.Nama.TabIndex = 2
         Me.Nama.Text = "Nama Toko"
         '
         'TextBoxNoTelepon
         '
-        Me.TextBoxNoTelepon.Location = New System.Drawing.Point(255, 52)
-        Me.TextBoxNoTelepon.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxNoTelepon.Location = New System.Drawing.Point(191, 42)
         Me.TextBoxNoTelepon.Name = "TextBoxNoTelepon"
-        Me.TextBoxNoTelepon.Size = New System.Drawing.Size(199, 22)
+        Me.TextBoxNoTelepon.Size = New System.Drawing.Size(150, 20)
         Me.TextBoxNoTelepon.TabIndex = 1
         '
         'TextBoxNamaToko
         '
-        Me.TextBoxNamaToko.Location = New System.Drawing.Point(12, 52)
-        Me.TextBoxNamaToko.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxNamaToko.Location = New System.Drawing.Point(9, 42)
         Me.TextBoxNamaToko.Name = "TextBoxNamaToko"
-        Me.TextBoxNamaToko.Size = New System.Drawing.Size(233, 22)
+        Me.TextBoxNamaToko.Size = New System.Drawing.Size(176, 20)
         Me.TextBoxNamaToko.TabIndex = 0
         '
         'FormSettings
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1112, 763)
+        Me.ClientSize = New System.Drawing.Size(834, 620)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "FormSettings"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "FormSettings"
@@ -329,7 +308,7 @@ Partial Class FormSettings
     Friend WithEvents DataGridViewUsers As System.Windows.Forms.DataGridView
     Friend WithEvents PanelDetailCustomer As System.Windows.Forms.Panel
     Friend WithEvents TextBoxPassword As System.Windows.Forms.TextBox
-    Friend WithEvents ButtonProdukSave As System.Windows.Forms.Button
+    Friend WithEvents ButtonUserSave As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label

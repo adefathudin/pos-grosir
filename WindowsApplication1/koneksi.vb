@@ -15,10 +15,10 @@ Module Connection
 
         Public Sub conecDB()
             'This is the connection for your MySQL
-        Dim strServer As String = "localhost"
-        Dim strDbase As String = "kasgros_db"   'Database name
-        Dim strUser As String = "adefathudin"                'Database user
-        Dim strPass As String = "assu"     'Database password
+        Dim strServer As String = My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\Kasgros", "host", 0)
+        Dim strDbase As String = My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\Kasgros", "database", 0)   'Database name
+        Dim strUser As String = My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\Kasgros", "username", 0)                'Database user
+        Dim strPass As String = My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\Kasgros", "password", 0)     'Database password
 
 
             'MySQL Connection String

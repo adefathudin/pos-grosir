@@ -37,10 +37,6 @@ D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\bin\Debug\WindowsApplication
 D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_Rak_Select.resources
 D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_Kategori_Select.resources
 D:\DATA\Projects\VB.Net\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormKasir_Customer_Select.resources
-C:\Projects\kasgros\WindowsApplication1\bin\Debug\WindowsApplication1.exe.config
-C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.exe
-C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.xml
-C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
 C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.vbprojResolveAssemblyReference.cache
 C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.POSMAIN.resources
 C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormCustomer.resources
@@ -55,9 +51,6 @@ C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk
 C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormProduk_Rak_Select.resources
 C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
 C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
-C:\Projects\kasgros\WindowsApplication1\bin\Debug\WindowsApplication1.exe
-C:\Projects\kasgros\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
-C:\Projects\kasgros\WindowsApplication1\bin\Debug\WindowsApplication1.xml
 C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormKasir_Kembalian.resources
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormKasir_Customer_Select.resources
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormKasir_Kembalian.resources
@@ -67,3 +60,10 @@ C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormLapora
 C:\Projects\kasgros\WindowsApplication1\obj\Debug\WindowsApplication1.FormSettings.resources
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormLaporan_Filter.resources
 C:\Users\BSM\Documents\Visual Studio 2012\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.FormSettings.resources
+C:\Projects\kasgros\WindowsApplication1\bin\Debug\Kasgros.exe.config
+C:\Projects\kasgros\WindowsApplication1\bin\Debug\Kasgros.exe
+C:\Projects\kasgros\WindowsApplication1\bin\Debug\Kasgros.pdb
+C:\Projects\kasgros\WindowsApplication1\bin\Debug\Kasgros.xml
+C:\Projects\kasgros\WindowsApplication1\obj\Debug\Kasgros.exe
+C:\Projects\kasgros\WindowsApplication1\obj\Debug\Kasgros.xml
+C:\Projects\kasgros\WindowsApplication1\obj\Debug\Kasgros.pdb

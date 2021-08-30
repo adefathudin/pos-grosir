@@ -26,7 +26,13 @@
 
     Private Sub ButtonSelectKategori_Click(sender As Object, e As EventArgs) Handles ButtonSelectCustomer.Click
         Dim IDCustomer As String = TextBoxSelectIDCustomer.Text
-        FormKasir.LoadDataCustomer(IDCustomer)
+        Dim NamaCustomer As String = TextBoxSelectNamaCustomer.Text
+        If LabelSource.Text = "FormLaporan" Then
+            FormLaporan.TextBoxCustomer.Text = IDCustomer
+            FormLaporan.TextBoxNamaCustomer.Text = NamaCustomer
+        Else
+            FormKasir.LoadDataCustomer(IDCustomer)
+        End If
         Me.Close()
     End Sub
 

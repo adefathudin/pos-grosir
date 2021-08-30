@@ -23,7 +23,7 @@
         If String.IsNullOrEmpty(query) Then
             da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT a.id,nama_pelanggan,nomor_hp,b.nama_kategori FROM customers a left join ref_kategoriharga b on a.kategori_harga=b.id ORDER BY nama_pelanggan", connDB)
         Else
-            da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT a.id,nama_pelanggan,nomor_hp,b.nama_kategori FROM customers a left join ref_kategoriharga b on a.kategori_harga=b.id where nama_pelanggan like '%" + query + "%' or id like '%" + query + "%' or nomor_hp like '%" + query + "%' or alamat like '%" + query + "%' or kategori_harga like '%" + query + "%'", connDB)
+            da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT a.id,nama_pelanggan,nomor_hp,b.nama_kategori FROM customers a left join ref_kategoriharga b on a.kategori_harga=b.id where nama_pelanggan like '%" + query + "%' or nomor_hp like '%" + query + "%' or alamat like '%" + query + "%' or kategori_harga like '%" + query + "%'", connDB)
         End If
         Try
             comBuilderDB = New MySql.Data.MySqlClient.MySqlCommandBuilder(da) 'untuk bisa edit datagridview
@@ -69,6 +69,7 @@
                     If rdDB.HasRows Then
                         rdDB.Read()
                         MessageBox.Show("Nomor hp " + nomor_hp + " sudah pernah didaftarkan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        rdDB.Close()
                         Exit Sub
                     End If
                     rdDB.Close()

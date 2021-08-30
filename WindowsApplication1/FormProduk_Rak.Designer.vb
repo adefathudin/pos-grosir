@@ -160,7 +160,6 @@ Partial Class FormProduk_Rak
         Me.TextBoxID.ReadOnly = True
         Me.TextBoxID.Size = New System.Drawing.Size(49, 20)
         Me.TextBoxID.TabIndex = 6
-        Me.TextBoxID.Text = "-"
         Me.TextBoxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label4

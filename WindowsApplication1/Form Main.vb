@@ -83,7 +83,7 @@
         Else
             Try
                 Call conecDB()
-                comDB = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM users where nik='" + nik + "' and password='" + md5(password) + "'", connDB)
+                comDB = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM users where nik='" + nik + "' and password='" + password + "'", connDB)
                 rdDB = comDB.ExecuteReader
                 If rdDB.HasRows Then
                     rdDB.Read()
@@ -153,4 +153,5 @@
                 End If
         End Select
     End Sub
+
 End Class

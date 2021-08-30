@@ -1,4 +1,6 @@
-﻿Public Class FormSettings
+﻿Imports System.Security.Cryptography
+
+Public Class FormSettings
 
     Private Sub FormSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadIdentitas()
@@ -36,13 +38,23 @@
     End Sub
 
     'MODUL TAMBAH ATAU EDIT CUSTOMER
-    Private Sub ButtonProdukSave_Click(sender As Object, e As EventArgs) Handles ButtonProdukSave.Click
+    Private Sub ButtonProdukSave_Click(sender As Object, e As EventArgs) Handles ButtonUserSave.Click
         Dim nik = TextBoxNIK.Text
         Dim nama_user = TextBoxNamaUser.Text
         Dim pass = TextBoxPassword.Text
-        Dim level = ComboBoxLevel.SelectedItem.ToString
-        If String.IsNullOrEmpty(TextBoxNIK.Text) Then
-            Dim ask As DialogResult = MessageBox.Show("Simpan data customer?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim level = ComboBoxLevel.SelectedItem
+
+        If String.IsNullOrEmpty(nama_user) Or String.IsNullOrEmpty(level) Then
+            MessageBox.Show("Harap lengkapi form", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        If ButtonUserSave.Text = "Add" Then
+            If String.IsNullOrEmpty(nik) Or String.IsNullOrEmpty(pass) Then
+                MessageBox.Show("Harap lengkapi form", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+            Dim ask As DialogResult = MessageBox.Show("Simpan data user?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If ask = DialogResult.Yes Then
                 Try
                     Call conecDB()
@@ -51,6 +63,7 @@
                     If rdDB.HasRows Then
                         rdDB.Read()
                         MessageBox.Show("NIK " + nik + " sudah pernah didaftarkan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        rdDB.Close()
                         Exit Sub
                     End If
                     rdDB.Close()
@@ -61,7 +74,7 @@
                     Call conecDB()
                     comDB = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO users (nik,nama,level,password) values ('" + nik + "','" + nama_user + "','" + level + "','" + pass + "')", connDB)
                     comDB.ExecuteNonQuery()
-                    MessageBox.Show("Data customer berhasil disimpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Data user berhasil disimpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     LoadDataUsers()
                     ClearTextBox()
                 Catch ex As Exception
@@ -69,15 +82,18 @@
                 End Try
             End If
         Else
-            Dim result As DialogResult = MessageBox.Show("Edit data customer?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            Dim result As DialogResult = MessageBox.Show("Edit data user?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
                 Try
                     Call conecDB()
-                    'comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE customers SET nama_pelanggan='" + nama_pelanggan.Replace("'", "''") + "', nomor_hp='" + nomor_hp + "', alamat='" + alamat.Replace("'", "''") + "',kategori_harga='" + kategori_harga + "' WHERE id='" + id + "'", connDB)
-                    'comDB.ExecuteNonQuery()
+                    If String.IsNullOrEmpty(pass) Then
+                        comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE users SET nama='" + nama_user + "', level='" + level + "' WHERE nik='" + nik + "'", connDB)
+                    Else
+                        comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE users SET nik='" + nik + "', nama='" + nama_user + "', level='" + level + "',password='" + pass + "' WHERE nik='" + nik + "'", connDB)
+                    End If
+                    comDB.ExecuteNonQuery()
                     MessageBox.Show("Data customer berhasil diedit", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Dim query = ""
-                    'DataCustomer(query)
                     ClearTextBox()
                 Catch ex As Exception
                     MsgBox(ex.ToString)
@@ -104,6 +120,8 @@
         If e.RowIndex < 0 Then
             Exit Sub
         End If
+        ButtonUserSave.Text = "Edit"
+        TextBoxNIK.ReadOnly = True
         Dim id As String = DataGridViewUsers.Rows(e.RowIndex).Cells(0).Value
         Try
             Call conecDB()
@@ -160,6 +178,12 @@
 
     Private Sub ButtonSimpan_Click(sender As Object, e As EventArgs) Handles ButtonSimpan.Click
 
+        Dim ask As DialogResult = MessageBox.Show("Simpan perubahan pada identitas toko?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If ask = DialogResult.No Then
+            Exit Sub
+        End If
+
         Call conecDB()
         Try
             comDB = New MySql.Data.MySqlClient.MySqlCommand("UPDATE toko SET nama_toko='" + TextBoxNamaToko.Text + "',telepon='" + TextBoxNoTelepon.Text + "', alamat='" + TextBoxAlamat.Text + "' WHERE rkey='TKO'", connDB)
@@ -172,15 +196,12 @@
         LoadIdentitas()
     End Sub
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-
-    End Sub
-
-    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
+        TextBoxNIK.Clear()
+        TextBoxNamaUser.Clear()
+        TextBoxPassword.Clear()
+        TextBoxNIK.Focus()
+        ButtonUserSave.Text = "Add"
+        TextBoxNIK.ReadOnly = False
     End Sub
 End Class

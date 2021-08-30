@@ -106,6 +106,9 @@
     End Sub
 
     Private Sub DataGridViewKategoriHarga_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridViewKategoriHarga.CellMouseClick
+        If e.RowIndex < 0 Then
+            Exit Sub
+        End If
         TextBoxID.Text = DataGridViewKategoriHarga.Rows(e.RowIndex).Cells(0).Value
         TextBoxNama.Text = DataGridViewKategoriHarga.Rows(e.RowIndex).Cells(1).Value
         TextBoxDesc.Text = DataGridViewKategoriHarga.Rows(e.RowIndex).Cells(2).Value
