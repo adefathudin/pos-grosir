@@ -50,6 +50,7 @@
         ClearTextBoxProduk()
         Cursor = Cursors.WaitCursor
         Dim plu = TextBoxProdukPLU.Text
+        AmbilKategoriHargaUsed(plu)
         Call conecDB()
 
         'AMBIL PLU TERAKHIR
@@ -171,6 +172,7 @@
         Call conecDB()
         dt = New DataTable
         If String.IsNullOrEmpty(plu) Then
+            DataGridViewKategoriHarga.DataSource = Nothing
         Else
             da = New MySql.Data.MySqlClient.MySqlDataAdapter("SELECT b.id,a.nama_kategori,b.harga FROM ref_kategoriharga a join rel_kategoriharga b on a.id=b.kategoriharga_id where b.plu='" + plu + "' ", connDB)
             Try
@@ -356,5 +358,67 @@
                 MsgBox("Prodmast : " + ex.ToString)
             End Try
         End If
+    End Sub
+
+    Private Sub ButtonExportExcelProduk_Click(sender As Object, e As EventArgs) Handles ButtonExportExcelProduk.Click
+        Cursor = Cursors.WaitCursor
+        ButtonExportExcelProduk.Enabled = False
+        ButtonExportExcelProduk.Text = "mohon tunggu"
+        Try
+            Dim ExcelApp As Microsoft.Office.Interop.Excel.Application
+            Dim ExcelWorkBook As Microsoft.Office.Interop.Excel.Workbook
+            Dim ExcelWorkSheet As Microsoft.Office.Interop.Excel.Worksheet
+            Dim misValue As Object = System.Reflection.Missing.Value
+            Dim a As Integer
+            Dim b As Integer
+
+            ExcelApp = New Microsoft.Office.Interop.Excel.Application
+            ExcelWorkBook = ExcelApp.Workbooks.Add(misValue)
+            ExcelWorkSheet = ExcelWorkBook.Sheets("sheet1")
+
+            ExcelWorkSheet.Cells(1, 1) = POSMAIN.LabelToko.Text
+            ExcelWorkSheet.Cells(2, 1) = POSMAIN.LabelSubToko.Text
+            ExcelWorkSheet.Cells(4, 1) = "Laporan Posisi Stok Produk " & Date.Today
+            ExcelWorkSheet.Cells(5, 1) = "-------------------------------------------------------"
+
+            For a = 0 To DataGridViewBarang.RowCount - 1
+                For b = 0 To DataGridViewBarang.ColumnCount - 1
+                    For c As Integer = 1 To DataGridViewBarang.Columns.Count
+                        ExcelWorkSheet.Cells(6, c) = DataGridViewBarang.Columns(c - 1).HeaderText
+                        ExcelWorkSheet.Cells(a + 7, b + 1) = DataGridViewBarang(b, a).Value.ToString()
+                    Next
+                Next
+            Next
+            Dim FileNameExcel = "D:\Kasgros\Laporan\Produk_" + Date.Today.ToString("dd_MM_yy") + ".xlsx"
+            ExcelWorkSheet.SaveAs(FileNameExcel)
+            ExcelWorkBook.Close()
+            ExcelApp.Quit()
+
+            releaseObject(ExcelApp)
+            releaseObject(ExcelWorkBook)
+            releaseObject(ExcelWorkSheet)
+
+            ButtonExportExcelProduk.Enabled = True
+            ButtonExportExcelProduk.Text = "Export Excel"
+            Dim ask As DialogResult = MessageBox.Show("Data produk berhasil disimpan. Apakah anda akan membuka file " + FileNameExcel + "?", "Informasi", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+            If ask = Windows.Forms.DialogResult.Yes Then
+                Dim BukaFile As New System.Diagnostics.Process
+                BukaFile = Process.Start(FileNameExcel)
+            End If
+        Catch ex As Exception
+            MsgBox("error export laporan produk : " + ex.ToString)
+        End Try
+        Cursor = Cursors.Default
+    End Sub
+
+    Private Sub releaseObject(ByVal obj As Object)
+        Try
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
+        Catch ex As Exception
+            obj = Nothing
+        Finally
+            GC.Collect()
+        End Try
     End Sub
 End Class

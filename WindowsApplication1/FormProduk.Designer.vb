@@ -22,10 +22,8 @@ Partial Class FormProduk
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.LabelTotalItem = New System.Windows.Forms.Label()
         Me.PanelDetailProduk = New System.Windows.Forms.Panel()
         Me.GroupBoxDetailProduk = New System.Windows.Forms.GroupBox()
@@ -63,6 +61,7 @@ Partial Class FormProduk
         Me.Button3 = New System.Windows.Forms.Button()
         Me.ButtonProdukKategoriHarga = New System.Windows.Forms.Button()
         Me.ButtonInputBarang = New System.Windows.Forms.Button()
+        Me.ButtonExportExcelProduk = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.PanelDetailProduk.SuspendLayout()
         Me.GroupBoxDetailProduk.SuspendLayout()
@@ -75,26 +74,35 @@ Partial Class FormProduk
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.LabelTotalItem)
         Me.GroupBox1.Controls.Add(Me.PanelDetailProduk)
         Me.GroupBox1.Controls.Add(Me.TextBoxPencarianProduk)
         Me.GroupBox1.Controls.Add(Me.DataGridViewBarang)
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 90)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 111)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(822, 526)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(1096, 647)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "DAFTAR PRODUK"
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(800, 3)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(90, 17)
+        Me.Label6.TabIndex = 6
+        Me.Label6.Text = "Cari barang :"
+        '
         'LabelTotalItem
         '
         Me.LabelTotalItem.AutoSize = True
-        Me.LabelTotalItem.Location = New System.Drawing.Point(115, 0)
-        Me.LabelTotalItem.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LabelTotalItem.Location = New System.Drawing.Point(153, 0)
         Me.LabelTotalItem.Name = "LabelTotalItem"
-        Me.LabelTotalItem.Size = New System.Drawing.Size(77, 13)
+        Me.LabelTotalItem.Size = New System.Drawing.Size(101, 17)
         Me.LabelTotalItem.TabIndex = 5
         Me.LabelTotalItem.Text = "LabelTotalItem"
         '
@@ -103,9 +111,10 @@ Partial Class FormProduk
         Me.PanelDetailProduk.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.PanelDetailProduk.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.PanelDetailProduk.Controls.Add(Me.GroupBoxDetailProduk)
-        Me.PanelDetailProduk.Location = New System.Drawing.Point(1, 197)
+        Me.PanelDetailProduk.Location = New System.Drawing.Point(1, 242)
+        Me.PanelDetailProduk.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelDetailProduk.Name = "PanelDetailProduk"
-        Me.PanelDetailProduk.Size = New System.Drawing.Size(815, 321)
+        Me.PanelDetailProduk.Size = New System.Drawing.Size(1085, 394)
         Me.PanelDetailProduk.TabIndex = 4
         Me.PanelDetailProduk.Visible = False
         '
@@ -118,9 +127,11 @@ Partial Class FormProduk
         Me.GroupBoxDetailProduk.Controls.Add(Me.ButtonProdukClose)
         Me.GroupBoxDetailProduk.Controls.Add(Me.ButtonProdukSave)
         Me.GroupBoxDetailProduk.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBoxDetailProduk.Location = New System.Drawing.Point(3, 15)
+        Me.GroupBoxDetailProduk.Location = New System.Drawing.Point(4, 18)
+        Me.GroupBoxDetailProduk.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBoxDetailProduk.Name = "GroupBoxDetailProduk"
-        Me.GroupBoxDetailProduk.Size = New System.Drawing.Size(805, 378)
+        Me.GroupBoxDetailProduk.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBoxDetailProduk.Size = New System.Drawing.Size(1073, 465)
         Me.GroupBoxDetailProduk.TabIndex = 0
         Me.GroupBoxDetailProduk.TabStop = False
         Me.GroupBoxDetailProduk.Text = "DETAIL PRODUK"
@@ -128,9 +139,10 @@ Partial Class FormProduk
         'ButtonDeleteProduk
         '
         Me.ButtonDeleteProduk.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ButtonDeleteProduk.Location = New System.Drawing.Point(652, 0)
+        Me.ButtonDeleteProduk.Location = New System.Drawing.Point(869, 0)
+        Me.ButtonDeleteProduk.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonDeleteProduk.Name = "ButtonDeleteProduk"
-        Me.ButtonDeleteProduk.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonDeleteProduk.Size = New System.Drawing.Size(100, 28)
         Me.ButtonDeleteProduk.TabIndex = 28
         Me.ButtonDeleteProduk.Text = "Delete"
         Me.ButtonDeleteProduk.UseVisualStyleBackColor = False
@@ -152,134 +164,151 @@ Partial Class FormProduk
         Me.GroupBox4.Controls.Add(Me.TextBoxProdukHargaJual)
         Me.GroupBox4.Controls.Add(Me.Label7)
         Me.GroupBox4.Controls.Add(Me.Label8)
-        Me.GroupBox4.Location = New System.Drawing.Point(6, 29)
+        Me.GroupBox4.Location = New System.Drawing.Point(8, 36)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(333, 264)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox4.Size = New System.Drawing.Size(444, 325)
         Me.GroupBox4.TabIndex = 27
         Me.GroupBox4.TabStop = False
         '
         'TextBoxKategoriProduk
         '
-        Me.TextBoxKategoriProduk.Location = New System.Drawing.Point(102, 221)
+        Me.TextBoxKategoriProduk.Location = New System.Drawing.Point(136, 272)
+        Me.TextBoxKategoriProduk.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxKategoriProduk.Name = "TextBoxKategoriProduk"
         Me.TextBoxKategoriProduk.ReadOnly = True
-        Me.TextBoxKategoriProduk.Size = New System.Drawing.Size(192, 20)
+        Me.TextBoxKategoriProduk.Size = New System.Drawing.Size(255, 23)
         Me.TextBoxKategoriProduk.TabIndex = 28
         '
         'TextBoxRak
         '
-        Me.TextBoxRak.Location = New System.Drawing.Point(102, 191)
+        Me.TextBoxRak.Location = New System.Drawing.Point(136, 235)
+        Me.TextBoxRak.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxRak.Name = "TextBoxRak"
         Me.TextBoxRak.ReadOnly = True
-        Me.TextBoxRak.Size = New System.Drawing.Size(192, 20)
+        Me.TextBoxRak.Size = New System.Drawing.Size(255, 23)
         Me.TextBoxRak.TabIndex = 27
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(21, 28)
+        Me.Label9.Location = New System.Drawing.Point(28, 34)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(75, 13)
+        Me.Label9.Size = New System.Drawing.Size(97, 17)
         Me.Label9.TabIndex = 23
         Me.Label9.Text = "Scan Barcode"
         '
         'TextBoxProdukPLU
         '
-        Me.TextBoxProdukPLU.Location = New System.Drawing.Point(205, 25)
+        Me.TextBoxProdukPLU.Location = New System.Drawing.Point(273, 31)
+        Me.TextBoxProdukPLU.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxProdukPLU.Name = "TextBoxProdukPLU"
         Me.TextBoxProdukPLU.ReadOnly = True
-        Me.TextBoxProdukPLU.Size = New System.Drawing.Size(89, 20)
+        Me.TextBoxProdukPLU.Size = New System.Drawing.Size(117, 23)
         Me.TextBoxProdukPLU.TabIndex = 3
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(18, 224)
+        Me.Label1.Location = New System.Drawing.Point(24, 276)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(83, 13)
+        Me.Label1.Size = New System.Drawing.Size(110, 17)
         Me.Label1.TabIndex = 25
         Me.Label1.Text = "Kategori Produk"
         '
         'TextBoxProdukDesc
         '
-        Me.TextBoxProdukDesc.Location = New System.Drawing.Point(102, 58)
+        Me.TextBoxProdukDesc.Location = New System.Drawing.Point(136, 71)
+        Me.TextBoxProdukDesc.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxProdukDesc.Name = "TextBoxProdukDesc"
-        Me.TextBoxProdukDesc.Size = New System.Drawing.Size(192, 20)
+        Me.TextBoxProdukDesc.Size = New System.Drawing.Size(255, 23)
         Me.TextBoxProdukDesc.TabIndex = 4
         '
         'TextBoxProdukStok
         '
-        Me.TextBoxProdukStok.Location = New System.Drawing.Point(102, 160)
+        Me.TextBoxProdukStok.Location = New System.Drawing.Point(136, 197)
+        Me.TextBoxProdukStok.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxProdukStok.Name = "TextBoxProdukStok"
-        Me.TextBoxProdukStok.Size = New System.Drawing.Size(192, 20)
+        Me.TextBoxProdukStok.Size = New System.Drawing.Size(255, 23)
         Me.TextBoxProdukStok.TabIndex = 5
         Me.TextBoxProdukStok.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(24, 61)
+        Me.Label2.Location = New System.Drawing.Point(32, 75)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(72, 13)
+        Me.Label2.Size = New System.Drawing.Size(94, 17)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Nama Produk"
         '
         'TextBoxBarcode
         '
-        Me.TextBoxBarcode.Location = New System.Drawing.Point(102, 25)
+        Me.TextBoxBarcode.Location = New System.Drawing.Point(136, 31)
+        Me.TextBoxBarcode.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxBarcode.Name = "TextBoxBarcode"
-        Me.TextBoxBarcode.Size = New System.Drawing.Size(97, 20)
+        Me.TextBoxBarcode.Size = New System.Drawing.Size(128, 23)
         Me.TextBoxBarcode.TabIndex = 22
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(73, 163)
+        Me.Label3.Location = New System.Drawing.Point(97, 201)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(23, 13)
+        Me.Label3.Size = New System.Drawing.Size(30, 17)
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "Qty"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(69, 194)
+        Me.Label4.Location = New System.Drawing.Point(92, 239)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(27, 13)
+        Me.Label4.Size = New System.Drawing.Size(33, 17)
         Me.Label4.TabIndex = 10
         Me.Label4.Text = "Rak"
         '
         'TextBoxProdukHargaBeli
         '
-        Me.TextBoxProdukHargaBeli.Location = New System.Drawing.Point(102, 94)
+        Me.TextBoxProdukHargaBeli.Location = New System.Drawing.Point(136, 116)
+        Me.TextBoxProdukHargaBeli.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxProdukHargaBeli.Name = "TextBoxProdukHargaBeli"
-        Me.TextBoxProdukHargaBeli.Size = New System.Drawing.Size(192, 20)
+        Me.TextBoxProdukHargaBeli.Size = New System.Drawing.Size(255, 23)
         Me.TextBoxProdukHargaBeli.TabIndex = 11
         Me.TextBoxProdukHargaBeli.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBoxProdukHargaJual
         '
-        Me.TextBoxProdukHargaJual.Location = New System.Drawing.Point(102, 127)
+        Me.TextBoxProdukHargaJual.Location = New System.Drawing.Point(136, 156)
+        Me.TextBoxProdukHargaJual.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxProdukHargaJual.Name = "TextBoxProdukHargaJual"
-        Me.TextBoxProdukHargaJual.Size = New System.Drawing.Size(192, 20)
+        Me.TextBoxProdukHargaJual.Size = New System.Drawing.Size(255, 23)
         Me.TextBoxProdukHargaJual.TabIndex = 12
         Me.TextBoxProdukHargaJual.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(38, 130)
+        Me.Label7.Location = New System.Drawing.Point(51, 160)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(58, 13)
+        Me.Label7.Size = New System.Drawing.Size(77, 17)
         Me.Label7.TabIndex = 16
         Me.Label7.Text = "Harga Jual"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(40, 97)
+        Me.Label8.Location = New System.Drawing.Point(53, 119)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(56, 13)
+        Me.Label8.Size = New System.Drawing.Size(74, 17)
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "Harga Beli"
         '
@@ -292,9 +321,11 @@ Partial Class FormProduk
         Me.GroupBox3.Controls.Add(Me.ComboBoxKategoriHarga)
         Me.GroupBox3.Controls.Add(Me.DataGridViewKategoriHarga)
         Me.GroupBox3.Controls.Add(Me.ButtonSaveKategoriHarga)
-        Me.GroupBox3.Location = New System.Drawing.Point(360, 29)
+        Me.GroupBox3.Location = New System.Drawing.Point(480, 36)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(439, 264)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox3.Size = New System.Drawing.Size(585, 325)
         Me.GroupBox3.TabIndex = 24
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Kategori Harga"
@@ -303,43 +334,48 @@ Partial Class FormProduk
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(7, 245)
+        Me.Label5.Location = New System.Drawing.Point(9, 302)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(304, 12)
+        Me.Label5.Size = New System.Drawing.Size(408, 15)
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "Ketika menambah kategori harga, data tersebut akan otomatis tersimpan."
         '
         'TextBoxKategoriHargaID
         '
-        Me.TextBoxKategoriHargaID.Location = New System.Drawing.Point(7, 20)
+        Me.TextBoxKategoriHargaID.Location = New System.Drawing.Point(9, 25)
+        Me.TextBoxKategoriHargaID.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxKategoriHargaID.Name = "TextBoxKategoriHargaID"
         Me.TextBoxKategoriHargaID.ReadOnly = True
-        Me.TextBoxKategoriHargaID.Size = New System.Drawing.Size(48, 20)
+        Me.TextBoxKategoriHargaID.Size = New System.Drawing.Size(63, 23)
         Me.TextBoxKategoriHargaID.TabIndex = 5
         '
         'ButtonDeleteKategoriHarga
         '
-        Me.ButtonDeleteKategoriHarga.Location = New System.Drawing.Point(394, 18)
+        Me.ButtonDeleteKategoriHarga.Location = New System.Drawing.Point(525, 22)
+        Me.ButtonDeleteKategoriHarga.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonDeleteKategoriHarga.Name = "ButtonDeleteKategoriHarga"
-        Me.ButtonDeleteKategoriHarga.Size = New System.Drawing.Size(39, 23)
+        Me.ButtonDeleteKategoriHarga.Size = New System.Drawing.Size(52, 28)
         Me.ButtonDeleteKategoriHarga.TabIndex = 4
         Me.ButtonDeleteKategoriHarga.Text = "-"
         Me.ButtonDeleteKategoriHarga.UseVisualStyleBackColor = True
         '
         'TextBoxKategoriHarga_harga
         '
-        Me.TextBoxKategoriHarga_harga.Location = New System.Drawing.Point(221, 20)
+        Me.TextBoxKategoriHarga_harga.Location = New System.Drawing.Point(295, 25)
+        Me.TextBoxKategoriHarga_harga.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxKategoriHarga_harga.Name = "TextBoxKategoriHarga_harga"
-        Me.TextBoxKategoriHarga_harga.Size = New System.Drawing.Size(118, 20)
+        Me.TextBoxKategoriHarga_harga.Size = New System.Drawing.Size(156, 23)
         Me.TextBoxKategoriHarga_harga.TabIndex = 3
         '
         'ComboBoxKategoriHarga
         '
         Me.ComboBoxKategoriHarga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxKategoriHarga.FormattingEnabled = True
-        Me.ComboBoxKategoriHarga.Location = New System.Drawing.Point(61, 20)
+        Me.ComboBoxKategoriHarga.Location = New System.Drawing.Point(81, 25)
+        Me.ComboBoxKategoriHarga.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBoxKategoriHarga.Name = "ComboBoxKategoriHarga"
-        Me.ComboBoxKategoriHarga.Size = New System.Drawing.Size(154, 21)
+        Me.ComboBoxKategoriHarga.Size = New System.Drawing.Size(204, 25)
         Me.ComboBoxKategoriHarga.TabIndex = 2
         '
         'DataGridViewKategoriHarga
@@ -348,42 +384,20 @@ Partial Class FormProduk
         Me.DataGridViewKategoriHarga.AllowUserToDeleteRows = False
         Me.DataGridViewKategoriHarga.AllowUserToOrderColumns = True
         Me.DataGridViewKategoriHarga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewKategoriHarga.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewKategoriHarga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewKategoriHarga.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridViewKategoriHarga.Location = New System.Drawing.Point(7, 49)
+        Me.DataGridViewKategoriHarga.Location = New System.Drawing.Point(9, 60)
+        Me.DataGridViewKategoriHarga.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridViewKategoriHarga.Name = "DataGridViewKategoriHarga"
         Me.DataGridViewKategoriHarga.ReadOnly = True
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewKategoriHarga.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
-        Me.DataGridViewKategoriHarga.Size = New System.Drawing.Size(426, 193)
+        Me.DataGridViewKategoriHarga.Size = New System.Drawing.Size(568, 238)
         Me.DataGridViewKategoriHarga.TabIndex = 1
         '
         'ButtonSaveKategoriHarga
         '
-        Me.ButtonSaveKategoriHarga.Location = New System.Drawing.Point(345, 18)
+        Me.ButtonSaveKategoriHarga.Location = New System.Drawing.Point(460, 22)
+        Me.ButtonSaveKategoriHarga.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonSaveKategoriHarga.Name = "ButtonSaveKategoriHarga"
-        Me.ButtonSaveKategoriHarga.Size = New System.Drawing.Size(43, 23)
+        Me.ButtonSaveKategoriHarga.Size = New System.Drawing.Size(57, 28)
         Me.ButtonSaveKategoriHarga.TabIndex = 0
         Me.ButtonSaveKategoriHarga.Text = "+"
         Me.ButtonSaveKategoriHarga.UseVisualStyleBackColor = True
@@ -391,9 +405,10 @@ Partial Class FormProduk
         'ButtonProdukClose
         '
         Me.ButtonProdukClose.BackColor = System.Drawing.Color.PeachPuff
-        Me.ButtonProdukClose.Location = New System.Drawing.Point(730, 0)
+        Me.ButtonProdukClose.Location = New System.Drawing.Point(973, 0)
+        Me.ButtonProdukClose.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonProdukClose.Name = "ButtonProdukClose"
-        Me.ButtonProdukClose.Size = New System.Drawing.Size(69, 23)
+        Me.ButtonProdukClose.Size = New System.Drawing.Size(92, 28)
         Me.ButtonProdukClose.TabIndex = 0
         Me.ButtonProdukClose.Text = "Close"
         Me.ButtonProdukClose.UseVisualStyleBackColor = False
@@ -401,18 +416,20 @@ Partial Class FormProduk
         'ButtonProdukSave
         '
         Me.ButtonProdukSave.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ButtonProdukSave.Location = New System.Drawing.Point(571, 0)
+        Me.ButtonProdukSave.Location = New System.Drawing.Point(761, 0)
+        Me.ButtonProdukSave.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonProdukSave.Name = "ButtonProdukSave"
-        Me.ButtonProdukSave.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonProdukSave.Size = New System.Drawing.Size(100, 28)
         Me.ButtonProdukSave.TabIndex = 2
         Me.ButtonProdukSave.Text = "Save"
         Me.ButtonProdukSave.UseVisualStyleBackColor = False
         '
         'TextBoxPencarianProduk
         '
-        Me.TextBoxPencarianProduk.Location = New System.Drawing.Point(673, 0)
+        Me.TextBoxPencarianProduk.Location = New System.Drawing.Point(897, 0)
+        Me.TextBoxPencarianProduk.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxPencarianProduk.Name = "TextBoxPencarianProduk"
-        Me.TextBoxPencarianProduk.Size = New System.Drawing.Size(144, 20)
+        Me.TextBoxPencarianProduk.Size = New System.Drawing.Size(191, 22)
         Me.TextBoxPencarianProduk.TabIndex = 4
         Me.TextBoxPencarianProduk.WordWrap = False
         '
@@ -424,26 +441,27 @@ Partial Class FormProduk
         Me.DataGridViewBarang.AllowUserToResizeRows = False
         Me.DataGridViewBarang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridViewBarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewBarang.Location = New System.Drawing.Point(2, 25)
-        Me.DataGridViewBarang.Margin = New System.Windows.Forms.Padding(2)
+        Me.DataGridViewBarang.Location = New System.Drawing.Point(3, 31)
+        Me.DataGridViewBarang.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DataGridViewBarang.MultiSelect = False
         Me.DataGridViewBarang.Name = "DataGridViewBarang"
         Me.DataGridViewBarang.ReadOnly = True
         Me.DataGridViewBarang.RowTemplate.Height = 24
-        Me.DataGridViewBarang.Size = New System.Drawing.Size(816, 494)
+        Me.DataGridViewBarang.Size = New System.Drawing.Size(1088, 608)
         Me.DataGridViewBarang.TabIndex = 2
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.ButtonExportExcelProduk)
         Me.GroupBox2.Controls.Add(Me.Button2)
         Me.GroupBox2.Controls.Add(Me.Button3)
         Me.GroupBox2.Controls.Add(Me.ButtonProdukKategoriHarga)
         Me.GroupBox2.Controls.Add(Me.ButtonInputBarang)
-        Me.GroupBox2.Location = New System.Drawing.Point(9, 10)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox2.Size = New System.Drawing.Size(822, 76)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox2.Size = New System.Drawing.Size(1096, 94)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "PILIHAN PRODUK"
@@ -451,10 +469,10 @@ Partial Class FormProduk
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Button2.Location = New System.Drawing.Point(112, 28)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button2.Location = New System.Drawing.Point(149, 34)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 32)
+        Me.Button2.Size = New System.Drawing.Size(133, 39)
         Me.Button2.TabIndex = 7
         Me.Button2.Text = "Kategori Produk"
         Me.Button2.UseVisualStyleBackColor = False
@@ -462,10 +480,10 @@ Partial Class FormProduk
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Button3.Location = New System.Drawing.Point(217, 28)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button3.Location = New System.Drawing.Point(289, 34)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(100, 32)
+        Me.Button3.Size = New System.Drawing.Size(133, 39)
         Me.Button3.TabIndex = 6
         Me.Button3.Text = "Rak"
         Me.Button3.UseVisualStyleBackColor = False
@@ -473,10 +491,10 @@ Partial Class FormProduk
         'ButtonProdukKategoriHarga
         '
         Me.ButtonProdukKategoriHarga.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ButtonProdukKategoriHarga.Location = New System.Drawing.Point(321, 28)
-        Me.ButtonProdukKategoriHarga.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonProdukKategoriHarga.Location = New System.Drawing.Point(428, 34)
+        Me.ButtonProdukKategoriHarga.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ButtonProdukKategoriHarga.Name = "ButtonProdukKategoriHarga"
-        Me.ButtonProdukKategoriHarga.Size = New System.Drawing.Size(100, 32)
+        Me.ButtonProdukKategoriHarga.Size = New System.Drawing.Size(133, 39)
         Me.ButtonProdukKategoriHarga.TabIndex = 5
         Me.ButtonProdukKategoriHarga.Text = "Kategori Harga"
         Me.ButtonProdukKategoriHarga.UseVisualStyleBackColor = False
@@ -484,22 +502,33 @@ Partial Class FormProduk
         'ButtonInputBarang
         '
         Me.ButtonInputBarang.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ButtonInputBarang.Location = New System.Drawing.Point(8, 28)
-        Me.ButtonInputBarang.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonInputBarang.Location = New System.Drawing.Point(11, 34)
+        Me.ButtonInputBarang.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ButtonInputBarang.Name = "ButtonInputBarang"
-        Me.ButtonInputBarang.Size = New System.Drawing.Size(100, 32)
+        Me.ButtonInputBarang.Size = New System.Drawing.Size(133, 39)
         Me.ButtonInputBarang.TabIndex = 4
         Me.ButtonInputBarang.Text = "Input Barang"
         Me.ButtonInputBarang.UseVisualStyleBackColor = False
         '
+        'ButtonExportExcelProduk
+        '
+        Me.ButtonExportExcelProduk.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ButtonExportExcelProduk.Location = New System.Drawing.Point(953, 34)
+        Me.ButtonExportExcelProduk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ButtonExportExcelProduk.Name = "ButtonExportExcelProduk"
+        Me.ButtonExportExcelProduk.Size = New System.Drawing.Size(133, 39)
+        Me.ButtonExportExcelProduk.TabIndex = 8
+        Me.ButtonExportExcelProduk.Text = "Export Excel"
+        Me.ButtonExportExcelProduk.UseVisualStyleBackColor = False
+        '
         'FormProduk
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(834, 620)
+        Me.ClientSize = New System.Drawing.Size(1112, 763)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "FormProduk"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "FormProduk"
@@ -556,4 +585,6 @@ Partial Class FormProduk
     Friend WithEvents ButtonDeleteProduk As System.Windows.Forms.Button
     Friend WithEvents TextBoxKategoriProduk As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxRak As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents ButtonExportExcelProduk As System.Windows.Forms.Button
 End Class

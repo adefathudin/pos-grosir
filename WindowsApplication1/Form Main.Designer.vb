@@ -25,6 +25,7 @@ Partial Class POSMAIN
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(POSMAIN))
         Me.PanelMenu = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LabelStation = New System.Windows.Forms.Label()
         Me.LabelUser = New System.Windows.Forms.Label()
@@ -56,6 +57,7 @@ Partial Class POSMAIN
         'PanelMenu
         '
         Me.PanelMenu.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.PanelMenu.Controls.Add(Me.Label2)
         Me.PanelMenu.Controls.Add(Me.Panel1)
         Me.PanelMenu.Controls.Add(Me.GroupBoxLogin)
         Me.PanelMenu.Controls.Add(Me.lbljam)
@@ -63,9 +65,22 @@ Partial Class POSMAIN
         Me.PanelMenu.Controls.Add(Me.lbldate)
         Me.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelMenu.Location = New System.Drawing.Point(0, 0)
+        Me.PanelMenu.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelMenu.Name = "PanelMenu"
-        Me.PanelMenu.Size = New System.Drawing.Size(178, 729)
+        Me.PanelMenu.Size = New System.Drawing.Size(237, 897)
         Me.PanelMenu.TabIndex = 2
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label2.Location = New System.Drawing.Point(12, 871)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(214, 17)
+        Me.Label2.TabIndex = 13
+        Me.Label2.Text = "Powered by : Perdana Teknologi"
         '
         'Panel1
         '
@@ -75,9 +90,10 @@ Partial Class POSMAIN
         Me.Panel1.Controls.Add(Me.LabelUser)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.lblversi)
-        Me.Panel1.Location = New System.Drawing.Point(9, 640)
+        Me.Panel1.Location = New System.Drawing.Point(13, 758)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(163, 77)
+        Me.Panel1.Size = New System.Drawing.Size(217, 92)
         Me.Panel1.TabIndex = 12
         '
         'LabelStation
@@ -86,10 +102,9 @@ Partial Class POSMAIN
         Me.LabelStation.AutoSize = True
         Me.LabelStation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelStation.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.LabelStation.Location = New System.Drawing.Point(63, 30)
-        Me.LabelStation.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LabelStation.Location = New System.Drawing.Point(67, 39)
         Me.LabelStation.Name = "LabelStation"
-        Me.LabelStation.Size = New System.Drawing.Size(21, 15)
+        Me.LabelStation.Size = New System.Drawing.Size(24, 18)
         Me.LabelStation.TabIndex = 11
         Me.LabelStation.Text = "01"
         Me.LabelStation.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -100,12 +115,11 @@ Partial Class POSMAIN
         Me.LabelUser.AutoSize = True
         Me.LabelUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelUser.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.LabelUser.Location = New System.Drawing.Point(6, 8)
-        Me.LabelUser.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LabelUser.Location = New System.Drawing.Point(3, 11)
         Me.LabelUser.Name = "LabelUser"
-        Me.LabelUser.Size = New System.Drawing.Size(64, 15)
+        Me.LabelUser.Size = New System.Drawing.Size(88, 18)
         Me.LabelUser.TabIndex = 10
-        Me.LabelUser.Text = "LabelUser"
+        Me.LabelUser.Text = "Harap Login"
         Me.LabelUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label1
@@ -114,10 +128,9 @@ Partial Class POSMAIN
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(5, 30)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(3, 39)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(54, 15)
+        Me.Label1.Size = New System.Drawing.Size(66, 18)
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Station : "
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -127,12 +140,11 @@ Partial Class POSMAIN
         Me.lblversi.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblversi.AutoSize = True
         Me.lblversi.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblversi.Location = New System.Drawing.Point(5, 56)
-        Me.lblversi.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblversi.Location = New System.Drawing.Point(5, 66)
         Me.lblversi.Name = "lblversi"
-        Me.lblversi.Size = New System.Drawing.Size(97, 13)
+        Me.lblversi.Size = New System.Drawing.Size(112, 17)
         Me.lblversi.TabIndex = 9
-        Me.lblversi.Text = "POSMain v.1.0.1.1"
+        Me.lblversi.Text = "Kagros v.1.1.2.2"
         Me.lblversi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'GroupBoxLogin
@@ -143,9 +155,11 @@ Partial Class POSMAIN
         Me.GroupBoxLogin.Controls.Add(Me.TextBoxLoginPassword)
         Me.GroupBoxLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBoxLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.GroupBoxLogin.Location = New System.Drawing.Point(9, 480)
+        Me.GroupBoxLogin.Location = New System.Drawing.Point(12, 589)
+        Me.GroupBoxLogin.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBoxLogin.Name = "GroupBoxLogin"
-        Me.GroupBoxLogin.Size = New System.Drawing.Size(163, 131)
+        Me.GroupBoxLogin.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBoxLogin.Size = New System.Drawing.Size(217, 161)
         Me.GroupBoxLogin.TabIndex = 9
         Me.GroupBoxLogin.TabStop = False
         Me.GroupBoxLogin.Text = "Login"
@@ -153,18 +167,20 @@ Partial Class POSMAIN
         'TextBoxLoginUsername
         '
         Me.TextBoxLoginUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxLoginUsername.Location = New System.Drawing.Point(9, 30)
+        Me.TextBoxLoginUsername.Location = New System.Drawing.Point(12, 37)
+        Me.TextBoxLoginUsername.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxLoginUsername.Name = "TextBoxLoginUsername"
-        Me.TextBoxLoginUsername.Size = New System.Drawing.Size(147, 26)
+        Me.TextBoxLoginUsername.Size = New System.Drawing.Size(195, 30)
         Me.TextBoxLoginUsername.TabIndex = 0
         '
         'ButtonLogin
         '
         Me.ButtonLogin.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ButtonLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonLogin.Location = New System.Drawing.Point(105, 94)
+        Me.ButtonLogin.Location = New System.Drawing.Point(140, 116)
+        Me.ButtonLogin.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonLogin.Name = "ButtonLogin"
-        Me.ButtonLogin.Size = New System.Drawing.Size(51, 27)
+        Me.ButtonLogin.Size = New System.Drawing.Size(68, 33)
         Me.ButtonLogin.TabIndex = 2
         Me.ButtonLogin.Text = "Login"
         Me.ButtonLogin.UseVisualStyleBackColor = False
@@ -172,10 +188,11 @@ Partial Class POSMAIN
         'TextBoxLoginPassword
         '
         Me.TextBoxLoginPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxLoginPassword.Location = New System.Drawing.Point(9, 62)
+        Me.TextBoxLoginPassword.Location = New System.Drawing.Point(12, 76)
+        Me.TextBoxLoginPassword.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxLoginPassword.Name = "TextBoxLoginPassword"
         Me.TextBoxLoginPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBoxLoginPassword.Size = New System.Drawing.Size(147, 26)
+        Me.TextBoxLoginPassword.Size = New System.Drawing.Size(195, 30)
         Me.TextBoxLoginPassword.TabIndex = 1
         '
         'lbljam
@@ -183,10 +200,9 @@ Partial Class POSMAIN
         Me.lbljam.AutoSize = True
         Me.lbljam.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbljam.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lbljam.Location = New System.Drawing.Point(5, 36)
-        Me.lbljam.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbljam.Location = New System.Drawing.Point(7, 44)
         Me.lbljam.Name = "lbljam"
-        Me.lbljam.Size = New System.Drawing.Size(59, 24)
+        Me.lbljam.Size = New System.Drawing.Size(78, 29)
         Me.lbljam.TabIndex = 6
         Me.lbljam.Text = "lbljam"
         Me.lbljam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -199,11 +215,11 @@ Partial Class POSMAIN
         Me.GroupBoxMenu.Controls.Add(Me.btnlaporan)
         Me.GroupBoxMenu.Controls.Add(Me.btnkasir)
         Me.GroupBoxMenu.Controls.Add(Me.btnproduk)
-        Me.GroupBoxMenu.Location = New System.Drawing.Point(9, 63)
-        Me.GroupBoxMenu.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBoxMenu.Location = New System.Drawing.Point(12, 78)
+        Me.GroupBoxMenu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBoxMenu.Name = "GroupBoxMenu"
-        Me.GroupBoxMenu.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBoxMenu.Size = New System.Drawing.Size(163, 288)
+        Me.GroupBoxMenu.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBoxMenu.Size = New System.Drawing.Size(217, 354)
         Me.GroupBoxMenu.TabIndex = 8
         Me.GroupBoxMenu.TabStop = False
         Me.GroupBoxMenu.Visible = False
@@ -215,10 +231,10 @@ Partial Class POSMAIN
         Me.ButtonSettings.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonSettings.Image = CType(resources.GetObject("ButtonSettings.Image"), System.Drawing.Image)
         Me.ButtonSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonSettings.Location = New System.Drawing.Point(9, 238)
-        Me.ButtonSettings.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonSettings.Location = New System.Drawing.Point(12, 293)
+        Me.ButtonSettings.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ButtonSettings.Name = "ButtonSettings"
-        Me.ButtonSettings.Size = New System.Drawing.Size(147, 37)
+        Me.ButtonSettings.Size = New System.Drawing.Size(196, 46)
         Me.ButtonSettings.TabIndex = 14
         Me.ButtonSettings.Text = "SETTINGS"
         Me.ButtonSettings.UseVisualStyleBackColor = False
@@ -229,10 +245,10 @@ Partial Class POSMAIN
         Me.ButtonCustomer.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonCustomer.Image = CType(resources.GetObject("ButtonCustomer.Image"), System.Drawing.Image)
         Me.ButtonCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonCustomer.Location = New System.Drawing.Point(9, 129)
-        Me.ButtonCustomer.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonCustomer.Location = New System.Drawing.Point(12, 159)
+        Me.ButtonCustomer.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ButtonCustomer.Name = "ButtonCustomer"
-        Me.ButtonCustomer.Size = New System.Drawing.Size(147, 37)
+        Me.ButtonCustomer.Size = New System.Drawing.Size(196, 46)
         Me.ButtonCustomer.TabIndex = 13
         Me.ButtonCustomer.Text = "CUSTOMER"
         Me.ButtonCustomer.UseVisualStyleBackColor = False
@@ -243,10 +259,10 @@ Partial Class POSMAIN
         Me.btnlaporan.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlaporan.Image = CType(resources.GetObject("btnlaporan.Image"), System.Drawing.Image)
         Me.btnlaporan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnlaporan.Location = New System.Drawing.Point(9, 183)
-        Me.btnlaporan.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnlaporan.Location = New System.Drawing.Point(12, 225)
+        Me.btnlaporan.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnlaporan.Name = "btnlaporan"
-        Me.btnlaporan.Size = New System.Drawing.Size(147, 37)
+        Me.btnlaporan.Size = New System.Drawing.Size(196, 46)
         Me.btnlaporan.TabIndex = 12
         Me.btnlaporan.Text = "LAPORAN"
         Me.btnlaporan.UseVisualStyleBackColor = False
@@ -257,10 +273,10 @@ Partial Class POSMAIN
         Me.btnkasir.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnkasir.Image = CType(resources.GetObject("btnkasir.Image"), System.Drawing.Image)
         Me.btnkasir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnkasir.Location = New System.Drawing.Point(9, 17)
-        Me.btnkasir.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnkasir.Location = New System.Drawing.Point(12, 21)
+        Me.btnkasir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnkasir.Name = "btnkasir"
-        Me.btnkasir.Size = New System.Drawing.Size(147, 37)
+        Me.btnkasir.Size = New System.Drawing.Size(196, 46)
         Me.btnkasir.TabIndex = 9
         Me.btnkasir.Text = "KASIR"
         Me.btnkasir.UseVisualStyleBackColor = False
@@ -271,10 +287,10 @@ Partial Class POSMAIN
         Me.btnproduk.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnproduk.Image = CType(resources.GetObject("btnproduk.Image"), System.Drawing.Image)
         Me.btnproduk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnproduk.Location = New System.Drawing.Point(9, 73)
-        Me.btnproduk.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnproduk.Location = New System.Drawing.Point(12, 90)
+        Me.btnproduk.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnproduk.Name = "btnproduk"
-        Me.btnproduk.Size = New System.Drawing.Size(147, 37)
+        Me.btnproduk.Size = New System.Drawing.Size(196, 46)
         Me.btnproduk.TabIndex = 11
         Me.btnproduk.Text = "PRODUK"
         Me.btnproduk.UseVisualStyleBackColor = False
@@ -284,10 +300,9 @@ Partial Class POSMAIN
         Me.lbldate.AutoSize = True
         Me.lbldate.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbldate.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lbldate.Location = New System.Drawing.Point(5, 9)
-        Me.lbldate.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbldate.Location = New System.Drawing.Point(7, 11)
         Me.lbldate.Name = "lbldate"
-        Me.lbldate.Size = New System.Drawing.Size(65, 24)
+        Me.lbldate.Size = New System.Drawing.Size(86, 29)
         Me.lbldate.TabIndex = 7
         Me.lbldate.Text = "lbldate"
         Me.lbldate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -298,10 +313,10 @@ Partial Class POSMAIN
         Me.PanelIdentitas.Controls.Add(Me.LabelSubToko)
         Me.PanelIdentitas.Controls.Add(Me.LabelToko)
         Me.PanelIdentitas.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelIdentitas.Location = New System.Drawing.Point(178, 0)
-        Me.PanelIdentitas.Margin = New System.Windows.Forms.Padding(2)
+        Me.PanelIdentitas.Location = New System.Drawing.Point(237, 0)
+        Me.PanelIdentitas.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PanelIdentitas.Name = "PanelIdentitas"
-        Me.PanelIdentitas.Size = New System.Drawing.Size(830, 70)
+        Me.PanelIdentitas.Size = New System.Drawing.Size(1107, 86)
         Me.PanelIdentitas.TabIndex = 4
         Me.PanelIdentitas.Visible = False
         '
@@ -312,10 +327,9 @@ Partial Class POSMAIN
         Me.LabelSubToko.AutoSize = True
         Me.LabelSubToko.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelSubToko.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LabelSubToko.Location = New System.Drawing.Point(5, 36)
-        Me.LabelSubToko.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LabelSubToko.Location = New System.Drawing.Point(7, 44)
         Me.LabelSubToko.Name = "LabelSubToko"
-        Me.LabelSubToko.Size = New System.Drawing.Size(112, 20)
+        Me.LabelSubToko.Size = New System.Drawing.Size(141, 25)
         Me.LabelSubToko.TabIndex = 9
         Me.LabelSubToko.Text = "LabelSubToko"
         Me.LabelSubToko.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -327,10 +341,9 @@ Partial Class POSMAIN
         Me.LabelToko.AutoSize = True
         Me.LabelToko.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelToko.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LabelToko.Location = New System.Drawing.Point(2, 12)
-        Me.LabelToko.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LabelToko.Location = New System.Drawing.Point(3, 15)
         Me.LabelToko.Name = "LabelToko"
-        Me.LabelToko.Size = New System.Drawing.Size(113, 25)
+        Me.LabelToko.Size = New System.Drawing.Size(141, 31)
         Me.LabelToko.TabIndex = 9
         Me.LabelToko.Text = "LabelToko"
         Me.LabelToko.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -340,16 +353,16 @@ Partial Class POSMAIN
         '
         'POSMAIN
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.AntiqueWhite
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1008, 729)
+        Me.ClientSize = New System.Drawing.Size(1344, 897)
         Me.Controls.Add(Me.PanelIdentitas)
         Me.Controls.Add(Me.PanelMenu)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "POSMAIN"
         Me.Text = "POSMAIN"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -374,7 +387,6 @@ Partial Class POSMAIN
     Friend WithEvents btnlaporan As System.Windows.Forms.Button
     Friend WithEvents btnkasir As System.Windows.Forms.Button
     Friend WithEvents btnproduk As System.Windows.Forms.Button
-    Friend WithEvents lblversi As System.Windows.Forms.Label
     Friend WithEvents LabelSubToko As System.Windows.Forms.Label
     Friend WithEvents LabelToko As System.Windows.Forms.Label
     Friend WithEvents LabelUser As System.Windows.Forms.Label
@@ -387,5 +399,7 @@ Partial Class POSMAIN
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents ButtonSettings As System.Windows.Forms.Button
+    Friend WithEvents lblversi As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 
 End Class

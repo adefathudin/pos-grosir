@@ -39,7 +39,7 @@ Public Class FormKasir
                         TextBoxBarang.Text = rdDB("prdcd")
                         TextBoxQTY.Focus()
                     Else
-                        MessageBox.Show("Stok tidak mencukupi", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        MessageBox.Show("Produk belum terdaftar", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                         TextBoxBarang.SelectAll()
                     End If
                 Catch ex As Exception
@@ -574,7 +574,8 @@ Public Class FormKasir
             If String.Equals(row.Cells(2).Value.ToString, row.Cells(3).Value.ToString) Then
                 harga_kategori = ""
             Else
-                harga_kategori = vbCr & vbLf & "(" + harga_kategori + ")"
+                harga_kategori = ""
+                'harga_kategori = vbCr & vbLf & "(" + harga_kategori + ")"
             End If
             Dim sub_total As Double = (row.Cells(4).Value.ToString * row.Cells(3).Value.ToString)
             Printer.Print(row.Cells(1).Value.ToString & ";" & _
@@ -595,10 +596,12 @@ Public Class FormKasir
         Dim diskon As Double = TextBoxDiskon.Text
         Printer.Print("Total;" & total.ToString("N0"), arrWidth, arrFormat)
         Printer.Print("Tunai;" & tunai.ToString("N0"), arrWidth, arrFormat)
-        Printer.Print("Kembali;" & kembali.ToString("N0"), arrWidth, arrFormat)
-        If String.IsNullOrEmpty(TextBoxDiskon.Text) Then
+        If String.IsNullOrEmpty(TextBoxIDCustomer.Text) Then
         Else
-            Printer.Print("Diskon;" & "(" & diskon.ToString("N0") & ")", arrWidth, arrFormat)
+            Printer.Print("---------------------------------------------------")
+            Printer.Print("No. Pelanggan;" & TextBoxIDCustomer.Text, arrWidth, arrFormat)
+            Printer.Print("Nama;" & TextBoxNamaCustomer.Text, arrWidth, arrFormat)
+            'Printer.Print("Diskon;" & "(" & diskon.ToString("N0") & ")", arrWidth, arrFormat)
         End If
         Printer.Print("---------------------------------------------------")
         Printer.SetFont("Bahnschrift Light Condensed", 7, FontStyle.Regular) 'Setting Font
